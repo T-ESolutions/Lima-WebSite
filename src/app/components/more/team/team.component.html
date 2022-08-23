@@ -1,0 +1,29 @@
+<div id="more-components">
+  <div class="head-svg">
+  </div>
+  <div class="circle1">
+  </div>
+  <div class="circle2">
+  </div>
+  <button routerLink="/more" class="btn btn-transparent border border-0 p-0" id="back"><i
+      class="fa-solid fa-arrow-left-long text-black fw-bold fa-2x"></i></button>
+  <div class="container m-auto">
+    <div class="row py-5">
+      <div class="col-12 text-center">
+        <h2 class="my-3">{{"team" | translate}}</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngFor="let part of team" class="col-lg-3 col-md-4 col-sm-6 text-center  py-3">
+        <div class="member">
+          <div class="member-img">
+          </div>
+          <div class="member-details">
+            <h4 class="my-3">{{part.title}}</h4>
+            <h6>{{part.job}}</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

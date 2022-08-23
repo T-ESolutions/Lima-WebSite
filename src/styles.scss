@@ -1,0 +1,573 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;500;700&family=Sriracha&family=Tajawal&display=swap');
+
+/* You can add global styles to this file, and also import other style files */
+$fontLang: 'Tajawal', sans-serif;
+
+:root {
+  --scrollBarBg: #ccc;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* the handle style */
+::-webkit-scrollbar-track {
+  background-color: #eee;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollBarBg);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F9F9F9;
+  overflow-x: hidden;
+  font-family: 'Cairo', sans-serif;
+}
+
+.active {
+  color: #000 !important;
+}
+
+p {
+  font-family: $fontLang;
+}
+
+#home {
+  min-width: 100%;
+}
+
+.video {
+  border-radius: 15px !important;
+  overflow: hidden;
+}
+
+// kids and moms styles**************************
+#kids-moms {
+  .header {
+    width: 100%;
+    background-color: #8BDED666;
+    border-bottom-left-radius: 60px;
+    direction: ltr;
+    position: relative;
+
+    .container {
+      margin: auto;
+    }
+
+    h1 {
+      font-family: "VIP Hala";
+      padding-top: 5px;
+      font-weight: 900;
+      color: #4A9188;
+      font-size: 38px;
+      margin: 0;
+
+      span {
+        color: #F2CB17;
+      }
+    }
+
+    .col-8 img {
+      width: 100px;
+    }
+  }
+
+  .parent {
+    height: 60px;
+    background-color: #8BDED666;
+
+    .child {
+      width: 100%;
+      height: 100%;
+      background-color: #F9F9F9;
+      border-top-right-radius: 60px;
+    }
+  }
+
+  .container {
+    margin: auto;
+    .row .copmonent {
+      position: relative;
+      z-index: 3;
+
+      .story-img {
+        width: 180px;
+      }
+
+      .story-img:hover {
+        cursor: pointer;
+      }
+
+      p {
+        color: #000000;
+        font-family: 'Tajawal', sans-serif;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+}
+
+// layouts styles******************
+.up {
+  z-index: 2;
+}
+
+.cloud1,
+.cloud2,
+.cloud7,
+.cloud8,
+.cloud9,
+.cloud10 {
+  position: absolute;
+  width: 90px;
+  height: 36px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center center;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.cloud1 {
+  top: 1%;
+  left: 55%;
+  background-image: url("assets/images/layouts/cloud4.svg");
+}
+
+.cloud2 {
+  top: 60%;
+  left: 33%;
+  background-image: url("assets/images/layouts/cloud3.svg");
+}
+
+.header svg {
+  position: absolute;
+  top: 40%;
+  right: 0;
+  opacity: 0.8;
+}
+
+.ball1,
+.ball2 {
+  position: fixed;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  opacity: 0.9;
+  z-index: -1;
+}
+
+.ball1 {
+  top: 30%;
+  right: 0;
+  transform: translatex(55%);
+  background-color: #FDD72C66;
+}
+
+.ball2 {
+  top: 60%;
+  left: 0;
+  transform: translatex(-55%);
+  background-color: #8BDED638;
+}
+
+.cloud3,
+.cloud4,
+.cloud5,
+.cloud6 {
+  position: fixed;
+  width: 100px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center center;
+}
+
+.cloud3 {
+  top: 20%;
+  left: 50%;
+  background-image: url("assets/images/layouts/cloud5.svg");
+}
+
+.cloud4 {
+  top: 20%;
+  left: 10%;
+  background-image: url("assets/images/layouts/cloud6.svg");
+}
+
+.cloud5 {
+  top: 78%;
+  right: 10%;
+  background-image: url("assets/images/layouts/cloud5.svg");
+}
+
+.cloud6 {
+  top: 78%;
+  right: 50%;
+  background-image: url("assets/images/layouts/cloud6.svg");
+}
+
+.cloud7 {
+  top: 15%;
+  left: 15%;
+  background-image: url("assets/images/layouts/cloud3.svg");
+}
+
+.cloud8 {
+  top: 10%;
+  right: 20%;
+  background-image: url("assets/images/layouts/cloud3.svg");
+}
+
+.cloud9 {
+  bottom: 15%;
+  left: 20%;
+  background-image: url("assets/images/layouts/cloud3.svg");
+}
+
+.cloud10 {
+  bottom: 20%;
+  right: 15%;
+  background-image: url("assets/images/layouts/cloud3.svg");
+}
+
+// account & more styles***************************
+#account-more {
+  width: 100%;
+
+  .container {
+    margin: auto;
+
+    .account-more-img {
+      img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+      }
+    }
+
+    .more-list {
+      max-width: 50%;
+      padding: 10px;
+      margin: auto;
+
+      ul li {
+        padding: 5px;
+        border-radius: 5px;
+        border-bottom: 1px solid #ccc;
+        transition: all 0.5s;
+
+        a {
+          padding: 0 5px;
+          width: 265px;
+          display: block;
+          margin: auto;
+          text-decoration: none;
+          color: #333;
+          font-size: 20px;
+          font-family: 'Tajawal', sans-serif;
+          font-weight: bold;
+
+          p {
+            padding-top: 10px;
+            display: inline-block;
+          }
+
+          span {
+            margin: 0 15px;
+          }
+        }
+      }
+
+      ul li:hover {
+        cursor: pointer;
+        background: linear-gradient(to right, rgb(226, 239, 248), rgb(0, 123, 255));
+      }
+
+      ul li:last-of-type {
+        border-bottom: none;
+      }
+
+    }
+  }
+}
+
+.circle1,
+.circle2 {
+  position: fixed;
+  z-index: -1;
+  width: 350px;
+  height: 250px;
+  border-radius: 50%;
+  border: 20px solid rgba(249, 224, 114, 0.3);
+}
+
+.circle1 {
+  top: 0;
+  left: 0;
+  transform: translatex(-80%);
+}
+
+.circle2 {
+  bottom: 0;
+  right: 0;
+  transform: translatex(80%);
+}
+
+// more components styles
+#more-components {
+  min-height: 100vh;
+  overflow: hidden;
+
+  .head-svg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background-image: url("assets/images/layouts/Component7.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    z-index: -1;
+  }
+
+  #back {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+  }
+
+  .container {
+    padding: 20px 5px;
+
+    .row .col-12 {
+      h2 {
+        font-family: 'Cairo', sans-serif;
+        color: #4A9188;
+      }
+
+      img {
+        width: 150px;
+      }
+
+      p {
+        font-size: 20px;
+        line-height: 2;
+        font-weight: 600;
+        color: #000;
+      }
+
+      .advice-msgs img {
+        width: 60px !important;
+        border-radius: 50%;
+        margin: 10px;
+
+      }
+    }
+  }
+
+  .limaa {
+    // position: fixed;
+    // bottom: -100px;
+    // right: -100px;
+    // width: 400px;
+    // height: 300px;
+    // background-image: url("assets/images/limaaa.png");
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+  }
+
+  .limaaa {
+    width: 250px;
+    height: 200px;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(40px);
+
+    img {
+      transform: rotate(45deg);
+      width: 200px !important;
+    }
+  }
+}
+
+/* start media queres  */
+
+/* start small screen */
+@media screen and (max-width:576px) {
+  #kids-moms {
+    .header {
+      h1 {
+        font-weight: 800;
+        font-size: 30px;
+      }
+    }
+
+    .container {
+      padding-top: 20px;
+
+      .row .copmonent {
+        .story-img {
+          width: 130px;
+        }
+      }
+    }
+  }
+
+  #account-more {
+    .container {
+      .more-list {
+        max-width: 100%;
+
+        ul li {
+          a {
+            width: 90%;
+          }
+        }
+      }
+
+    }
+  }
+
+  #more-components {
+    .container {
+      .row .col-12 {
+        .advice-msgs {
+          margin: auto !important;
+
+          ul {
+            text-align: center;
+          }
+
+          li {
+            padding: 3px !important;
+
+            img {
+              width: 40px !important;
+              border-radius: 50%;
+              margin: 10px 5px;
+
+            }
+
+            p {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+
+    .limaa {
+      // bottom: -90px;
+      // right: -40px;
+      // width: 200px;
+      // height: 250px;
+    }
+  }
+}
+
+/* end small screen */
+/* start medium screen */
+@media screen and (min-width:577px) and (max-width:768px) {
+  #kids-moms {
+    .header {
+      h1 {
+        font-weight: 800;
+        font-size: 32px;
+      }
+    }
+
+    .container {
+      padding-top: 10px;
+
+      .row .copmonent {
+        .story-img {
+          width: 140px;
+        }
+      }
+    }
+  }
+
+  #account-more {
+    .container {
+      .more-list {
+        max-width: 75%;
+
+        ul li {
+          a {
+            width: 75%;
+          }
+        }
+      }
+
+    }
+  }
+
+  #more-components {
+    .container {
+      .row .col-12 {
+        .advice-msgs {
+          ul {
+            text-align: center;
+          }
+        }
+
+        .advice-msgs img {
+          width: 50px !important;
+          margin: 10px 5px;
+        }
+      }
+    }
+
+    .limaa {
+      // bottom: -110px;
+      // right: -50px;
+      // width: 250px;
+      // height: 300px;
+    }
+  }
+}
+
+/* end medium screen */
+/* start large screen */
+@media screen and (min-width:769px) and (max-width:992px) {
+  #account-more {
+    .container {
+      .more-list {
+        max-width: 75%;
+
+        ul li {
+          a {
+            width: 270px;
+          }
+        }
+      }
+    }
+  }
+
+  #more-components {
+    .limaa {
+      // bottom: -110px;
+      // right: -50px;
+      // width: 250px;
+      // height: 300px;
+    }
+  }
+}
+
+/* end large screen */
+/* end media queres*/

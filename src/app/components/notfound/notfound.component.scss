@@ -1,0 +1,13 @@
+.not-found{
+  height: 80vh;
+
+  .child{
+    width: 500px;
+    height: 500px;
+    background-image: url("../../../assets/images/404.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+}
+

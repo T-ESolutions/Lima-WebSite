@@ -1,0 +1,53 @@
+<section id="account-more">
+  <div class="container pt-5">
+    <div class="row py-4">
+      <div class="col-12">
+        <div class="account-more-img text-center">
+          <img src="../../assets/images/lima.jpg" class="img-fluid" alt="lima web app"
+            onerror="this.onerror=null;this.src='../../../assets/images/contact-icons/80fekra.png'">
+        </div>
+      </div>
+    </div>
+    <div class="row mb-5 pb-3">
+      <div class="col-12">
+        <div class="more-list">
+          <div class="py-3" *ngIf="!isLogin"></div>
+          <ul class="list-unstyled mb-5">
+            <li *ngIf="isLogin"><a routerLink="myinfo"><span><i class="fa-solid fa-user text-info"></i></span>
+                <p>{{"personal info" | translate}}</p>
+              </a></li>
+            <li *ngIf="isLogin"><a routerLink="favourite"><span><i class="fa-solid fa-heart text-info"></i></span>
+                <p>{{"favorite" | translate}}</p>
+              </a></li>
+            <li *ngIf="isLogin"><a routerLink="subscribe"><span><i
+                    class="fa-solid fa-right-to-bracket text-info"></i></span>
+                <p>{{"subscribe now" | translate}}</p>
+              </a></li>
+            <li><a routerLink="test"><span><i class="fa-solid fa-globe text-info"></i></span>
+                <p>{{"change language" | translate}}</p>
+              </a></li>
+            <li *ngIf="!isLogin"><a routerLink="login"><span><i
+                    class="fa-solid fa-right-to-bracket text-info"></i></span>
+                <p>{{"log in" | translate}}</p>
+              </a></li>
+            <li *ngIf="isLogin"><a (click)="logOut()"><span><i
+                    class="fa-solid fa-right-from-bracket text-info"></i></span>
+                <p>{{"log out" | translate}}</p>
+              </a></li>
+          </ul>
+          <div class="py-5" *ngIf="!isLogin"></div>
+          <div class="company-logo text-center">
+            <img class="mb-3" src="../../../assets/images/logo.png" alt="TES logo">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="layouts">
+    <div class="circle1">
+    </div>
+    <div class="circle2">
+    </div>
+  </div>
+</section>
+<app-navbar></app-navbar>

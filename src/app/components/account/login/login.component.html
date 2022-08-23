@@ -1,0 +1,45 @@
+<div id="more-components">
+  <div class="cloud7">
+  </div>
+  <div class="cloud8">
+  </div>
+  <div class="cloud9">
+  </div>
+  <div class="cloud10">
+  </div>
+  <button routerLink="/account" class="btn btn-transparent border border-0 p-0" id="back"><i
+      class="fa-solid fa-arrow-left-long text-black fw-bold fa-2x"></i></button>
+  <div class="container m-auto">
+    <div class="row py-3">
+      <div class="col-12 m-auto my-3 py-5 text-center">
+        <h2 class="my-5 text-black" id="ssaa">{{"loginwithaccount" | translate}}</h2>
+        <div class="form">
+          <form [formGroup]="loginForm" (ngSubmit)="submitLoginForm(loginForm)">
+            <div class="form-group">
+              <span><i class="fa-solid fa-mobile-screen-button"></i></span>
+              <input type="text" placeholder="{{'phone' | translate}}" formControlName="phone">
+            </div>
+            <p class="text-muted" *ngIf="loginForm.get('phone')?.invalid && loginForm.get('phone')?.touched">
+              {{'phone-validate-msg' | translate}}</p>
+            <div class="form-group">
+              <span><i class="fa-solid fa-lock"></i></span>
+              <input [type]="changeType?'password':'text'" placeholder="{{'password' | translate}}" id="userPass"
+                formControlName="password" autocomplete="">
+              <!-- to show or hide password -->
+              <span (click)="viewPassword()" id="view-pass"><i
+                  [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'"></i></span>
+            </div>
+            <p class="text-muted" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+              {{'password-validate-msg' | translate}}</p>
+            <p class="text-muted" *ngIf="loginForm.get('password')?.errors?.['minlength']">{{'password-validate-msg2' |
+              translate}}</p>
+            <button [disabled]="loginForm.invalid" class="btn my-3" type="submit">{{"login" | translate}}</button>
+            <div class="form-group bg-transparent text-center">
+              <p routerLink="/account/register" class="d-block m-auto">{{"register" | translate}}</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

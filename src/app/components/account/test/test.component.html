@@ -1,0 +1,32 @@
+<div id="test">
+  <div class="head-svg">
+  </div>
+  <div class="charachter">
+  </div>
+  <div class="layouts">
+    <div class="circle1">
+    </div>
+    <div class="circle2">
+    </div>
+  </div>
+  <button routerLink="/account" class="btn btn-transparent border border-0 p-0" id="back"><i
+      class="fa-solid fa-arrow-left-long text-black fw-bold fa-2x"></i></button>
+  <div class="container">
+    <div class="row h-100 ">
+      <div class="col-12  h-100 d-flex justify-content-center align-items-center flex-column">
+        <div class="parent pt-5 px-2">
+          <h2>{{"changeLang" | translate}}</h2>
+          <form id="form" class="p-3" [formGroup]="languagesForm" (ngSubmit)="submitLanguagesForm(languagesForm)">
+            <label class="child">
+              <input type="radio" checked formControlName="language" value="ar"> {{"arlang" | translate}} </label>
+            <label class="child">
+              <input type="radio" formControlName="language" value="en" /> {{"enlang" | translate}} </label>
+            <div class="submitBtn text-center my-4">
+              <button type="submit" class="submit-btn">{{"confirm" | translate}}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
