@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PagesService } from 'src/app/services/pages.service';
 
 
 @Component({
@@ -7,8 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./terms.component.scss'],
 })
 export class TermsComponent implements OnInit {
-  constructor() {}
+  Terms: any = [];
+  constructor(private _PagesService: PagesService) {
+    this.getTermsData();
+  }
 
   ngOnInit(): void {}
 
+  getTermsData() {
+    // to get text of terms
+    this._PagesService.getTerms().subscribe((response) => {
+      this.Terms = response.data;
+    });
+  }
 }

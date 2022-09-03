@@ -65,10 +65,10 @@ export class MyinfoComponent implements OnInit {
         .subscribe((response) => {
           if (response.status == 200) {
             this.spinner.hide();
-            this.toastr.success(response.msg, 'Success');
+            this.toastr.success(response.msg);
           } else {
             this.spinner.hide();
-            this.toastr.error(response.msg, 'Failed');
+            this.toastr.error(response.msg);
           }
         });
     }

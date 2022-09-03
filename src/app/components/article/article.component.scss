@@ -1,0 +1,94 @@
+@import "../../../styles.scss";
+
+.item-image img{
+  position: relative;
+}
+
+.lock{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(136, 136, 136,0.6);
+  border-radius: 10px;
+  top: 5%;
+  left: 5%;
+  background-image: url("../../../assets/images/lock-svgrepo-com.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px;
+  background-size: 70% 70%;
+
+}
+
+.modals{
+  display: none;
+}
+
+.sub-layer{
+  background-color:rgba(0,0,0,0.6);
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  }
+
+  .sub-modal{
+    max-width: 450px;
+    height: 450px;
+    text-align: center;
+    background-image: url("../../../assets/images/postSvg.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    position: relative;
+    img{
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      width: 200px;
+      height: 200px;
+      transform:  translatex(-50%) rotate(45deg);
+    }
+    p{
+      color: #000;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 30px 10px;
+    }
+    button{
+      border: none;
+      border-radius: 20px;
+      padding: 5px 20px;
+    }
+  }
+
+
+  .sub-modal{
+    display: none;
+  }
+
+
+
+  @media screen and (max-width:576px) {
+    .sub-modal{
+      max-width: 400px;
+      height: 400px;
+      img{
+        top: -10px;
+        left: 50%;
+        width: 150px;
+        height: 150px;
+      }
+      p{
+        font-size: 16px;
+      }
+      button{
+        padding: 5px 10px;
+      }
+  }
+}

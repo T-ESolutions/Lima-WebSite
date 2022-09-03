@@ -10,6 +10,7 @@ export class MyIntercetor implements HttpInterceptor {
       "lang" : `${localStorage.getItem("currentLanguage")}`,
       "access-key" : "accessKey9A3q9p6V0eKVizqYt9Su9KAMfORbccWrvoJVUCGPKqHBvEgvtJq",
       "Authorization" : `Bearer ${localStorage.getItem("token_api")}`
+
     })
    })
    return next.handle(newReq);

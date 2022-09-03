@@ -1,3 +1,4 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#f2cb17" type="ball-spin-clockwise" [fullScreen]="true"></ngx-spinner>
 <div id="test">
   <div class="head-svg">
   </div>
@@ -9,35 +10,104 @@
     <div class="circle2">
     </div>
   </div>
-  <button routerLink="/account" class="btn btn-transparent border border-0 p-0" id="back"><i
-      class="fa-solid fa-arrow-left-long text-black fw-bold fa-2x"></i></button>
   <div class="container">
+    <div class="row pt-3">
+      <div class="col-12">
+        <div class="row" dir="rtl">
+          <div class="col-10">
+
+          </div>
+          <div class="col-2 d-flex justify-content-center align-items-center">
+            <button routerLink=".." class="btn btn-transparent border border-0 p-0"><i
+              class="fa-solid fa-arrow-left-long text-black fw-bold fa-2x" ></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="row h-100 ">
       <div class="col-12  h-100 d-flex justify-content-center align-items-center flex-column">
-        <div class="parent mt-5 pt-5 px-2">
-          <form id="form" class="p-3">
+        <div class="parent mb-5 pt-2 px-2">
+          <form id="form" class="p-3" [formGroup]="subscriptionForm" (ngSubmit)="submitSubscriptionForm(subscriptionForm)">
             <h2>{{"subscribe-type" | translate}}</h2>
-            <label class="child">
-              <input type="radio" checked value="ar" name="sub">
-              <p>{{"annual" | translate}}</p>
-            </label>
-            <label class="child">
-              <input type="radio" value="en" name="sub" />
-              <p>{{"midterm" | translate}}</p>
+            <label class="child" *ngFor="let sub_type of subscription_types">
+              <input type="radio" [value]="sub_type.id" name="sub_type" formControlName="sub_type">
+              <p class="pt-3">{{sub_type.name}} ( {{sub_type.cost}}<span *ngIf="checkDir">ج.م</span><span *ngIf="!checkDir">Eg</span> )</p>
             </label>
             <h2 class="mt-3">{{"pay-type" | translate}}</h2>
-            <label class="child">
-              <input type="radio" checked value="ar" name="pay">
-              <p>{{"paymob" | translate}}</p>
+            <label class="child d-flex justify-content-between align-items-center" *ngFor="let pay_type of payment_methods">
+              <div>
+                <input type="radio" [value]="pay_type.paymentId" name="pay_type" formControlName="pay_type">
+                <p class="pt-3" *ngIf="checkDir">{{pay_type.name_ar}}</p>
+                <p class="pt-3" *ngIf="!checkDir">{{pay_type.name_en}}</p>
+              </div>
+              <img [src]="pay_type.logo" [alt]="pay_type.name_en">
             </label>
-            <label class="child">
-              <input type="radio" value="en" name="pay" />
-              <p>{{"fawry" | translate}}</p>
-            </label>
-            <div class="submitBtn text-center my-4">
-              <button type="submit" class="submit-btn">{{"confirm" | translate}}</button>
+            <div class="submitBtn text-center my-5">
+              <button type="submit" class="submit-btn" [disabled]="subscriptionForm.invalid" >{{"confirm-sub" | translate}}</button>
             </div>
           </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modals -->
+<div class="modals">
+  <div class="payment-layer py-5 px-2">
+    <!-- Fawry modal -->
+    <div class="payment-modal fawry-modal bg-white p-3">
+      <div class="modal-header">
+        <button type="button" class="btn-close p-2  bg-warning fw-bold" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body p-3 ">
+        <div class="text-center">
+         <h2>{{"payment-msg-head" | translate}}</h2>
+         <p>{{"payment-create" | translate}}</p>
+         <div class="fawry-success">
+          <span><i class="fa-solid fa-check"></i></span>
+         </div>
+         <p>{{"fawry-response-msg" | translate}}</p>
+         <h3 ngxCopyPaste #fawrycp="copy">{{fawry_code}}</h3>
+         <p>{{"fawry-code-date" | translate}}</p>
+         <h3>{{expireDateOfFawrCode}}</h3>
+        <button class="submit-btn my-5 text-dark" (click)="fawrycp.copy(); getHome()">{{"copy-code" | translate}}</button>
+        </div>
+      </div>
+    </div>
+     <!-- aman modal -->
+    <div class="payment-modal aman-modal bg-white p-3">
+      <div class="modal-header">
+        <button type="button" class="btn-close p-2  bg-warning fw-bold" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body p-3 ">
+        <div class="text-center">
+         <h2>{{"payment-msg-head" | translate}}</h2>
+         <p>{{"payment-create" | translate}}</p>
+         <div class="fawry-success">
+          <span><i class="fa-solid fa-check"></i></span>
+         </div>
+         <p>{{"aman-response-msg" | translate}}</p>
+          <h3 ngxCopyPaste #amancp="copy">{{aman_code}}</h3>
+          <button class="submit-btn my-5 text-dark" (click)="amancp.copy(); getHome()" >{{"copy-code" | translate}}</button>
+        </div>
+      </div>
+    </div>
+     <!-- wallet modal -->
+    <div class="payment-modal wallet-modal bg-white p-3">
+      <div class="modal-header">
+        <button type="button" class="btn-close p-2  bg-warning fw-bold" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body p-3 ">
+        <div class="text-center">
+         <h2>{{"payment-msg-head" | translate}}</h2>
+         <p>{{"payment-create" | translate}}</p>
+         <div class="fawry-success">
+          <span><i class="fa-solid fa-check"></i></span>
+         </div>
+         <p>{{"mobileWalet-response-msg" | translate}}</p>
+         <h3 ngxCopyPaste #walletcp="copy">{{wallet_code}}</h3>
+          <button class="submit-btn my-5 text-dark" (click)="walletcp.copy(); getHome()">{{"copy-code" | translate}}</button>
         </div>
       </div>
     </div>

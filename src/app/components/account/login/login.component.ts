@@ -13,12 +13,15 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class LoginComponent implements OnInit {
   visible: boolean = true;
   changeType: boolean = true;
+
   constructor(
     private _AuthService: AuthService,
     private _Router: Router,
     private toastr: ToastrService,
     private spinner: NgxSpinnerService
-  ) {}
+  ) {
+
+  }
 
   loginForm: FormGroup = new FormGroup({
     phone: new FormControl(null, [
@@ -45,11 +48,11 @@ export class LoginComponent implements OnInit {
           this._AuthService.token_api = response.data.token_api;
           localStorage.setItem('token_api', response.data.token_api);
           this._AuthService.saveUserData();
-          this.toastr.success(response.msg, 'Success');
+          this.toastr.success(response.msg);
           this._Router.navigate(['/account']);
         } else {
           this.spinner.hide();
-          this.toastr.error(response.msg, 'Failed');
+          this.toastr.error(response.msg);
         }
       });
     }

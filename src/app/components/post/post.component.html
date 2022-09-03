@@ -1,0 +1,37 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#f2cb17" type="ball-spin-clockwise" [fullScreen]="true">
+</ngx-spinner>
+<div id="more-components">
+  <div class="head-svg">
+  </div>
+  <div class="circle1">
+  </div>
+  <div class="circle2">
+  </div>
+  <div class="container m-auto">
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12 text-start
+          pt-5">
+            <button routerLink="/" class="btn btn-transparent border border-0 p-0 m-2"><i
+              class="fa-solid fa-arrow-left-long text-black fw-bold fa-2x"  [style.transform]="checkDir?'rotatey(360deg)':'rotatey(180deg)'"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-center">
+        <img [src]="post.image" alt="">
+      </div>
+      <div [innerHTML]="post.name" class="fw-bold my-3">
+      </div>
+      <div [innerHtml]="post.body">
+      </div>
+
+  </div>
+</div>
+
+
+
+
+

@@ -23,12 +23,6 @@ import { ContactComponent } from './components/more/contact/contact.component';
 import { TeamComponent } from './components/more/team/team.component';
 import { IdeaComponent } from './components/more/idea/idea.component';
 import { ApplicationComponent } from './components/more/application/application.component';
-import { CartoonComponent } from './components/kids/cartoon/cartoon.component';
-import { TalesComponent } from './components/kids/tales/tales.component';
-import { StoriesComponent } from './components/kids/stories/stories.component';
-import { ArticlesComponent } from './components/kids/articles/articles.component';
-import { ParentingVideosComponent } from './components/moms/parenting-videos/parenting-videos.component';
-import { ParentingArticlesComponent } from './components/moms/parenting-articles/parenting-articles.component';
 import { RegisterComponent } from './components/account/register/register.component';
 import { LoginComponent } from './components/account/login/login.component';
 import { VarifyComponent } from './components/account/varify/varify.component';
@@ -40,7 +34,11 @@ import { MyinfoComponent } from './components/account/myinfo/myinfo.component';
 import { SubscribeComponent } from './components/account/subscribe/subscribe.component';
 import { PasswordComponent } from './components/account/password/password.component';
 import { MyIntercetor } from './intercetor';
-
+import { ClipboardModule } from 'ngx-clipboard';
+import { VideoComponent } from './components/video/video.component';
+import { ArticleComponent } from './components/article/article.component';
+import {NgxCopyPasteModule} from 'ngx-copypaste';
+import { PostComponent } from './components/post/post.component'
 // for all requests
 // import { MyIntercetor }from ;
 
@@ -63,18 +61,15 @@ import { MyIntercetor } from './intercetor';
     TeamComponent,
     IdeaComponent,
     ApplicationComponent,
-    CartoonComponent,
-    TalesComponent,
-    StoriesComponent,
-    ArticlesComponent,
-    ParentingVideosComponent,
-    ParentingArticlesComponent,
     RegisterComponent,
     LoginComponent,
     VarifyComponent,
     MyinfoComponent,
     SubscribeComponent,
     PasswordComponent,
+    VideoComponent,
+    ArticleComponent,
+    PostComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,6 +79,8 @@ import { MyIntercetor } from './intercetor';
     ReactiveFormsModule,
     HttpClientModule,
     NgxSpinnerModule,
+    ClipboardModule,
+    NgxCopyPasteModule,
     BrowserAnimationsModule,
     TranslateModule.forRoot({
       defaultLanguage : "ar",

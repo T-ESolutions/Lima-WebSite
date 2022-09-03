@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslationService } from './services/translation.service';
+import disableDevtool from 'disable-devtool';
 declare var $: any;
 
 @Component({
@@ -29,8 +30,13 @@ export class AppComponent {
         body[0].setAttribute('dir', 'ltr');
       }
     });
+
+    // to disable inspect element and f12 button
+    disableDevtool();
   }
   ngOnInit(): void {
-    $(".loading-screen").fadeOut(5000)
+    $(".loading-screen").fadeOut(5000);
   }
+
+
 }

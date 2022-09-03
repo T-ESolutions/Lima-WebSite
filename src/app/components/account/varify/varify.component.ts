@@ -46,13 +46,13 @@ export class VarifyComponent implements OnInit {
     this._AuthService.varifyPhone(this.data).subscribe((response) => {
       if (response.status == 200) {
         this.spinner.hide();
-        this.toastr.success(response.msg, 'Success');
+        this.toastr.success(response.msg);
         localStorage.setItem('token_api', response.data.token_api);
         this._AuthService.saveUserData();
         this._Router.navigate(['/kids']);
       } else {
         this.spinner.hide();
-        this.toastr.error(response.msg, 'Failed! try again');
+        this.toastr.error(response.msg);
       }
     });
     this.varifyForm.reset();

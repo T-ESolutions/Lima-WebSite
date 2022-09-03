@@ -27,7 +27,6 @@ $fontLang: 'Tajawal', sans-serif;
 }
 
 body {
-  background-color: #F9F9F9;
   overflow-x: hidden;
   font-family: 'Cairo', sans-serif;
 }
@@ -49,6 +48,11 @@ p {
   overflow: hidden;
 }
 
+#back{
+  position: fixed;
+  top: 10%;
+  left: 10%;
+}
 // kids and moms styles**************************
 #kids-moms {
   .header {
@@ -87,7 +91,7 @@ p {
     .child {
       width: 100%;
       height: 100%;
-      background-color: #F9F9F9;
+      background-color: #fff;
       border-top-right-radius: 60px;
     }
   }
@@ -244,7 +248,7 @@ p {
 // account & more styles***************************
 #account-more {
   width: 100%;
-
+  background-color: #F9F9F9;
   .container {
     margin: auto;
 
@@ -341,14 +345,55 @@ p {
     z-index: -1;
   }
 
-  #back {
-    position: absolute;
-    top: 10%;
-    left: 10%;
-  }
-
   .container {
     padding: 20px 5px;
+    .row {
+      .item{
+        .item-image{
+          position: relative;
+          text-align: center;
+          img{
+            height: 200px;
+            width: 95%;
+            border-radius: 10px;
+          }
+          span{
+            position: absolute;
+            top: 5%;
+            left: 10%;
+            font-size: 20px;
+            color: #555;
+          }
+          span:hover{
+            cursor: pointer;
+          }
+        }
+        .item-image:hover{
+          cursor: pointer;
+        }
+        .caption{
+          p{
+            font-size: 17px;
+            font-weight: 500;
+          }
+          ul{
+            li{
+              color: #4A9188;
+            }
+            li span:hover{
+              cursor: pointer;
+            }
+          }
+        }
+        .line{
+          width: 90%;
+          margin: 5px auto;
+          background-color: #ccc;
+          height: 2px;
+          border-radius: 50%;
+        }
+      }
+    }
 
     .row .col-12 {
       h2 {
@@ -358,6 +403,8 @@ p {
 
       img {
         width: 150px;
+        height: 150px;
+        border-radius: 50%;
       }
 
       p {
@@ -369,23 +416,15 @@ p {
 
       .advice-msgs img {
         width: 60px !important;
+        height: 60px !important;
         border-radius: 50%;
         margin: 10px;
 
       }
+      .advice-msgs li:hover{
+        cursor: pointer;
+      }
     }
-  }
-
-  .limaa {
-    // position: fixed;
-    // bottom: -100px;
-    // right: -100px;
-    // width: 400px;
-    // height: 300px;
-    // background-image: url("assets/images/limaaa.png");
-    // background-position: center;
-    // background-repeat: no-repeat;
-    // background-size: cover;
   }
 
   .limaaa {
@@ -400,7 +439,6 @@ p {
 
     img {
       transform: rotate(45deg);
-      width: 200px !important;
     }
   }
 }
@@ -447,20 +485,11 @@ p {
     .container {
       .row .col-12 {
         .advice-msgs {
-          margin: auto !important;
-
-          ul {
-            text-align: center;
-          }
-
           li {
             padding: 3px !important;
-
             img {
-              width: 40px !important;
               border-radius: 50%;
               margin: 10px 5px;
-
             }
 
             p {
@@ -469,13 +498,6 @@ p {
           }
         }
       }
-    }
-
-    .limaa {
-      // bottom: -90px;
-      // right: -40px;
-      // width: 200px;
-      // height: 250px;
     }
   }
 }
@@ -513,31 +535,16 @@ p {
           }
         }
       }
-
     }
   }
 
   #more-components {
     .container {
       .row .col-12 {
-        .advice-msgs {
-          ul {
-            text-align: center;
-          }
-        }
-
         .advice-msgs img {
-          width: 50px !important;
           margin: 10px 5px;
         }
       }
-    }
-
-    .limaa {
-      // bottom: -110px;
-      // right: -50px;
-      // width: 250px;
-      // height: 300px;
     }
   }
 }
@@ -559,14 +566,6 @@ p {
     }
   }
 
-  #more-components {
-    .limaa {
-      // bottom: -110px;
-      // right: -50px;
-      // width: 250px;
-      // height: 300px;
-    }
-  }
 }
 
 /* end large screen */

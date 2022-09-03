@@ -9,14 +9,14 @@ import { RegisterComponent } from './components/account/register/register.compon
 import { SubscribeComponent } from './components/account/subscribe/subscribe.component';
 import { TestComponent } from './components/account/test/test.component';
 import { VarifyComponent } from './components/account/varify/varify.component';
-import { ArticlesComponent } from './components/kids/articles/articles.component';
-import { CartoonComponent } from './components/kids/cartoon/cartoon.component';
+import { ArticleComponent } from './components/article/article.component';
+
+
 import { KidsComponent } from './components/kids/kids.component';
-import { StoriesComponent } from './components/kids/stories/stories.component';
-import { TalesComponent } from './components/kids/tales/tales.component';
+
+
 import { MomsComponent } from './components/moms/moms.component';
-import { ParentingArticlesComponent } from './components/moms/parenting-articles/parenting-articles.component';
-import { ParentingVideosComponent } from './components/moms/parenting-videos/parenting-videos.component';
+
 import { ApplicationComponent } from './components/more/application/application.component';
 import { ContactComponent } from './components/more/contact/contact.component';
 import { IdeaComponent } from './components/more/idea/idea.component';
@@ -25,18 +25,17 @@ import { PrivacyComponent } from './components/more/privacy/privacy.component';
 import { TeamComponent } from './components/more/team/team.component';
 import { TermsComponent } from './components/more/terms/terms.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { PostComponent } from './components/post/post.component';
+import { VideoComponent } from './components/video/video.component';
 import { LogGuard } from './guards/log.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'kids', pathMatch: 'full' },
   { path: 'kids', component: KidsComponent },
-  { path: 'kids/cartoon', component: CartoonComponent },
-  { path: 'kids/tales', component: TalesComponent },
-  { path: 'kids/stories', component: StoriesComponent },
-  { path: 'kids/articles', component: ArticlesComponent },
   { path: 'moms', component: MomsComponent },
-  { path: 'moms/parenting-videos', component: ParentingVideosComponent },
-  { path: 'moms/parenting-articles', component: ParentingArticlesComponent },
+  { path: 'video/:categoryId/:sourceRoute', component: VideoComponent },
+  { path: 'article/:categoryId/:sourceRoute', component: ArticleComponent },
+  { path: 'article/:categoryId/:sourceRoute/post/:postId', component: PostComponent },
   { path: 'account', component: AccountComponent },
   { path: 'more', component: MoreComponent },
   { path: 'account/test', component: TestComponent },

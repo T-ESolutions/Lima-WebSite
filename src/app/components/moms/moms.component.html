@@ -23,20 +23,12 @@
   </div>
   <div class="container">
     <div class="row py-5">
-      <div class="col-6 text-center p-0">
+      <div class="col-6 text-center p-0" *ngFor="let category of momsCategories">
         <div class="copmonent p-0  m-0">
-          <a><img src="../../../assets/images/videos.png" class="story-img" alt="فيديوهات تربوية"
+          <a><img [src]="category.image" class="story-img" [alt]="category.name"
               onerror="this.onerror=null;this.src='../../../assets/images/contact-icons/80fekra.png'"
-              routerLink="parenting-videos"></a>
-          <p>{{"parenting videos" | translate}}</p>
-        </div>
-      </div>
-      <div class="col-6 text-center pb-2">
-        <div class="copmonent">
-          <a><img src="../../../assets/images/mother_articles.png" class="story-img" alt="مقالات تربوية"
-              onerror="this.onerror=null;this.src='../../../assets/images/contact-icons/80fekra.png'"
-              routerLink="parenting-articles"></a>
-          <p>{{"parenting articles" | translate}}</p>
+              [routerLink]="['/'+category.type , category.id, 'moms']"></a>
+          <p>{{category.name}}</p>
         </div>
       </div>
     </div>

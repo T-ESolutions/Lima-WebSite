@@ -11,16 +11,19 @@ declare var $: any;
 })
 export class TestComponent implements OnInit {
   currentLanguage: any = '';
+  checkDir:boolean=true;
 
   constructor(
     public translate: TranslateService,
     public _TranslationService: TranslationService
-  ) {}
+  ) {
+
+  }
 
   ngOnInit(): void {}
 
   languagesForm: FormGroup = new FormGroup({
-    language: new FormControl(),
+    language: new FormControl(localStorage.getItem("currentLanguage")),
   });
 
   submitLanguagesForm(languagesForm: FormGroup) {
@@ -29,6 +32,13 @@ export class TestComponent implements OnInit {
       this._TranslationService.currentLang('en');
     } else {
       this._TranslationService.currentLang('ar');
+    }
+
+
+    if(localStorage.getItem("currentLanguage") == "ar"){
+      this.checkDir=true;
+    }else{
+      this.checkDir=false;
     }
   }
 }

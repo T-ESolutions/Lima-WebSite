@@ -22,13 +22,20 @@
 
 .child {
   padding: 20px 0;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
   line-height: 1.1;
   display: grid;
   grid-template-columns: 1em auto;
   gap: 0.5em;
+  #Lang{
+    padding-top: 10px;
+    font-size: 30px !important;
+
+  }
 }
+
+
 
 .child:hover,
 input:hover {

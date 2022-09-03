@@ -23,36 +23,12 @@
   </div>
   <div class="container ">
     <div class="row pb-5 mb-5">
-      <div class="col-6 text-center p-0">
+      <div class="col-6 text-center px-0 py-2" *ngFor="let category of kidsCategories">
         <div class="copmonent p-0  m-0 ">
-          <a><img src="../../../assets/images/episodes.png" class="story-img" alt="حلقات كرتون"
+          <a><img [src]="category.image" class="story-img" [alt]="category.name"
               onerror="this.onerror=null;this.src='../../../assets/images/contact-icons/80fekra.png'"
-              routerLink="cartoon"></a>
-          <p>{{"unique cartoon" | translate}}</p>
-        </div>
-      </div>
-      <div class="col-6 text-center pb-2">
-        <div class="copmonent">
-          <a><img src="../../../assets/images/tales.png" class="story-img" alt="حكايات"
-              onerror="this.onerror=null;this.src='../../../assets/images/contact-icons/80fekra.png'"
-              routerLink="tales"></a>
-          <p>{{"new tales" | translate}}</p>
-        </div>
-      </div>
-      <div class="col-6 text-center pb-2">
-        <div class="copmonent">
-          <a><img src="../../../assets/images/stories.png" class="story-img pt-2" alt="قصص"
-              onerror="this.onerror=null;this.src='../../../assets/images/contact-icons/80fekra.png'"
-              routerLink="stories"></a>
-          <p>{{"interesting stories" | translate}}</p>
-        </div>
-      </div>
-      <div class="col-6 text-center pb-2">
-        <div class="copmonent">
-          <a><img src="../../../assets/images/articles.png" class="story-img" alt="مقالات"
-              onerror="this.onerror=null;this.src='../../../assets/images/contact-icons/80fekra.png'"
-              routerLink="articles"></a>
-          <p>{{"let's read" | translate}}</p>
+                [routerLink]="['/'+category.type , category.id, 'kids']"></a>
+          <p>{{category.name}}</p>
         </div>
       </div>
     </div>

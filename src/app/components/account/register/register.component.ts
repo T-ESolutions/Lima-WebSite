@@ -16,14 +16,14 @@ export class RegisterComponent implements OnInit {
   visible: boolean = true;
   changeType: boolean = true;
   cities: any = [];
-
   constructor(
     private _AuthService: AuthService,
     private _Router: Router,
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,
     private _HelpersService: HelpersService
-  ) {}
+  ) {
+  }
 
   registerForm: FormGroup = new FormGroup({
     name: new FormControl(null, [
@@ -59,15 +59,15 @@ export class RegisterComponent implements OnInit {
         .subscribe((response) => {
           if (response.status == 200) {
             this.spinner.hide();
-            this.toastr.success(response.msg, 'Success');
+            this.toastr.success(response.msg);
             this._AuthService.data = this.registerForm.value;
             this._Router.navigate(['/account/varify']);
           } else if (response.status == 401) {
             this.spinner.hide();
-            this.toastr.error(response.msg, 'Failed');
+            this.toastr.error(response.msg);
           } else {
             this.spinner.hide();
-            this.toastr.error(response.msg, 'Failed');
+            this.toastr.error(response.msg);
           }
         });
     }

@@ -48,11 +48,11 @@ export class PasswordComponent implements OnInit {
         .subscribe((response) => {
           if (response.status == 200) {
             this.spinner.hide();
-            this.toastr.success(response.msg, 'Success');
+            this.toastr.success(response.msg);
             this._Router.navigate(['/account']);
           } else {
             this.spinner.hide();
-            this.toastr.error(response.msg, 'Failed');
+            this.toastr.error(response.msg);
           }
         });
     }

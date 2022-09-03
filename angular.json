@@ -34,10 +34,13 @@
               "node_modules/ngx-toastr/toastr.css",
               "src/styles.scss"
             ],
-            "scripts": [
+            "scripts": ["node_modules/disable-devtool/disable-devtool.min.js",
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-            ]
+            ],
+            "allowedCommonJsDependencies": [
+              "disable-devtool"
+           ]
           },
           "configurations": {
             "production": {
