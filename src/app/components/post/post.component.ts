@@ -37,4 +37,9 @@ export class PostComponent implements OnInit {
     })
   }
 
+
+  goBack(){
+    this._Router.navigate([`/kids`]);
+  }
+
 }

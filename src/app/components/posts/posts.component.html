@@ -1,0 +1,179 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#f2cb17" type="ball-spin-clockwise" [fullScreen]="true">
+</ngx-spinner>
+<div id="more-components">
+  <div class="head-svg">
+  </div>
+  <div class="circle1">
+  </div>
+  <div class="circle2">
+  </div>
+  <div class="container m-auto">
+    <div class="row mb-5">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-10">
+            <div class="advice-msgs">
+              <ul class="list-unstyled mb-0 ">
+                <li  class="text-center d-inline-block px-2">
+                  <img src="../../../assets/images/lima.jpg" alt="baby.png" (click)="getPostsData()">
+                  <p>{{"all" | translate}}</p>
+                </li>
+                <li class="text-center d-inline-block px-2" *ngFor="let sub of subCategories" >
+                  <img [src]="sub.image" alt="baby.png" (click)="getTeacherPosts(sub.id)">
+                  <p>{{sub.name}}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-2 d-flex justify-content-center align-items-center">
+            <button (click)=" goBack()" class="btn btn-transparent border border-0 p-0"><i
+              class="fa-solid fa-arrow-left-long text-black fw-bold fa-2x"  [style.transform]="checkDir?'rotatey(360deg)':'rotatey(180deg)'"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- if comming from article -->
+    <!-- ******************************************** -->
+    <div class="row"  *ngIf="categoryType=='article'">
+      <div class="col-sm-6 col-md-4 col-lg-3 p-3 overflow-hidden" *ngFor="let post of posts" (click)="showPost(post.id,post.free)" >
+        <div class="item">
+          <div class="item-image">
+            <img [src]="post.image"  alt="">
+            <div class="lock" *ngIf="post.free==0">
+
+            </div>
+          </div>
+          <div class="item-caption py-3">
+            <div [innerHTML]="post.name" class="fw-bold">
+            </div>
+          </div>
+          <div class="line">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ******************************************** -->
+     <!-- if comming from video -->
+    <!-- ******************************************** -->
+    <div class="row"  *ngIf="categoryType=='video'">
+      <div class="col-sm-6 col-md-4 col-lg-3 p-2 overflow-hidden" *ngFor="let post of posts">
+        <div class="item">
+          <div class="video">
+            <!-- <iframe class="responsive-iframe" src="https://sublima.limazola.com/uploads/posts/165765752662cdd8b691891.mp4"></iframe> -->
+            <div class="poster">
+              <img [src]="post.image" alt="">
+            </div>
+          </div>
+          <div class="caption">
+            <div [innerHTML]="post.name" class="mt-2 text-dark fw-bold"></div>
+           <ul [style.direction]="checkDir?'ltr':'rtl'" class="d-flex list-unstyled ">
+            <li class="mx-2" ><span><i class="fa-regular fa-thumbs-up" [style.transform]="checkDir?'rotatey(180deg)':'rotatey(360deg)'"></i></span> {{post.likes}} </li>
+            <li class="mx-2"><span><i class="fa-regular fa-eye"></i></span> {{post.views}} </li>
+           </ul>
+          </div>
+          <div class="line mt-2">
+          </div>
+        </div>
+      </div>
+
+
+
+      <!--***************** to test somethimg *****************-->
+        <!-- <div class="col-sm-6 col-md-4 col-lg-3 p-2 overflow-hidden">
+        <div class="item">
+          <div class="video">
+              <video controls width="100%" height="100%"  poster="https://sublima.limazola.com/uploads/posts/165757772862cca100bbc6d.jpg">
+                <source src="https://sublima.limazola.com/uploads/posts/165766096662cde62631e61.mp4">
+              </video>
+          </div>
+          <div class="caption">
+            <p class="mx-2">الدرس الاول.. مهارات الأتصال</p>
+           <ul [style.direction]="checkDir?'ltr':'rtl'" class="d-flex list-unstyled ">
+            <li class="m-2" ><span><i class="fa-regular fa-thumbs-up" [style.transform]="checkDir?'rotatey(180deg)':'rotatey(360deg)'"></i></span> 1 k </li>
+            <li class="m-2"><span><i class="fa-regular fa-eye"></i></span> 2 k </li>
+           </ul>
+          </div>
+          <div class="line">
+          </div>
+        </div>
+      </div> -->
+
+
+
+
+
+      <!-- <div class="col-sm-6 col-md-4 col-lg-3 p-2 overflow-hidden bg-info">
+        <div class="item">
+          <video  playsinline muted loop controls width="100%">
+            <source src="https://sublima.limazola.com/uploads/posts/165766096662cde62631e61.mp4"
+                    type="video/mp4" >
+            Sorry, your browser doesn't support embedded videos.
+          </video>
+          <div class="caption">
+            <p class="mx-2">الدرس الاول.. مهارات الأتصال</p>
+           <ul [style.direction]="checkDir?'ltr':'rtl'" class="d-flex list-unstyled ">
+            <li class="m-2" ><span><i class="fa-regular fa-thumbs-up" [style.transform]="checkDir?'rotatey(180deg)':'rotatey(360deg)'"></i></span> 1 k </li>
+            <li class="m-2"><span><i class="fa-regular fa-eye"></i></span> 2 k </li>
+           </ul>
+          </div>
+          <div class="line">
+          </div>
+        </div>
+      </div> -->
+
+
+
+      <!-- <div class="col-sm-6 col-md-4 col-lg-3 p-3 overflow-hidden"  >
+        <div class="item">
+          <div class="item-image">
+            <img [src]="post.image"  alt="">
+            <div class="lock" *ngIf="post.free==0">
+
+            </div>
+          </div>
+          <div class="item-caption py-3">
+            <div [innerHTML]="post.name" class="fw-bold">
+            </div>
+          </div>
+          <div class="line">
+          </div>
+        </div>
+      </div> -->
+
+
+
+
+      <!--***************** to test somethimg *****************-->
+    </div>
+    <!-- ******************************************** -->
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- Modals -->
+<div class="modals ">
+  <div class="sub-layer py-5 px-2">
+    <div class="sub-modal  d-flex justify-content-center align-items-center flex-column p-5" >
+        <img src="../../../assets/images/limaaa.png" alt="lima">
+        <p>{{"sub_msg" | translate}}</p>
+        <button class="submit-btn text-dark " (click)="subNow()">{{"sub_btn_msg" | translate}}</button>
+    </div>
+  </div>
+  <button type="button" id="closeBtn" class="btn-close p-3  bg-warning fw-bold" (click)="closeModal()"></button>
+</div>
+
+
+
+
+
+
+
+
+
+
+

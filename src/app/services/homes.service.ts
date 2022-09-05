@@ -33,6 +33,10 @@ export class HomesService {
   // to get videos
 
 
+  // to get posts
+  getPosts(categoryId: number):Observable<any>{
+    return this.http.get<string>(`${this._AuthService.baseUrl}v1/app/category/posts/${categoryId}`)
+  }
 
 
 

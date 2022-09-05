@@ -32,7 +32,7 @@ export class AppComponent {
     });
 
     // to disable inspect element and f12 button
-    disableDevtool();
+    // disableDevtool();
   }
   ngOnInit(): void {
     $(".loading-screen").fadeOut(5000);

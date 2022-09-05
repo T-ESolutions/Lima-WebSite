@@ -9,8 +9,6 @@ import { RegisterComponent } from './components/account/register/register.compon
 import { SubscribeComponent } from './components/account/subscribe/subscribe.component';
 import { TestComponent } from './components/account/test/test.component';
 import { VarifyComponent } from './components/account/varify/varify.component';
-import { ArticleComponent } from './components/article/article.component';
-
 
 import { KidsComponent } from './components/kids/kids.component';
 
@@ -26,16 +24,15 @@ import { TeamComponent } from './components/more/team/team.component';
 import { TermsComponent } from './components/more/terms/terms.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { PostComponent } from './components/post/post.component';
-import { VideoComponent } from './components/video/video.component';
+import { PostsComponent } from './components/posts/posts.component';
 import { LogGuard } from './guards/log.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'kids', pathMatch: 'full' },
   { path: 'kids', component: KidsComponent },
   { path: 'moms', component: MomsComponent },
-  { path: 'video/:categoryId/:sourceRoute', component: VideoComponent },
-  { path: 'article/:categoryId/:sourceRoute', component: ArticleComponent },
-  { path: 'article/:categoryId/:sourceRoute/post/:postId', component: PostComponent },
+  {path: "posts/:categoryId/:categoryType/:sourceRoute" , component: PostsComponent},
+  { path: 'posts/:categoryId/:categoryType/post/:postId', component: PostComponent },
   { path: 'account', component: AccountComponent },
   { path: 'more', component: MoreComponent },
   { path: 'account/test', component: TestComponent },

@@ -35,10 +35,11 @@ import { SubscribeComponent } from './components/account/subscribe/subscribe.com
 import { PasswordComponent } from './components/account/password/password.component';
 import { MyIntercetor } from './intercetor';
 import { ClipboardModule } from 'ngx-clipboard';
-import { VideoComponent } from './components/video/video.component';
-import { ArticleComponent } from './components/article/article.component';
+
 import {NgxCopyPasteModule} from 'ngx-copypaste';
-import { PostComponent } from './components/post/post.component'
+import { PostComponent } from './components/post/post.component';
+import { PostsComponent } from './components/posts/posts.component';
+
 // for all requests
 // import { MyIntercetor }from ;
 
@@ -67,9 +68,8 @@ import { PostComponent } from './components/post/post.component'
     MyinfoComponent,
     SubscribeComponent,
     PasswordComponent,
-    VideoComponent,
-    ArticleComponent,
     PostComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,
