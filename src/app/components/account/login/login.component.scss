@@ -69,3 +69,45 @@
 
   }
 }
+
+
+.charachter {
+  width: 240px;
+  height: 130px;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translatex(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // z-index: 0;
+}
+
+
+
+//*****************
+
+@media screen and (max-width:576px) {
+  .charachter {
+    width: 180px;
+    height: 90px;
+  }
+}
+
+/* end small screen */
+/* start medium screen */
+@media screen and (min-width:577px) and (max-width:768px) {
+  .charachter {
+    width: 190px;
+    height: 100px;
+
+  }
+}
+
+@media screen and (min-width:769px) and (max-width:991px) {
+  .charachter {
+    width: 210px;
+    height: 110px;
+  }
+}

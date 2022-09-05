@@ -29,10 +29,9 @@ export class AuthService {
     this.userData.next(jwtDecode(encodedUserData));
   }
 
-  logOut() {
-    localStorage.removeItem('token_api');
-    this.userData.next(null);
-    this._Router.navigate(['/account']);
+  //to log out
+  logOut(Authorization:any): Observable<any> {
+    return this.http.post(`${this.baseUrl}v1/user/logout`,Authorization);
   }
 
   // signup function
@@ -67,4 +66,6 @@ export class AuthService {
       profilePassword
     );
   }
+
+
 }
