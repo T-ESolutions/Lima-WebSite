@@ -13,6 +13,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class LoginComponent implements OnInit {
   visible: boolean = true;
   changeType: boolean = true;
+  checkDir:boolean=true;
 
   constructor(
     private _AuthService: AuthService,
@@ -20,7 +21,11 @@ export class LoginComponent implements OnInit {
     private toastr: ToastrService,
     private spinner: NgxSpinnerService
   ) {
-
+    if(localStorage.getItem("currentLanguage") == "ar"){
+      this.checkDir=true;
+    }else{
+      this.checkDir=false;
+    }
   }
 
   loginForm: FormGroup = new FormGroup({

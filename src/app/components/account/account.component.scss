@@ -1,1 +1,35 @@
 @import "../../../styles.scss";
+
+.modal-body{
+  img{
+    width: 200px;
+  }
+}
+
+.modal-footer{
+  border: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  button{
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s;
+  }
+  button:first-of-type{
+    padding: 5px 20px;
+    border: 1px solid #555;
+  }
+  button:last-of-type{
+    background-color: #8BDED6;
+    color: #fff;
+    padding: 5px 50px;
+  }
+  button:last-of-type:hover{
+    border: 1px solid #8BDED6;
+  }
+  button:hover {
+    cursor: pointer;
+    box-shadow: 0px 1px 3px #555;
+  }
+}

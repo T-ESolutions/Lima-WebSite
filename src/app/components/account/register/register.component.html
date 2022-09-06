@@ -3,6 +3,14 @@
 <div id="more-components">
   <div class="head-svg">
   </div>
+  <div class="group1">
+  </div>
+  <div class="group2">
+  </div>
+  <div class="group3">
+  </div>
+  <div class="group4">
+  </div>
   <div class="limaa">
   </div>
   <div class="container m-auto">
@@ -60,7 +68,7 @@
               {{'password-validate-msg' | translate}}</p>
             <p class="text-danger" *ngIf="registerForm.get('password')?.errors?.['minlength']">{{'password-validate-msg2'
               | translate}}</p>
-            <button [disabled]="registerForm.invalid" class="btn my-3" type="submit">{{"login" | translate}}</button>
+            <button [disabled]="registerForm.invalid" class="btn my-3" type="submit">{{"create" | translate}}</button>
           </form>
         </div>
       </div>

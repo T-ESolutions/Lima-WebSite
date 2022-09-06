@@ -14,6 +14,7 @@ export class AuthService {
   baseUrl: any = 'https://sublima.limazola.com/api/';
   token_api: any;
   data: any = [];
+  phoneChangePass:any;
   constructor(private _Router: Router, private http: HttpClient) {
     // to keep user logged in while making refresh
     if (localStorage.getItem('token_api') != null) {
@@ -67,5 +68,18 @@ export class AuthService {
     );
   }
 
+  // this function to give code because i forget password
+  forgetPassword(forgetPassFormData: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}v1/auth/forget-password`, forgetPassFormData);
+  }
 
+  // this function to confirm code coming in mobile to change password
+  confirmCode(confirmingCodeData:any):Observable<any>{
+    return this.http.post(`${this.baseUrl}v1/auth/verify`, confirmingCodeData)
+  }
+
+  // now you can change password by this function
+  changePassword(passwordData:any):Observable<any>{
+    return this.http.post(`${this.baseUrl}v1/auth/change-password`, passwordData)
+  }
 }

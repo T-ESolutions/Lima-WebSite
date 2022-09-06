@@ -131,7 +131,11 @@ p {
 .cloud7,
 .cloud8,
 .cloud9,
-.cloud10 {
+.cloud10,
+.group1,
+.group2,
+.group3,
+.group4 {
   position: absolute;
   width: 90px;
   height: 36px;
@@ -245,6 +249,29 @@ p {
   background-image: url("assets/images/layouts/cloud3.svg");
 }
 
+.group1 {
+  top: 15%;
+  left: 15%;
+  background-image: url("assets/images/layouts/Group1.svg");
+}
+
+.group2 {
+  top: 10%;
+  right: 20%;
+  background-image: url("assets/images/layouts/Group1.svg");
+}
+
+.group3 {
+  bottom: 15%;
+  left: 20%;
+  background-image: url("assets/images/layouts/Group1.svg");
+}
+
+.group4 {
+  bottom: 20%;
+  right: 15%;
+  background-image: url("assets/images/layouts/Group1.svg");
+}
 // account & more styles***************************
 #account-more {
   width: 100%;

@@ -39,6 +39,9 @@ import { ClipboardModule } from 'ngx-clipboard';
 import {NgxCopyPasteModule} from 'ngx-copypaste';
 import { PostComponent } from './components/post/post.component';
 import { PostsComponent } from './components/posts/posts.component';
+import { ForgetpassComponent } from './components/account/forgetpass/forgetpass.component';
+import { VarifypasswordComponent } from './components/account/varifypassword/varifypassword.component';
+import { NewpasswordComponent } from './components/account/newpassword/newpassword.component';
 
 // for all requests
 // import { MyIntercetor }from ;
@@ -70,6 +73,9 @@ import { PostsComponent } from './components/posts/posts.component';
     PasswordComponent,
     PostComponent,
     PostsComponent,
+    ForgetpassComponent,
+    VarifypasswordComponent,
+    NewpasswordComponent,
   ],
   imports: [
     BrowserModule,

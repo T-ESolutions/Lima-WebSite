@@ -2,13 +2,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountComponent } from './components/account/account.component';
 import { FavouriteComponent } from './components/account/favourite/favourite.component';
+import { ForgetpassComponent } from './components/account/forgetpass/forgetpass.component';
 import { LoginComponent } from './components/account/login/login.component';
 import { MyinfoComponent } from './components/account/myinfo/myinfo.component';
+import { NewpasswordComponent } from './components/account/newpassword/newpassword.component';
 import { PasswordComponent } from './components/account/password/password.component';
 import { RegisterComponent } from './components/account/register/register.component';
 import { SubscribeComponent } from './components/account/subscribe/subscribe.component';
 import { TestComponent } from './components/account/test/test.component';
 import { VarifyComponent } from './components/account/varify/varify.component';
+import { VarifypasswordComponent } from './components/account/varifypassword/varifypassword.component';
 
 import { KidsComponent } from './components/kids/kids.component';
 
@@ -39,10 +42,13 @@ const routes: Routes = [
   { path: 'account/favourite', component: FavouriteComponent, canActivate:[LogGuard]},
   { path: 'account/myinfo', component: MyinfoComponent , canActivate:[LogGuard]},
   { path: 'account/subscribe', component: SubscribeComponent, canActivate:[LogGuard] },
-  { path: 'account/password', component: PasswordComponent, canActivate:[LogGuard] },
+  { path: 'account/password', component: PasswordComponent, canActivate:[LogGuard]},
+  { path: 'account/newpassword', component: NewpasswordComponent},
   { path: 'account/register', component: RegisterComponent },
   { path: 'account/varify', component: VarifyComponent },
+  { path: 'account/varifypassword', component: VarifypasswordComponent },
   { path: 'account/login', component: LoginComponent },
+  { path: 'account/forgetpass', component: ForgetpassComponent },
   { path: 'more/privacy', component: PrivacyComponent },
   { path: 'more/terms', component: TermsComponent },
   { path: 'more/application', component: ApplicationComponent },
