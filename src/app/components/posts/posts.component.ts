@@ -1,7 +1,9 @@
+import { NgStyle } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { FavoritesService } from 'src/app/services/favorites.service';
 import { AuthService } from '../../services/auth.service';
 import { HomesService } from '../../services/homes.service';
 declare var $: any;
@@ -18,7 +20,7 @@ export class PostsComponent implements OnInit {
   sourceRoute:any="";
   subCategories:any;
   posts:any=[];
-  constructor(private _HomesService:HomesService, private toastr: ToastrService, private _Router: Router, private spinner: NgxSpinnerService, private _ActivatedRoute:ActivatedRoute,private _AuthService: AuthService) {
+  constructor(private _HomesService:HomesService, private toastr: ToastrService, private _Router: Router, private spinner: NgxSpinnerService, private _ActivatedRoute:ActivatedRoute,private _AuthService: AuthService,private _FavoritesService:FavoritesService ) {
     this.categoryId = this._ActivatedRoute.snapshot.params?.['categoryId'];
     this.categoryType = this._ActivatedRoute.snapshot.params?.['categoryType'];
     this.sourceRoute = this._ActivatedRoute.snapshot.params?.['sourceRoute'];
@@ -69,6 +71,7 @@ export class PostsComponent implements OnInit {
     this._HomesService.getPosts(id).subscribe((response) => {
       if(response.status == 200){
         this.posts = response.data.data;
+
         this.spinner.hide();
       }else{
         this.toastr.error(response.msg);
@@ -116,4 +119,16 @@ export class PostsComponent implements OnInit {
     this._Router.navigate([`/${this.sourceRoute}`]);
   }
 
+  post_is_data:any={post_id:5}
+  makeLove(id:any,free:any){
+    if(free==0){
+      $(".modals").show();
+      $(".sub-modal").show(300);
+    }else if(free==1){
+      this.post_is_data.post_id=id
+      this._FavoritesService.addFavourite(this.post_is_data).subscribe((response) => {
+        console.log(response);
+      })
+    }
+  }
 }

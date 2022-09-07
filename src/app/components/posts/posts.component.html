@@ -56,12 +56,18 @@
      <!-- if comming from video -->
     <!-- ******************************************** -->
     <div class="row"  *ngIf="categoryType=='video'">
-      <div class="col-sm-6 col-md-4 col-lg-3 p-2 overflow-hidden" *ngFor="let post of posts">
+      <div class="col-sm-6 col-md-4 col-lg-3 p-3 overflow-hidden" *ngFor="let post of posts">
         <div class="item">
-          <div class="video">
-            <!-- <iframe class="responsive-iframe" src="https://sublima.limazola.com/uploads/posts/165765752662cdd8b691891.mp4"></iframe> -->
-            <div class="poster">
-              <img [src]="post.image" alt="">
+          <div class="poster">
+            <img [src]="post.image" alt="">
+            <div class="play-icon ">
+              <!-- <iframe width="100%" height="100%" src="https://embed.lottiefiles.com/animation/47325"></iframe> -->
+              <img src="../../assets/images/play-svgrepo-com.svg" alt=""
+              (click)="showPost(post.id,post.free)">
+            </div>
+            <div class="lock" *ngIf="post.free==0">
+            </div>
+            <div class="love" *ngIf="post.free==1" (click)="makeLove(post.id,post.free)">
             </div>
           </div>
           <div class="caption">
@@ -75,75 +81,6 @@
           </div>
         </div>
       </div>
-
-
-
-      <!--***************** to test somethimg *****************-->
-        <!-- <div class="col-sm-6 col-md-4 col-lg-3 p-2 overflow-hidden">
-        <div class="item">
-          <div class="video">
-              <video controls width="100%" height="100%"  poster="https://sublima.limazola.com/uploads/posts/165757772862cca100bbc6d.jpg">
-                <source src="https://sublima.limazola.com/uploads/posts/165766096662cde62631e61.mp4">
-              </video>
-          </div>
-          <div class="caption">
-            <p class="mx-2">الدرس الاول.. مهارات الأتصال</p>
-           <ul [style.direction]="checkDir?'ltr':'rtl'" class="d-flex list-unstyled ">
-            <li class="m-2" ><span><i class="fa-regular fa-thumbs-up" [style.transform]="checkDir?'rotatey(180deg)':'rotatey(360deg)'"></i></span> 1 k </li>
-            <li class="m-2"><span><i class="fa-regular fa-eye"></i></span> 2 k </li>
-           </ul>
-          </div>
-          <div class="line">
-          </div>
-        </div>
-      </div> -->
-
-
-
-
-
-      <!-- <div class="col-sm-6 col-md-4 col-lg-3 p-2 overflow-hidden bg-info">
-        <div class="item">
-          <video  playsinline muted loop controls width="100%">
-            <source src="https://sublima.limazola.com/uploads/posts/165766096662cde62631e61.mp4"
-                    type="video/mp4" >
-            Sorry, your browser doesn't support embedded videos.
-          </video>
-          <div class="caption">
-            <p class="mx-2">الدرس الاول.. مهارات الأتصال</p>
-           <ul [style.direction]="checkDir?'ltr':'rtl'" class="d-flex list-unstyled ">
-            <li class="m-2" ><span><i class="fa-regular fa-thumbs-up" [style.transform]="checkDir?'rotatey(180deg)':'rotatey(360deg)'"></i></span> 1 k </li>
-            <li class="m-2"><span><i class="fa-regular fa-eye"></i></span> 2 k </li>
-           </ul>
-          </div>
-          <div class="line">
-          </div>
-        </div>
-      </div> -->
-
-
-
-      <!-- <div class="col-sm-6 col-md-4 col-lg-3 p-3 overflow-hidden"  >
-        <div class="item">
-          <div class="item-image">
-            <img [src]="post.image"  alt="">
-            <div class="lock" *ngIf="post.free==0">
-
-            </div>
-          </div>
-          <div class="item-caption py-3">
-            <div [innerHTML]="post.name" class="fw-bold">
-            </div>
-          </div>
-          <div class="line">
-          </div>
-        </div>
-      </div> -->
-
-
-
-
-      <!--***************** to test somethimg *****************-->
     </div>
     <!-- ******************************************** -->
   </div>
@@ -166,6 +103,16 @@
   </div>
   <button type="button" id="closeBtn" class="btn-close p-3  bg-warning fw-bold" (click)="closeModal()"></button>
 </div>
+
+
+
+
+
+
+
+
+
+
 
 
 

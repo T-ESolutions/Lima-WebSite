@@ -15,8 +15,14 @@ export class FavoritesService {
     private _AuthService: AuthService
   ) {}
 
-  // signup function
-  getFavourites(): Observable<any> {
-    return this.http.get(`${this._AuthService.baseUrl}/v1/user/favorites`);
+  // this function to add favourite posts
+  addFavourite(post_id_data:any): Observable<any> {
+    return this.http.post(`${this._AuthService.baseUrl}v1/user/favorite/store`, post_id_data);
   }
+
+  // this function to get favourite
+  getFavourites(): Observable<any> {
+    return this.http.get(`${this._AuthService.baseUrl}v1/user/favorites`);
+  }
+
 }

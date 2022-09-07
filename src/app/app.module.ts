@@ -42,7 +42,7 @@ import { PostsComponent } from './components/posts/posts.component';
 import { ForgetpassComponent } from './components/account/forgetpass/forgetpass.component';
 import { VarifypasswordComponent } from './components/account/varifypassword/varifypassword.component';
 import { NewpasswordComponent } from './components/account/newpassword/newpassword.component';
-
+import { VideoPipe } from './pipes/video.pipe';
 // for all requests
 // import { MyIntercetor }from ;
 
@@ -76,6 +76,7 @@ import { NewpasswordComponent } from './components/account/newpassword/newpasswo
     ForgetpassComponent,
     VarifypasswordComponent,
     NewpasswordComponent,
+    VideoPipe,
   ],
   imports: [
     BrowserModule,

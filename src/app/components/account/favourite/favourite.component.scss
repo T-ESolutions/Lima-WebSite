@@ -24,3 +24,69 @@
 .play-icon-box:hover {
   cursor: pointer;
 }
+
+
+.item-image img{
+  position: relative;
+}
+
+.lock,.love{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(136, 136, 136,0.6);
+  border-radius: 10px;
+  top: 5%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px;
+  background-size: 70% 70%;
+}
+.lock:hover,.love:hover{
+  cursor: pointer;
+}
+
+.lock{
+  background-image: url("../../../../assets/images/lock-svgrepo-com.svg");
+  left: 5%;
+}
+
+.love{
+  background-image: url("../../../../assets/images/favorite-star-svgrepo-com.svg");
+  right: 5%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.item {
+  border-radius: 20px;
+  overflow: hidden;
+  .poster {
+    position: relative;
+    img{
+      width: 100%;
+    }
+    .play-icon{
+      position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 60px;
+        height: 60px;
+        transform: translate(-50% , -50%);
+    }
+  }
+}

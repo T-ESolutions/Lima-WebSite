@@ -13,6 +13,7 @@ export class PostComponent implements OnInit {
   text:any="<h2 style='color:red'>mohamed hadaey ahmed abd elwahab </h2>"
   checkDir:boolean=true;
   postId: number = 0;
+  categoryType:any;
   post:any={};
   constructor( private _Router: Router ,private _ActivatedRoute:ActivatedRoute, private _HomesService:HomesService,    private toastr: ToastrService) {
     if(localStorage.getItem("currentLanguage") == "ar"){
@@ -24,6 +25,7 @@ export class PostComponent implements OnInit {
 
   ngOnInit(): void {
     this.postId = this._ActivatedRoute.snapshot.params?.['postId'];
+    this.categoryType = this._ActivatedRoute.snapshot.params?.['categoryType'];
     this.postDetails();
   }
 
@@ -31,6 +33,7 @@ export class PostComponent implements OnInit {
     this._HomesService.getPostDetails(this.postId).subscribe((response) => {
       if(response.status==200){
         this.post = response.data;
+        console.log(this.post.video)
       }else{
         this.toastr.error(response.msg);
       }
