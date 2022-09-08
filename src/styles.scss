@@ -53,6 +53,42 @@ p {
   top: 10%;
   left: 10%;
 }
+
+/*****  app component html styles *****/
+.loading-screen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  z-index: 100000;
+
+  img {
+    width: 150px;
+  }
+}
+
+/*****  app component html styles *****/
+/**** loading lottie file between pages *****/
+.loader{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 4;
+}
+
+lottie-player {
+  width: 300px;
+}
+/**** loading lottie file between pages *****/
 // kids and moms styles**************************
 #kids-moms {
   .header {
@@ -407,7 +443,7 @@ p {
             li{
               color: #4A9188;
             }
-            li span:hover{
+            li:first-of-type:hover{
               cursor: pointer;
             }
           }
@@ -527,6 +563,9 @@ p {
       }
     }
   }
+  lottie-player {
+    width: 200px;
+  }
 }
 
 /* end small screen */
@@ -574,6 +613,9 @@ p {
       }
     }
   }
+  lottie-player {
+    width: 240px;
+  }
 }
 
 /* end medium screen */
@@ -592,7 +634,9 @@ p {
       }
     }
   }
-
+  lottie-player {
+    width: 280px;
+  }
 }
 
 /* end large screen */

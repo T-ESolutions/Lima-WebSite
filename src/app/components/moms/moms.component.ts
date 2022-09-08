@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/services/auth.service';
 import { HomesService } from 'src/app/services/homes.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { HomesService } from 'src/app/services/homes.service';
 })
 export class MomsComponent implements OnInit {
   momsCategories:any=[];
-  constructor(private _HomesService:HomesService, private toastr: ToastrService, private _Router: Router) {
+  constructor(private _HomesService:HomesService, private toastr: ToastrService, private _Router: Router, private _AuthService:AuthService) {
     this.getMoms();
    }
 
@@ -23,6 +24,7 @@ export class MomsComponent implements OnInit {
     this._HomesService.getMomsCategories().subscribe((response) => {
       if(response.status == 200){
         this.momsCategories = response.data.categories;
+        this._AuthService.subscriber = response.data.subscriber;
       }else{
         this.toastr.error(response.msg, 'Failed!');
       }

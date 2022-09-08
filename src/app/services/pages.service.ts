@@ -1,48 +1,42 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
-// to decode the token of user data
-import jwtDecode from 'jwt-decode';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Router } from '@angular/router';
+// import Observable to be able to make subscribe in any function
+import { Observable } from 'rxjs';
+// import AuthService to be able to use baseUrl instead or repeet baseUrl
 import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root',
 })
 export class PagesService {
-  constructor(
-    private _Router: Router,
-    private http: HttpClient,
-    private _AuthService: AuthService
-  ) {}
+  constructor(private http: HttpClient, private _AuthService: AuthService) {}
 
-  // get teams function
-  getTeam(): Observable<any> {
-    return this.http.get(`${this._AuthService.baseUrl}v1/app/teams`);
-  }
-
-  // get links to contact function
-  getLinks(): Observable<any> {
-    return this.http.get(`${this._AuthService.baseUrl}v1/app/links`);
-  }
-
-  // get about us text
+  // 19- this function to get about us (80 fekra) text
   getAboutUs(): Observable<any> {
     return this.http.get(`${this._AuthService.baseUrl}v1/app/pages/idea`);
   }
 
-    // get about app text
-    getAboutApp(): Observable<any> {
-      return this.http.get(`${this._AuthService.baseUrl}v1/app/pages/about`);
-    }
+  // 20- this function to get about application text
+  getAboutApp(): Observable<any> {
+    return this.http.get(`${this._AuthService.baseUrl}v1/app/pages/about`);
+  }
 
-     // get privacy text
-     getPrivacy(): Observable<any> {
-      return this.http.get(`${this._AuthService.baseUrl}v1/app/pages/privacy`);
-    }
+  // 21- this function to get members of team
+  getTeam(): Observable<any> {
+    return this.http.get(`${this._AuthService.baseUrl}v1/app/teams`);
+  }
 
-      // get terms text
-      getTerms(): Observable<any> {
-        return this.http.get(`${this._AuthService.baseUrl}v1/app/pages/terms`);
-      }
+  // 22- this function to get links to contact with us
+  getLinks(): Observable<any> {
+    return this.http.get(`${this._AuthService.baseUrl}v1/app/links`);
+  }
+
+  // 23- this function to get privacy policy text
+  getPrivacy(): Observable<any> {
+    return this.http.get(`${this._AuthService.baseUrl}v1/app/pages/privacy`);
+  }
+
+  // 24- this function to get terms and condition text
+  getTerms(): Observable<any> {
+    return this.http.get(`${this._AuthService.baseUrl}v1/app/pages/terms`);
+  }
 }

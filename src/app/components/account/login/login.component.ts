@@ -55,6 +55,7 @@ export class LoginComponent implements OnInit {
           this._AuthService.saveUserData();
           this.toastr.success(response.msg);
           this._Router.navigate(['/account']);
+          this._AuthService.subscriber = response.data.subscriber
         } else {
           this.spinner.hide();
           this.toastr.error(response.msg);

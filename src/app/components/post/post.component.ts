@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HomesService } from 'src/app/services/homes.service';
-
+declare var $: any;
 
 @Component({
   selector: 'app-post',
@@ -30,14 +30,15 @@ export class PostComponent implements OnInit {
   }
 
   postDetails(){
+    this.showLoader();
     this._HomesService.getPostDetails(this.postId).subscribe((response) => {
       if(response.status==200){
         this.post = response.data;
-        console.log(this.post.video)
       }else{
         this.toastr.error(response.msg);
       }
     })
+    this.hideLoader();
   }
 
 
@@ -45,4 +46,12 @@ export class PostComponent implements OnInit {
     this._Router.navigate([`/kids`]);
   }
 
+
+   // this function to show and hide loader
+   showLoader(){
+    $(".loader").css({"display":"flex","transition":"all 0.5s"})
+    }
+    hideLoader(){
+      $(".loader").css({"display":"none","transition":"all 0.5s"})
+    }
 }

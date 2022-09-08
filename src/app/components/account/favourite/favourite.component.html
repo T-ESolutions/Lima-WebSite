@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-    <div class="row " *ngIf="posts == null">
+    <div class="row " *ngIf="posts == 0">
       <div class="col-12 text-center">
         <h2 class="my-3">{{"favorite" | translate}}</h2>
       </div>
@@ -41,7 +41,7 @@
               </div>
               <div class="lock" *ngIf="post.free==0">
               </div>
-              <div class="love" *ngIf="post.free==1">
+              <div class="love" *ngIf="post.free==1" (click)="makeLove(post.id,post.free)">
               </div>
             </div>
             <div class="caption">

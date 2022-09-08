@@ -20,6 +20,7 @@ export class PostsComponent implements OnInit {
   sourceRoute:any="";
   subCategories:any;
   posts:any=[];
+  liked:boolean=false
   constructor(private _HomesService:HomesService, private toastr: ToastrService, private _Router: Router, private spinner: NgxSpinnerService, private _ActivatedRoute:ActivatedRoute,private _AuthService: AuthService,private _FavoritesService:FavoritesService ) {
     this.categoryId = this._ActivatedRoute.snapshot.params?.['categoryId'];
     this.categoryType = this._ActivatedRoute.snapshot.params?.['categoryType'];
@@ -29,54 +30,56 @@ export class PostsComponent implements OnInit {
     }else{
       this.checkDir=false;
     }
-    this.spinner.show();
     this.showSubcategories();
     this.getPostsData();
   }
   ngOnInit(): void {
   }
 
+  // this function to show and hide loader
+  showLoader(){
+    $(".loader").css({"display":"flex","transition":"all 0.5s"})
+  }
+  hideLoader(){
+    $(".loader").css({"display":"none","transition":"all 0.5s"})
+  }
+
 
   //to get posts data
-
   getPostsData(){
-    this.spinner.show();
+    this.showLoader();
     if(this.categoryType=="article"){
       this._HomesService.getPosts(this.categoryId).subscribe((response) => {
         if(response.status == 200){
           this.posts = response.data.data;
-          this.spinner.hide();
         }else{
           this.toastr.error(response.msg);
-          this.spinner.hide();
         }
+        this.hideLoader();
       })
     }else if(this.categoryType=="video"){
       this._HomesService.getPosts(this.categoryId).subscribe((response) => {
         if(response.status == 200){
           this.posts = response.data.data;
-          this.spinner.hide();
         }else{
           this.toastr.error(response.msg);
-          this.spinner.hide();
         }
+        this.hideLoader();
       })
     }
-
+    ;
   }
 
 
   getTeacherPosts(id:any){
-    this.spinner.show();
+    this.showLoader();
     this._HomesService.getPosts(id).subscribe((response) => {
       if(response.status == 200){
         this.posts = response.data.data;
-
-        this.spinner.hide();
       }else{
         this.toastr.error(response.msg);
-        this.spinner.hide();
       }
+      this.hideLoader()
     })
   }
 
@@ -112,7 +115,6 @@ export class PostsComponent implements OnInit {
   closeModal(){
     $(".sub-modal").hide(300);
     $(".modals").hide();
-
   }
 
   goBack(){
@@ -121,14 +123,68 @@ export class PostsComponent implements OnInit {
 
   post_is_data:any={post_id:5}
   makeLove(id:any,free:any){
-    if(free==0){
+    if(this._AuthService.subscriber == 0){
       $(".modals").show();
       $(".sub-modal").show(300);
-    }else if(free==1){
-      this.post_is_data.post_id=id
-      this._FavoritesService.addFavourite(this.post_is_data).subscribe((response) => {
-        console.log(response);
-      })
+    }else{
+      if(free==0){
+        $(".modals").show();
+        $(".sub-modal").show(300);
+      }else if(free==1){
+        this.post_is_data.post_id=id
+        this._FavoritesService.addFavourite(this.post_is_data).subscribe((response) => {
+          if(response.status == 200){
+            this.toastr.success(response.msg);
+          }
+        })
+      }
     }
+
+  }
+
+  makeLike(id:any,free:any){
+
+    this.post_is_data.post_id=id
+    this._HomesService.addLike(this.post_is_data).subscribe((response) => {
+      if(response.status == 200){
+
+        this.toastr.success(response.msg);
+
+
+        // this._HomesService.getPostDetails(id).subscribe((response) => {
+        //   if(response.status==200){
+        //     // this.post = response.data;
+        //     console.log(response.data.likes);
+        //     console.log(this.posts.id)
+        //     // this.posts[id].likes = response.data.likes
+        //   }else{
+        //     this.toastr.error(response.msg);
+        //   }
+        // })
+
+
+        console.log(response)
+
+      }
+    })
+
+
+
+    // if(this._AuthService.subscriber == 0){
+    //   $(".modals").show();
+    //   $(".sub-modal").show(300);
+    // }else{
+    //   if(free==0){
+    //     $(".modals").show();
+    //     $(".sub-modal").show(300);
+    //   }else if(free==1){
+    //     this.post_is_data.post_id=id
+    //     this._HomesService.addLike(this.post_is_data).subscribe((response) => {
+    //       if(response.status == 200){
+    //         this.toastr.success(response.msg);
+    //       }
+    //     })
+    //   }
+    // }
   }
 }

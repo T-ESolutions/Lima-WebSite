@@ -49,6 +49,7 @@ export class VarifyComponent implements OnInit {
         this.toastr.success(response.msg);
         localStorage.setItem('token_api', response.data.token_api);
         this._AuthService.saveUserData();
+        this._AuthService.subscriber = response.data.subscriber;
         this._Router.navigate(['/kids']);
       } else {
         this.spinner.hide();

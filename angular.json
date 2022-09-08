@@ -36,6 +36,7 @@
             ],
             "scripts": ["node_modules/disable-devtool/disable-devtool.min.js",
               "node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/@lottiefiles/lottie-player/dist/lottie-player.js",
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ],
             "allowedCommonJsDependencies": [

@@ -12,11 +12,17 @@ export class AccountComponent implements OnInit {
   isLogin: boolean = false;
   userDetails: any = {};
   checkDir:boolean=true;
+  subscriber:boolean=true;
   constructor(private _AuthService: AuthService, private _Router: Router,private toastr: ToastrService) {
     if(localStorage.getItem("currentLanguage") == "ar"){
       this.checkDir=true;
     }else{
       this.checkDir=false;
+    }
+    if(this._AuthService.subscriber==0){
+      this.subscriber=true;
+    }else{
+      this.subscriber=false;
     }
   }
 
