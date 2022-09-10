@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
-
+import { HomesService } from 'src/app/services/homes.service';
+declare var $: any;
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,13 +20,14 @@ export class LoginComponent implements OnInit {
     private _AuthService: AuthService,
     private _Router: Router,
     private toastr: ToastrService,
-    private spinner: NgxSpinnerService
+    private _HomesService:HomesService
   ) {
     if(localStorage.getItem("currentLanguage") == "ar"){
       this.checkDir=true;
     }else{
       this.checkDir=false;
     }
+    
   }
 
   loginForm: FormGroup = new FormGroup({
@@ -41,15 +43,13 @@ export class LoginComponent implements OnInit {
   });
 
   submitLoginForm(loginForm: FormGroup) {
-    this.spinner.show();
+    this._HomesService.showLoader();
     // if user delete [disabled]="registerForm.invalid" from html inspect
     if (loginForm.invalid) {
-      this.spinner.hide();
       return;
     } else {
       this._AuthService.signIn(this.loginForm.value).subscribe((response) => {
         if (response.status == 200) {
-          this.spinner.hide();
           this._AuthService.token_api = response.data.token_api;
           localStorage.setItem('token_api', response.data.token_api);
           this._AuthService.saveUserData();
@@ -57,11 +57,12 @@ export class LoginComponent implements OnInit {
           this._Router.navigate(['/account']);
           this._AuthService.subscriber = response.data.subscriber
         } else {
-          this.spinner.hide();
+          this._HomesService.hideLoader();
           this.toastr.error(response.msg);
         }
       });
     }
+
     this.loginForm.reset();
   }
 
@@ -71,5 +72,6 @@ export class LoginComponent implements OnInit {
   viewPassword() {
     this.visible = !this.visible;
     this.changeType = !this.changeType;
+
   }
 }

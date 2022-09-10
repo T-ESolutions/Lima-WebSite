@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { HomesService } from 'src/app/services/homes.service';
 
 @Component({
   selector: 'app-varify',
@@ -19,7 +20,7 @@ export class VarifyComponent implements OnInit {
     private _AuthService: AuthService,
     private _Router: Router,
     private toastr: ToastrService,
-    private spinner: NgxSpinnerService
+    private _HomesService:HomesService
   ) {}
 
   ngOnInit(): void {}
@@ -32,7 +33,7 @@ export class VarifyComponent implements OnInit {
   });
 
   submitVarifyForm(varifyForm: FormGroup) {
-    this.spinner.show();
+    this._HomesService.showLoader();
     this.otp = Number(
       `${varifyForm.value.otp1}${varifyForm.value.otp2}${varifyForm.value.otp3}${varifyForm.value.otp4}`
     );
@@ -45,14 +46,13 @@ export class VarifyComponent implements OnInit {
     this.data.password = this._AuthService.data.password;
     this._AuthService.varifyPhone(this.data).subscribe((response) => {
       if (response.status == 200) {
-        this.spinner.hide();
         this.toastr.success(response.msg);
         localStorage.setItem('token_api', response.data.token_api);
         this._AuthService.saveUserData();
         this._AuthService.subscriber = response.data.subscriber;
         this._Router.navigate(['/kids']);
       } else {
-        this.spinner.hide();
+        this._HomesService.hideLoader();
         this.toastr.error(response.msg);
       }
     });

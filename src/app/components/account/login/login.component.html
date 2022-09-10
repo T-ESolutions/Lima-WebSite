@@ -1,3 +1,6 @@
+<div class="loader">
+  <lottie-player src="../../../assets/animations/loader.json"  background="transparent" speed="1" loop  autoplay></lottie-player>
+</div>
 <div id="more-components">
   <div class="cloud7">
   </div>
@@ -53,7 +56,7 @@
               </div>
             <button [disabled]="loginForm.invalid" class="btn my-2" type="submit">{{"login" | translate}}</button>
             <div class="form-group bg-transparent text-center">
-              <p routerLink="/account/register" class="d-block m-auto">{{"register" | translate}}</p>
+              <p routerLink="/account/register" class="d-block m-auto fw-bold">{{"register" | translate}}</p>
             </div>
           </form>
         </div>

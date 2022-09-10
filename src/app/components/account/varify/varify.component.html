@@ -1,3 +1,6 @@
+<div class="loader">
+  <lottie-player src="../../../assets/animations/loader.json"  background="transparent" speed="1" loop  autoplay></lottie-player>
+</div>
 <div id="more-components">
   <div class="head-svg">
   </div>
@@ -27,7 +30,7 @@
         </div>
       </div>
     </div>
-    <div class="row ">
+    <div class="row">
       <div class="col-12 m-auto mt-2 pt-3  text-center">
         <h2 class="my-5">{{"varify-number" | translate}}</h2>
         <div class="form pb-5">
@@ -35,28 +38,28 @@
             <div class="group  my-5">
               <div class="row d-flex justify-content-between  w-100" dir="ltr">
                 <div class="col-3 p-3">
-                  <input type="text" class="w-100 " placeholder="*" maxlength="1" #txt1
+                  <input type="text" class="w-100 " maxlength="1" #txt1
                     (keyup)="move($event , '' , txt1 , txt2)" formControlName="otp1">
                 </div>
                 <div class="col-3 p-3">
-                  <input type="text" class="w-100 " placeholder="*" maxlength="1" #txt2
+                  <input type="text" class="w-100 " maxlength="1" #txt2
                     (keyup)="move($event , txt1 , txt2 , txt3)" formControlName="otp2">
                 </div>
                 <div class="col-3 p-3">
-                  <input type="text" class="w-100 " placeholder="*" maxlength="1" #txt3
+                  <input type="text" class="w-100 " maxlength="1" #txt3
                     (keyup)="move($event , txt2 , txt3 , txt4)" formControlName="otp3">
                 </div>
                 <div class="col-3 p-3">
-                  <input type="text" class="w-100 " placeholder="*" maxlength="1" #txt4
+                  <input type="text" class="w-100 " maxlength="1" #txt4
                     (keyup)="move($event , txt3 , txt4 , '')" formControlName="otp4">
                 </div>
               </div>
             </div>
-            <button class="btn" type="submit">{{"varify" | translate}}</button>
+            <button class="btn mb-4" type="submit">{{"varify" | translate}}</button>
           </form>
         </div>
         <div class="limaaa mt-5">
-          <img src="../../../../assets/images/limaaa.png" alt="">
+          <img src="../../../../assets/images/lima4.png" alt="">
         </div>
       </div>
     </div>

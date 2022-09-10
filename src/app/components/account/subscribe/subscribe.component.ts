@@ -6,6 +6,7 @@ import { TranslationService } from 'src/app/services/translation.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { HomesService } from 'src/app/services/homes.service';
 declare var $: any;
 
 @Component({
@@ -28,9 +29,10 @@ export class SubscribeComponent implements OnInit {
     private _SubscriptionsService: SubscriptionsService,
     private toastr: ToastrService,
     private _Router: Router,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private _HomesService:HomesService
   ) {
-    this.spinner.show();
+    this._HomesService.showLoader();
     if(localStorage.getItem("currentLanguage") == "ar"){
       this.checkDir=true;
     }else{
@@ -46,8 +48,9 @@ export class SubscribeComponent implements OnInit {
       if(response.status == 200){
         this.subscription_types = response.data.subscription_types;
         this.payment_methods = response.data.payment_methods.data;
-        this.spinner.hide()
+        this._HomesService.hideLoader();
       }else{
+        this._HomesService.hideLoader();
         this.toastr.error(response.ms);
       }
     })
@@ -60,12 +63,15 @@ export class SubscribeComponent implements OnInit {
 
 
   submitSubscriptionForm(subscriptionForm:any){
+
     this._SubscriptionsService.subscribe_type_id = subscriptionForm.controls.sub_type.value;
     this._SubscriptionsService.payment_method_id = subscriptionForm.controls.pay_type.value
-    this.getPaymentWay()
+    this.getPaymentWay();
+
   }
 
   getPaymentWay(){
+    this._HomesService.showLoader();
     this._SubscriptionsService.getPaymentData().subscribe((response) => {
       if(response.status == 200){
         if(this._SubscriptionsService.payment_method_id==3){
@@ -96,6 +102,7 @@ export class SubscribeComponent implements OnInit {
       }else{
         this.toastr.error(response.ms);
       }
+      this._HomesService.hideLoader();
     })
   }
 

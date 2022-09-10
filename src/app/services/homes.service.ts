@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 // import AuthService to be able to use baseUrl instead or repeet baseUrl
 import { AuthService } from './auth.service';
+declare var $: any;
 
 @Injectable({
   providedIn: 'root',
@@ -53,4 +54,13 @@ export class HomesService {
         post_id_data
       );
     }
+
+
+     // this function to show and hide loader
+     showLoader(){
+      $(".loader").css({"display":"flex","transition":"all 0.5s"})
+      }
+      hideLoader(){
+        $(".loader").css({"display":"none","transition":"all 0.5s"})
+      }
 }

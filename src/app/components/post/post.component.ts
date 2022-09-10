@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HomesService } from 'src/app/services/homes.service';
+import { Location } from '@angular/common';
 declare var $: any;
 
 @Component({
@@ -15,7 +16,7 @@ export class PostComponent implements OnInit {
   postId: number = 0;
   categoryType:any;
   post:any={};
-  constructor( private _Router: Router ,private _ActivatedRoute:ActivatedRoute, private _HomesService:HomesService,    private toastr: ToastrService) {
+  constructor( private _Router: Router ,private _ActivatedRoute:ActivatedRoute, private _HomesService:HomesService,    private toastr: ToastrService,private location: Location) {
     if(localStorage.getItem("currentLanguage") == "ar"){
       this.checkDir=true;
     }else{
@@ -30,7 +31,7 @@ export class PostComponent implements OnInit {
   }
 
   postDetails(){
-    this.showLoader();
+    
     this._HomesService.getPostDetails(this.postId).subscribe((response) => {
       if(response.status==200){
         this.post = response.data;
@@ -38,20 +39,10 @@ export class PostComponent implements OnInit {
         this.toastr.error(response.msg);
       }
     })
-    this.hideLoader();
   }
 
 
-  goBack(){
-    this._Router.navigate([`/kids`]);
+  goBack():void{
+    this.location.back()
   }
-
-
-   // this function to show and hide loader
-   showLoader(){
-    $(".loader").css({"display":"flex","transition":"all 0.5s"})
-    }
-    hideLoader(){
-      $(".loader").css({"display":"none","transition":"all 0.5s"})
-    }
 }

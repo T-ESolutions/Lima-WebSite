@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { HttpClient } from '@angular/common/http';
 import { HelpersService } from 'src/app/services/helpers.service';
+import { HomesService } from 'src/app/services/homes.service';
 
 @Component({
   selector: 'app-myinfo',
@@ -23,19 +24,23 @@ export class MyinfoComponent implements OnInit {
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,
     private http: HttpClient,
-    private _HelpersService: HelpersService
+    private _HelpersService: HelpersService,
+    private _HomesService:HomesService
   ) {
-    this.spinner.show();
+
+
     this.getUserData();
-    this.spinner.hide();
+
   }
 
   // this method to get data or user directly
   getUserData() {
+    this._HomesService.showLoader();
     this._AuthService.getProfileData().subscribe((response) => {
       this.profileForm.patchValue({ name: response.data.name });
       this.profileForm.patchValue({ phone: response.data.phone });
       this.profileForm.patchValue({ city_id: response.data.city_id });
+      this._HomesService.hideLoader();
     });
   }
 
@@ -54,20 +59,20 @@ export class MyinfoComponent implements OnInit {
   });
 
   submitProfileForm(profileForm: FormGroup) {
-    this.spinner.show();
+    this._HomesService.showLoader();
     // if user delete [disabled]="registerForm.invalid" from html inspect
     if (profileForm.invalid) {
-      this.spinner.hide();
+      this._HomesService.hideLoader();
       return;
     } else {
       this._AuthService
         .updateProfile(this.profileForm.value)
         .subscribe((response) => {
           if (response.status == 200) {
-            this.spinner.hide();
+            this._HomesService.hideLoader();
             this.toastr.success(response.msg);
           } else {
-            this.spinner.hide();
+            this._HomesService.hideLoader();
             this.toastr.error(response.msg);
           }
         });

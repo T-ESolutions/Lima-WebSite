@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { NgxSpinnerService } from 'ngx-spinner';
+import { HomesService } from 'src/app/services/homes.service';
 
 @Component({
   selector: 'app-varifypassword',
@@ -20,7 +20,7 @@ export class VarifypasswordComponent implements OnInit {
     private _AuthService: AuthService,
     private _Router: Router,
     private toastr: ToastrService,
-    private spinner: NgxSpinnerService
+    private _HomesService:HomesService
   ) {}
 
   ngOnInit(): void {
@@ -34,7 +34,7 @@ export class VarifypasswordComponent implements OnInit {
   });
 
   submitVarifyForm(varifyForm: FormGroup) {
-    this.spinner.show();
+    this._HomesService.showLoader();
     this.code = Number(
       `${varifyForm.value.code1}${varifyForm.value.code2}${varifyForm.value.code3}${varifyForm.value.code4}`
     );
@@ -42,11 +42,10 @@ export class VarifypasswordComponent implements OnInit {
     this.varify(this.code);
     this._AuthService.confirmCode(this.data).subscribe((response) => {
       if (response.status == 200) {
-        this.spinner.hide();
         this.toastr.success(response.msg);
         this._Router.navigate(['/account/newpassword']);
       } else {
-        this.spinner.hide();
+        this._HomesService.hideLoader();
         this.toastr.error(response.msg);
       }
     });

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomesService } from 'src/app/services/homes.service';
 import { PagesService } from 'src/app/services/pages.service';
 declare var $: any;
 @Component({
@@ -8,27 +9,20 @@ declare var $: any;
 })
 export class IdeaComponent implements OnInit {
   aboutUs: any = [];
-  constructor(private _PagesService: PagesService) {
+  constructor(private _PagesService: PagesService,private _HomesService:HomesService) {
     this.getAboutUsData()
   }
 
   ngOnInit(): void {}
 
   getAboutUsData() {
-    this.showLoader()
+    this._HomesService.showLoader()
     // to get about 80 fekra text
     this._PagesService.getAboutUs().subscribe((response) => {
       this.aboutUs = response.data;
-      this.hideLoader();
+      this._HomesService.hideLoader();
     });
 
   }
 
-    // this function to show and hide loader
-    showLoader(){
-      $(".loader").css({"display":"flex","transition":"all 0.5s"})
-      }
-      hideLoader(){
-        $(".loader").css({"display":"none","transition":"all 0.5s"})
-      }
 }

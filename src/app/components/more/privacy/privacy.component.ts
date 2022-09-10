@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomesService } from 'src/app/services/homes.service';
 import { PagesService } from 'src/app/services/pages.service';
 declare var $: any;
 
@@ -9,28 +10,19 @@ declare var $: any;
 })
 export class PrivacyComponent implements OnInit {
   Privacy: any = [];
-  constructor(private _PagesService: PagesService) {
+  constructor(private _PagesService: PagesService,private _HomesService:HomesService) {
     this.getPrivacyData();
   }
 
   ngOnInit(): void {}
 
   getPrivacyData() {
-    this.showLoader();
+    this._HomesService.showLoader();
     // to get text of privacy
     this._PagesService.getPrivacy().subscribe((response) => {
       this.Privacy = response.data;
-      this.hideLoader();
+      this._HomesService.hideLoader();
     });
 
   }
-
-
-  // this function to show and hide loader
-  showLoader(){
-    $(".loader").css({"display":"flex","transition":"all 0.5s"})
-    }
-    hideLoader(){
-      $(".loader").css({"display":"none","transition":"all 0.5s"})
-    }
 }

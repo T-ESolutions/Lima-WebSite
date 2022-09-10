@@ -34,7 +34,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'kids', pathMatch: 'full' },
   { path: 'kids', component: KidsComponent },
   { path: 'moms', component: MomsComponent },
-  {path: "posts/:categoryId/:categoryType/:sourceRoute" , component: PostsComponent},
+  {path: "posts/:categoryId/:categoryType" , component: PostsComponent},
   { path: 'posts/:categoryId/:categoryType/post/:postId', component: PostComponent },
   { path: 'account', component: AccountComponent },
   { path: 'more', component: MoreComponent },

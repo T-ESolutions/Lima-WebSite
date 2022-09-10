@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { HelpersService } from 'src/app/services/helpers.service';
+import { HomesService } from 'src/app/services/homes.service';
 
 @Component({
   selector: 'app-register',
@@ -20,7 +21,7 @@ export class RegisterComponent implements OnInit {
     private _AuthService: AuthService,
     private _Router: Router,
     private toastr: ToastrService,
-    private spinner: NgxSpinnerService,
+    private _HomesService:HomesService,
     private _HelpersService: HelpersService
   ) {
   }
@@ -48,25 +49,24 @@ export class RegisterComponent implements OnInit {
   });
 
   submitRegisterForm(registerForm: FormGroup) {
-    this.spinner.show();
+    this._HomesService.showLoader();
     // if user delete [disabled]="registerForm.invalid" from html inspect
     if (registerForm.invalid) {
-      this.spinner.hide();
+      
       return;
     } else {
       this._AuthService
         .signUp(this.registerForm.value)
         .subscribe((response) => {
           if (response.status == 200) {
-            this.spinner.hide();
             this.toastr.success(response.msg);
             this._AuthService.data = this.registerForm.value;
             this._Router.navigate(['/account/varify']);
           } else if (response.status == 401) {
-            this.spinner.hide();
+            this._HomesService.hideLoader();
             this.toastr.error(response.msg);
           } else {
-            this.spinner.hide();
+            this._HomesService.hideLoader();
             this.toastr.error(response.msg);
           }
         });

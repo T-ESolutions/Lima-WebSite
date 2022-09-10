@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { FavoritesService } from 'src/app/services/favorites.service';
 import { AuthService } from '../../services/auth.service';
 import { HomesService } from '../../services/homes.service';
+import { Location } from '@angular/common';
 declare var $: any;
 
 @Component({
@@ -17,14 +18,17 @@ export class PostsComponent implements OnInit {
   checkDir:boolean=true;
   categoryId:number=0;
   categoryType:any="";
-  sourceRoute:any="";
+  //sourceRoute:any="";
   subCategories:any;
   posts:any=[];
-  liked:boolean=false
-  constructor(private _HomesService:HomesService, private toastr: ToastrService, private _Router: Router, private spinner: NgxSpinnerService, private _ActivatedRoute:ActivatedRoute,private _AuthService: AuthService,private _FavoritesService:FavoritesService ) {
+  liked:boolean=false;
+  // for test something
+  title:string="mohamed hadaey ahmed";
+  // for test something
+  constructor(private _HomesService:HomesService, private toastr: ToastrService, private _Router: Router, private spinner: NgxSpinnerService, private _ActivatedRoute:ActivatedRoute,private _AuthService: AuthService,private _FavoritesService:FavoritesService , private location: Location) {
     this.categoryId = this._ActivatedRoute.snapshot.params?.['categoryId'];
     this.categoryType = this._ActivatedRoute.snapshot.params?.['categoryType'];
-    this.sourceRoute = this._ActivatedRoute.snapshot.params?.['sourceRoute'];
+    //this.sourceRoute = this._ActivatedRoute.snapshot.params?.['sourceRoute'];
     if(localStorage.getItem("currentLanguage") == "ar"){
       this.checkDir=true;
     }else{
@@ -36,18 +40,10 @@ export class PostsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // this function to show and hide loader
-  showLoader(){
-    $(".loader").css({"display":"flex","transition":"all 0.5s"})
-  }
-  hideLoader(){
-    $(".loader").css({"display":"none","transition":"all 0.5s"})
-  }
-
 
   //to get posts data
   getPostsData(){
-    this.showLoader();
+    this._HomesService.showLoader();
     if(this.categoryType=="article"){
       this._HomesService.getPosts(this.categoryId).subscribe((response) => {
         if(response.status == 200){
@@ -55,7 +51,7 @@ export class PostsComponent implements OnInit {
         }else{
           this.toastr.error(response.msg);
         }
-        this.hideLoader();
+        this._HomesService.hideLoader();
       })
     }else if(this.categoryType=="video"){
       this._HomesService.getPosts(this.categoryId).subscribe((response) => {
@@ -64,7 +60,7 @@ export class PostsComponent implements OnInit {
         }else{
           this.toastr.error(response.msg);
         }
-        this.hideLoader();
+        this._HomesService.hideLoader();
       })
     }
     ;
@@ -72,14 +68,14 @@ export class PostsComponent implements OnInit {
 
 
   getTeacherPosts(id:any){
-    this.showLoader();
+    this._HomesService.showLoader();
     this._HomesService.getPosts(id).subscribe((response) => {
       if(response.status == 200){
         this.posts = response.data.data;
       }else{
         this.toastr.error(response.msg);
       }
-      this.hideLoader()
+      this._HomesService.hideLoader()
     })
   }
 
@@ -96,6 +92,9 @@ export class PostsComponent implements OnInit {
   subNow(){
     $(".modals").hide();
     $(".sub-modal").hide(300);
+    if(this._AuthService.subscriber == 0){
+      this._Router.navigate(["/account/login"]);
+    }else if(this._AuthService.subscriber == 1)
     this._Router.navigate(["/account/subscribe"]);
   }
 
@@ -117,8 +116,8 @@ export class PostsComponent implements OnInit {
     $(".modals").hide();
   }
 
-  goBack(){
-    this._Router.navigate([`/${this.sourceRoute}`]);
+  goBack():void{
+    this.location.back()
   }
 
   post_is_data:any={post_id:5}

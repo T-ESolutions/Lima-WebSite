@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomesService } from 'src/app/services/homes.service';
 import { PagesService } from 'src/app/services/pages.service';
 declare var $: any;
 
@@ -9,26 +10,18 @@ declare var $: any;
 })
 export class TermsComponent implements OnInit {
   Terms: any = [];
-  constructor(private _PagesService: PagesService) {
+  constructor(private _PagesService: PagesService,private _HomesService:HomesService) {
     this.getTermsData();
   }
 
   ngOnInit(): void {}
 
   getTermsData() {
-    this.showLoader();
+    this._HomesService.showLoader();
     // to get text of terms
     this._PagesService.getTerms().subscribe((response) => {
       this.Terms = response.data;
-      this.hideLoader();
+      this._HomesService.hideLoader();
     });
   }
-
-    // this function to show and hide loader
-    showLoader(){
-      $(".loader").css({"display":"flex","transition":"all 0.5s"})
-      }
-      hideLoader(){
-        $(".loader").css({"display":"none","transition":"all 0.5s"})
-      }
 }

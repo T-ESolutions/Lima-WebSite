@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomesService } from 'src/app/services/homes.service';
 import { PagesService } from 'src/app/services/pages.service';
 declare var $: any;
 @Component({
@@ -8,26 +9,18 @@ declare var $: any;
 })
 export class ApplicationComponent implements OnInit {
   aboutApp: any = [];
-  constructor(private _PagesService: PagesService) {
+  constructor(private _PagesService: PagesService,private _HomesService:HomesService) {
     this.getAboutAppData()
   }
 
   ngOnInit(): void {}
 
   getAboutAppData() {
-    this.showLoader();
+    this._HomesService.showLoader();
     // to get about application text
     this._PagesService.getAboutApp().subscribe((response) => {
       this.aboutApp = response.data;
-      this.hideLoader();
+      this._HomesService.hideLoader();
     });
   }
-
-    // this function to show and hide loader
-    showLoader(){
-      $(".loader").css({"display":"flex","transition":"all 0.5s"})
-      }
-      hideLoader(){
-        $(".loader").css({"display":"none","transition":"all 0.5s"})
-      }
 }

@@ -79,7 +79,8 @@ import { LikePipe } from './pipes/like.pipe';
     VarifypasswordComponent,
     NewpasswordComponent,
     VideoPipe,
-    LikePipe,
+    LikePipe
+  
   ],
   imports: [
     BrowserModule,
