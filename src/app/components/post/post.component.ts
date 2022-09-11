@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HomesService } from 'src/app/services/homes.service';
+
 import { Location } from '@angular/common';
+import { NgxSpinnerService } from 'ngx-spinner';
 declare var $: any;
 
 @Component({
@@ -11,12 +13,11 @@ declare var $: any;
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
-  text:any="<h2 style='color:red'>mohamed hadaey ahmed abd elwahab </h2>"
   checkDir:boolean=true;
   postId: number = 0;
   categoryType:any;
   post:any={};
-  constructor( private _Router: Router ,private _ActivatedRoute:ActivatedRoute, private _HomesService:HomesService,    private toastr: ToastrService,private location: Location) {
+  constructor(private spinner: NgxSpinnerService, private _Router: Router ,private _ActivatedRoute:ActivatedRoute, private _HomesService:HomesService,    private toastr: ToastrService,private location: Location) {
     if(localStorage.getItem("currentLanguage") == "ar"){
       this.checkDir=true;
     }else{
@@ -25,13 +26,18 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // this.spinner.show();
+    // const timer: ReturnType<typeof setTimeout> = setTimeout(() => {
+    // this.spinner.hide()
+    // }, 1000);
     this.postId = this._ActivatedRoute.snapshot.params?.['postId'];
     this.categoryType = this._ActivatedRoute.snapshot.params?.['categoryType'];
     this.postDetails();
+    
   }
 
   postDetails(){
-    
+   
     this._HomesService.getPostDetails(this.postId).subscribe((response) => {
       if(response.status==200){
         this.post = response.data;
@@ -39,10 +45,17 @@ export class PostComponent implements OnInit {
         this.toastr.error(response.msg);
       }
     })
+    
   }
 
 
   goBack():void{
-    this.location.back()
+    if(this.categoryType=="article"){
+      this.location.back();
+    }else{
+      this.location.back();
+      this.location.back();
+    }
+    
   }
 }

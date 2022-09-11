@@ -43,7 +43,7 @@ import { ForgetpassComponent } from './components/account/forgetpass/forgetpass.
 import { VarifypasswordComponent } from './components/account/varifypassword/varifypassword.component';
 import { NewpasswordComponent } from './components/account/newpassword/newpassword.component';
 import { VideoPipe } from './pipes/video.pipe';
-import { LikePipe } from './pipes/like.pipe';
+
 // import "@lottiefiles/lottie-player";
 // for all requests
 // import { MyIntercetor }from ;
@@ -78,8 +78,7 @@ import { LikePipe } from './pipes/like.pipe';
     ForgetpassComponent,
     VarifypasswordComponent,
     NewpasswordComponent,
-    VideoPipe,
-    LikePipe
+    VideoPipe
   
   ],
   imports: [

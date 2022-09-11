@@ -18,17 +18,13 @@ export class PostsComponent implements OnInit {
   checkDir:boolean=true;
   categoryId:number=0;
   categoryType:any="";
-  //sourceRoute:any="";
   subCategories:any;
   posts:any=[];
-  liked:boolean=false;
-  // for test something
-  title:string="mohamed hadaey ahmed";
-  // for test something
+  post_id_data:any={post_id:5};
+  category_shown:any;
   constructor(private _HomesService:HomesService, private toastr: ToastrService, private _Router: Router, private spinner: NgxSpinnerService, private _ActivatedRoute:ActivatedRoute,private _AuthService: AuthService,private _FavoritesService:FavoritesService , private location: Location) {
     this.categoryId = this._ActivatedRoute.snapshot.params?.['categoryId'];
     this.categoryType = this._ActivatedRoute.snapshot.params?.['categoryType'];
-    //this.sourceRoute = this._ActivatedRoute.snapshot.params?.['sourceRoute'];
     if(localStorage.getItem("currentLanguage") == "ar"){
       this.checkDir=true;
     }else{
@@ -57,6 +53,7 @@ export class PostsComponent implements OnInit {
       this._HomesService.getPosts(this.categoryId).subscribe((response) => {
         if(response.status == 200){
           this.posts = response.data.data;
+          this.category_shown=this.categoryId;
         }else{
           this.toastr.error(response.msg);
         }
@@ -72,6 +69,8 @@ export class PostsComponent implements OnInit {
     this._HomesService.getPosts(id).subscribe((response) => {
       if(response.status == 200){
         this.posts = response.data.data;
+        // console.log(this.posts);
+        this.category_shown=id
       }else{
         this.toastr.error(response.msg);
       }
@@ -92,10 +91,11 @@ export class PostsComponent implements OnInit {
   subNow(){
     $(".modals").hide();
     $(".sub-modal").hide(300);
-    if(this._AuthService.subscriber == 0){
+    if(localStorage.getItem("token_api")!=null){
+      this._Router.navigate(["/account/subscribe"]);
+    }else{
       this._Router.navigate(["/account/login"]);
-    }else if(this._AuthService.subscriber == 1)
-    this._Router.navigate(["/account/subscribe"]);
+    }
   }
 
   // to get subcategories
@@ -120,7 +120,7 @@ export class PostsComponent implements OnInit {
     this.location.back()
   }
 
-  post_is_data:any={post_id:5}
+
   makeLove(id:any,free:any){
     if(this._AuthService.subscriber == 0){
       $(".modals").show();
@@ -130,8 +130,8 @@ export class PostsComponent implements OnInit {
         $(".modals").show();
         $(".sub-modal").show(300);
       }else if(free==1){
-        this.post_is_data.post_id=id
-        this._FavoritesService.addFavourite(this.post_is_data).subscribe((response) => {
+        this.post_id_data.post_id=id
+        this._FavoritesService.addFavourite(this.post_id_data).subscribe((response) => {
           if(response.status == 200){
             this.toastr.success(response.msg);
           }
@@ -141,49 +141,37 @@ export class PostsComponent implements OnInit {
 
   }
 
+
   makeLike(id:any,free:any){
-
-    this.post_is_data.post_id=id
-    this._HomesService.addLike(this.post_is_data).subscribe((response) => {
-      if(response.status == 200){
-
-        this.toastr.success(response.msg);
-
-
-        // this._HomesService.getPostDetails(id).subscribe((response) => {
-        //   if(response.status==200){
-        //     // this.post = response.data;
-        //     console.log(response.data.likes);
-        //     console.log(this.posts.id)
-        //     // this.posts[id].likes = response.data.likes
-        //   }else{
-        //     this.toastr.error(response.msg);
-        //   }
-        // })
-
-
-        console.log(response)
-
-      }
-    })
-
-
-
-    // if(this._AuthService.subscriber == 0){
-    //   $(".modals").show();
-    //   $(".sub-modal").show(300);
-    // }else{
-    //   if(free==0){
-    //     $(".modals").show();
-    //     $(".sub-modal").show(300);
-    //   }else if(free==1){
-    //     this.post_is_data.post_id=id
-    //     this._HomesService.addLike(this.post_is_data).subscribe((response) => {
-    //       if(response.status == 200){
-    //         this.toastr.success(response.msg);
-    //       }
-    //     })
-    //   }
-    // }
+    if(this._AuthService.subscriber == 0){
+      $(".modals").show();
+      $(".sub-modal").show(300);
+    }else{
+      
+          this.post_id_data.post_id=id
+          this._HomesService.addLike(this.post_id_data).subscribe((response) => {
+            if(response.status == 200){
+              this.toastr.success(response.msg);
+              if(this.category_shown==7){
+                this._HomesService.getPosts(this.category_shown).subscribe((response) => {
+                  if(response.status == 200){
+                    this.posts = response.data.data;
+                  }
+                })
+              }else{
+                this._HomesService.getPosts(this.category_shown).subscribe((response) => {
+                  if(response.status == 200){
+                    this.posts = response.data.data;
+                  }else{
+                    this.toastr.error(response.msg);
+                  }
+                  
+                })
+              }
+            
+            }
+          })
+    }
   }
+
 }
