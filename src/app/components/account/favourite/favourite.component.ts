@@ -36,11 +36,7 @@ export class FavouriteComponent implements OnInit {
 
 
   post_is_data:any={post_id:5}
-  makeLove(id:any,free:any){
-    if(free==0){
-      $(".modals").show();
-      $(".sub-modal").show(300);
-    }else if(free==1){
+  makeLove(id:any){
       this.post_is_data.post_id=id
       this._FavoritesService.addFavourite(this.post_is_data).subscribe((response) => {
         if(response.status == 200){
@@ -48,9 +44,5 @@ export class FavouriteComponent implements OnInit {
           this.showFavourites()
         }
       })
-    }
   }
-
-
- 
 }

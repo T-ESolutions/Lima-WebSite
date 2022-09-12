@@ -24,7 +24,7 @@ export class MomsComponent implements OnInit {
     this._HomesService.getMomsCategories().subscribe((response) => {
       if(response.status == 200){
         this.momsCategories = response.data.categories;
-        this._AuthService.subscriber = response.data.subscriber;
+        localStorage.setItem("subscriber",response.data.subscriber);
       }else{
         this.toastr.error(response.msg, 'Failed!');
       }

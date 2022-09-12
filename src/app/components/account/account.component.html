@@ -19,7 +19,7 @@
             <li *ngIf="isLogin"><a routerLink="favourite"><span><i class="fa-solid fa-heart text-info"></i></span>
                 <p>{{"favorite" | translate}}</p>
               </a></li>
-            <li *ngIf="isLogin && subscriber"><a routerLink="subscribe"><span><i
+            <li *ngIf="isLogin && subscriber==0"><a routerLink="subscribe"><span><i
                     class="fa-solid fa-right-to-bracket text-info"></i></span>
                 <p>{{"subscribe now" | translate}}</p>
               </a></li>

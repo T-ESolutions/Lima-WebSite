@@ -54,6 +54,8 @@ export class PostsComponent implements OnInit {
         if(response.status == 200){
           this.posts = response.data.data;
           this.category_shown=this.categoryId;
+          console.log(this.posts);
+
         }else{
           this.toastr.error(response.msg);
         }
@@ -88,6 +90,11 @@ export class PostsComponent implements OnInit {
     }
   }
 
+  openLock(){
+    $(".modals").show();
+    $(".sub-modal").show(300);
+  }
+
   subNow(){
     $(".modals").hide();
     $(".sub-modal").hide(300);
@@ -119,24 +126,36 @@ export class PostsComponent implements OnInit {
   goBack():void{
     this.location.back()
   }
-
+  // localStorage.setItem("subscriber",response.data.subscriber);
 
   makeLove(id:any,free:any){
     if(this._AuthService.subscriber == 0){
       $(".modals").show();
       $(".sub-modal").show(300);
     }else{
-      if(free==0){
-        $(".modals").show();
-        $(".sub-modal").show(300);
-      }else if(free==1){
-        this.post_id_data.post_id=id
-        this._FavoritesService.addFavourite(this.post_id_data).subscribe((response) => {
-          if(response.status == 200){
-            this.toastr.success(response.msg);
-          }
-        })
-      }
+          this.post_id_data.post_id=id
+          this._FavoritesService.addFavourite(this.post_id_data).subscribe((response) => {
+            if(response.status == 200){
+              this.toastr.success(response.msg);
+              if(this.category_shown==7){
+                this._HomesService.getPosts(this.category_shown).subscribe((response) => {
+                  if(response.status == 200){
+                    this.posts = response.data.data;
+                  }
+                })
+              }else{
+                this._HomesService.getPosts(this.category_shown).subscribe((response) => {
+                  if(response.status == 200){
+                    this.posts = response.data.data;
+                  }else{
+                    this.toastr.error(response.msg);
+                  }
+                  
+                })
+              }
+            
+            }
+          })
     }
 
   }

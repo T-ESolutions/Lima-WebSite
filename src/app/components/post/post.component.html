@@ -28,11 +28,21 @@
       </div>
   </div>
 
-  <div class="row px-2 py-5 d-flex justify-content-center align-items-center" *ngIf="categoryType == 'video'">
-      <div class="video">
-        <iframe class="responsive-iframe" [src]="post.video | video"></iframe>
-      </div>
+  <!-- <div class="row py-3 vh-100" *ngIf="categoryType == 'video'">
+      <iframe class="bg-transparent" width="100%" height="100%" allowfullscreen="1"
+      mozallowfullscreen
+      msallowfullscreen
+      oallowfullscreen
+      webkitallowfullscreen scrolling="auto" [src]="post.video | video"></iframe>
+</div> -->
+<div class="row main-iframe" *ngIf="categoryType == 'video'">
+  <iframe class="responsive-iframe"  allowfullscreen="1"
+  mozallowfullscreen
+  msallowfullscreen
+  oallowfullscreen
+  webkitallowfullscreen scrolling="auto" [src]="post.video | video"></iframe>
 </div>
+
 </div>
 
 

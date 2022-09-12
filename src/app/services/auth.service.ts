@@ -18,7 +18,7 @@ export class AuthService {
   // use this value (phoneChangePass) if you forget your password
   phoneChangePass: any;
   // use this value to get subscriber value
-  subscriber:any=0;
+  subscriber:any=localStorage.getItem("subscriber");
   constructor(private http: HttpClient) {
     // to keep user logged in while making refresh
     if (localStorage.getItem('token_api') != null) {

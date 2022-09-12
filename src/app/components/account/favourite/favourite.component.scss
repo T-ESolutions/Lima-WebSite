@@ -10,52 +10,85 @@
   background-repeat: no-repeat;
 }
 
-.video-card {
-  position: relative;
-}
-
-.play-icon-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.play-icon-box:hover {
-  cursor: pointer;
-}
 
 
 .item-image img{
   position: relative;
 }
 
-.lock,.love{
+.lock,.unloved{
   position: absolute;
   width: 20px;
   height: 20px;
   background-color: rgb(136, 136, 136,0.6);
   border-radius: 10px;
   top: 5%;
-
   background-position: center;
   background-repeat: no-repeat;
   padding: 20px;
   background-size: 70% 70%;
 }
-.lock:hover,.love:hover{
+.unloved:hover,.loved:hover{
   cursor: pointer;
 }
 
-.lock{
-  background-image: url("../../../../assets/images/lock-svgrepo-com.svg");
-  left: 5%;
+.loved{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(136, 136, 136,0.6);
+  border-radius: 10px;
+  top: 5%;
+  padding: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img{
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+  }
 }
 
-.love{
-  background-image: url("../../../../assets/images/favorite-star-svgrepo-com.svg");
-  right: 5%;
+
+
+
+.item {
+  border-radius: 20px;
+  overflow: hidden;
+  .poster {
+    position: relative;
+    height: 200px;
+    border-radius: 20px;
+    overflow: hidden;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+    .play-icon{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 70px;
+      height: 70px;
+      transform: translate(-50% , -50%);
+      .lottie-icon{
+        lottie-player:hover{
+          cursor: pointer;
+        }
+
+      }
+    }
+  }
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -90,3 +123,60 @@
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .lock,.unloved{
+//   position: absolute;
+//   width: 20px;
+//   height: 20px;
+//   background-color: rgb(136, 136, 136,0.6);
+//   border-radius: 10px;
+//   top: 5%;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   padding: 20px;
+//   background-size: 70% 70%;
+// }
+// .lock:hover,.unloved:hover,.loved:hover{
+//   cursor: pointer;
+// }
+
+// .lock{
+//   background-image: url("../../../assets/images/lock-svgrepo-com.svg");
+//   margin-left: 100px;
+// }
+
+// .unloved{
+//   background-image: url("../../../assets/images/favorite-star-svgrepo-com.svg");
+// }
+
+// .loved{
+//   position: absolute;
+//   width: 40px;
+//   height: 40px;
+//   background-color: rgb(136, 136, 136,0.6);
+//   border-radius: 10px;
+//   top: 5%;
+//   padding: 7px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   img{
+//     border-radius: 50%;
+//     width: 100%;
+//     height: 100%;
+//   }
+// }

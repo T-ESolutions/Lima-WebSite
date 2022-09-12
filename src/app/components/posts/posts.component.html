@@ -63,23 +63,21 @@
           <div class="poster">
             <img [src]="post.image" alt="">
             <div class="play-icon ">
-              <!-- <iframe width="100%" height="100%" src="https://assets10.lottiefiles.com/temp_editor_files/lf30_editor_wmhclgej.json"></iframe> -->
               <div class="lottie-icon w-100 h-100" >
                 <lottie-player class="w-100 h-100" src="https://assets10.lottiefiles.com/temp_editor_files/lf30_editor_wmhclgej.json"  background="transparent" speed="1" loop  autoplay (click)="showPost(post.id,post.free)"></lottie-player>
               </div>
-              <!-- <img src="../../assets/images/play-svgrepo-com.svg" alt=""
-              (click)="showPost(post.id,post.free)"> -->
             </div>
-            <div class="lock" *ngIf="post.free==0">
+            <div class="lock" (click)="openLock()" [style.right]="checkDir?'80%':'5%'" *ngIf="post.free==0">
             </div>
-            <div class="love" *ngIf="post.free==1" (click)="makeLove(post.id,post.free)">
+            <div class="unloved" [style.left]="checkDir?'80%':'5%'"  *ngIf="post.free==1 && !post.fav" (click)="makeLove(post.id,post.free)">
+            </div>
+            <div class="loved" [style.left]="checkDir?'80%':'5%'"  *ngIf="post.free==1 && post.fav" (click)="makeLove(post.id,post.free)">
+              <img src="../../../assets/images/loved.jpeg" alt="loved-icon">
             </div>
           </div>
           <div class="caption">
             <div [innerHTML]="post.name" class="mt-2 text-dark fw-bold"></div>
-
            <ul [style.direction]="checkDir?'ltr':'rtl'" class="d-flex list-unstyled ">
-
             <li class="mx-2" (click)="makeLike(post.id,post.free)">
               <span *ngIf="!post.is_liked">
                 <i class="fa-regular fa-thumbs-up" [style.transform]="checkDir?'rotatey(180deg)':'rotatey(360deg)'"></i>

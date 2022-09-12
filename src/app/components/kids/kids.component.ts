@@ -26,7 +26,7 @@ export class KidsComponent implements OnInit {
     this._HomesService.getKidsCategories().subscribe((response) => {
       if(response.status == 200){
         this.kidsCategories = response.data.categories;
-        this._AuthService.subscriber = response.data.subscriber;
+        localStorage.setItem("subscriber",response.data.subscriber);
       }else{
         this.toastr.error(response.msg, 'Failed!');
       }
