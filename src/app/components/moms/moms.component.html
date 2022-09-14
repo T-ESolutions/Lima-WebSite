@@ -7,7 +7,7 @@
           </h1>
         </div>
         <div class="col-8 d-flex justify-content-end align-items-end p-0">
-          <img src="../../assets/images/Group 8286@2x.png" alt="lima&zola">
+          <img src="../../assets/images/characters/Group 8286@2x.png" alt="lima&zola">
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
       <div class="col-6 text-center p-0" *ngFor="let category of momsCategories">
         <div class="copmonent p-0  m-0">
           <a><img [src]="category.image" class="story-img" [alt]="category.name"
-              onerror="this.onerror=null;this.src='../../../assets/images/contact-icons/80fekra.png'"
+              onerror="this.onerror=null;this.src='../../../assets/images/logo/80fekra.png'"
               [routerLink]="['/posts', category.id, category.type]"></a>
           <p>{{category.name}}</p>
         </div>

@@ -23,6 +23,7 @@ export class VarifyComponent implements OnInit {
     private _HomesService:HomesService
   ) {}
 
+  // ,Validators.pattern(/[0-9]/)
   ngOnInit(): void {}
 
   varifyForm: FormGroup = new FormGroup({

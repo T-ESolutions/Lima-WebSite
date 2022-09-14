@@ -74,5 +74,8 @@
   "forget-pass-header" : "Forget your password?",
   "forget-pass-msg" : "Enter the phone number you will receive code",
   "send-code-btn" : "Send",
-  "login-remember-msg" : "Forget password ?"
+  "login-remember-msg" : "Forget password ?",
+  "moms-category-popup-msg" : "This section is for children and mothers only",
+  "moms-popup-cont": "Continue",
+  "moms-popup-back" : "Back"
 }

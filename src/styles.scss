@@ -476,10 +476,24 @@ lottie-player {
         font-weight: 600;
         color: #000;
       }
+      .heading{
+        flex-direction: column;
+        .col-10{
+          order: 2;
+        }
+        .col-2{
+          // background-color: green;
+          // direction: left;
+          width: 100%;
+          justify-content: flex-end !important;
+          padding: 5px 20px;
+          order: 1;
+        }
+      }
 
       .advice-msgs img {
-        width: 60px !important;
-        height: 60px !important;
+        width: 60px ;
+        height: 60px ;
         border-radius: 50%;
         margin: 10px;
 
@@ -500,6 +514,173 @@ lottie-player {
     align-items: center;
   }
 }
+
+
+/* start posts component styles */
+.item {
+  border-radius: 20px;
+  overflow: hidden;
+
+  // styles incase of article
+  .item-image img{
+    position: relative;
+  }
+
+  // styles in case of video
+  .poster {
+    position: relative;
+    height: 200px;
+    border-radius: 20px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 70px;
+      height: 70px;
+      transform: translate(-50%, -50%);
+
+      .lottie-icon {
+        lottie-player:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    // fixed icons above any poster
+    .lock,
+    .unloved,
+    .loved {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: rgb(136, 136, 136, 0.6);
+      border-radius: 10px;
+      top: 5%;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 20px;
+      background-size: 70% 70%;
+    }
+
+    .lock:hover,
+    .unloved:hover,
+    .loved:hover {
+      cursor: pointer;
+    }
+
+    .lock {
+      background-image: url("assets/images/icons/lock-svgrepo-com.svg");
+      margin-left: 100px;
+    }
+
+    .unloved {
+      background-image: url("assets/images/icons/favorite-unloved.svg");
+    }
+
+    .loved {
+      background-image: url("assets/images/icons/favorite-loved.svg")
+    }
+  }
+}
+
+// modals styles in posts component
+
+.modals {
+  display: none;
+
+  .sub-layer {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .sub-modal {
+      display: none;
+      max-width: 450px;
+      height: 450px;
+      text-align: center;
+      background-image: url("assets/images/shapes/postSvg.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100% 100%;
+      position: relative;
+
+      img {
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        width: 200px;
+        height: 200px;
+        transform: translatex(-50%) rotate(45deg);
+      }
+
+      p {
+        color: #000;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 30px 10px;
+      }
+
+      button {
+        border: none;
+        border-radius: 20px;
+        padding: 5px 20px;
+      }
+
+      button:hover {
+        cursor: pointer;
+        box-shadow: 0px 3px 3px #555;
+      }
+    }
+  }
+
+  #closeBtn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+  }
+}
+/* end posts component styles */
+
+/* start post styles */
+.post-image img {
+  max-width: 300px;
+  border-radius: 20px;
+}
+
+.main-iframe {
+  position: relative;
+  overflow: hidden;
+  height: 75vh !important;
+  width: 100%;
+  padding-top: 56.25%;
+  /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+/* end post styles */
 
 /* start media queres  */
 
@@ -542,16 +723,25 @@ lottie-player {
   #more-components {
     .container {
       .row .col-12 {
+        .heading{
+          .col-10{
+            width: 100% !important;
+          }
+        }
         .advice-msgs {
           li {
             padding: 3px !important;
             img {
               border-radius: 50%;
               margin: 10px 5px;
+              width: 40px;
+              height: 40px;
             }
 
             p {
               font-size: 14px;
+
+
             }
           }
         }
@@ -561,8 +751,28 @@ lottie-player {
   lottie-player {
     width: 200px;
   }
-}
 
+    // modals styles in small screen
+    .sub-modal {
+      max-width: 400px;
+      height: 400px;
+
+      img {
+        top: -10px;
+        left: 50%;
+        width: 150px;
+        height: 150px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      button {
+        padding: 5px 10px;
+      }
+    }
+    }
 /* end small screen */
 /* start medium screen */
 @media screen and (min-width:577px) and (max-width:768px) {

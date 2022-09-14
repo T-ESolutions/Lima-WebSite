@@ -74,5 +74,8 @@
   "forget-pass-header" : "نسيت كلمة المرور؟",
   "forget-pass-msg" : "أدخل رقم هاتفك, تستطيع تلقي كود التأكيد عليه",
   "send-code-btn" : "إرسال",
-  "login-remember-msg" : "نسيت كلمة المرور ؟"
+  "login-remember-msg" : "نسيت كلمة المرور ؟",
+  "moms-category-popup-msg" : "هذا القسم للأطفال والأمهات فقط",
+  "moms-popup-cont": "استمرار",
+  "moms-popup-back" : "رجوع"
 }

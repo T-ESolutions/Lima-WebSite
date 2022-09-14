@@ -33,4 +33,24 @@ export class KidsComponent implements OnInit {
     })
   }
 
+  getCategory(id:any,type:any){
+    if(id==4){
+      $(".modals").show();
+      $(".sub-modal").show(300);
+    }else{
+      this._Router.navigate(["/posts",id,type])
+    }
+  }
+
+
+   // to close modal
+   closeModal(){
+    $(".sub-modal").hide(300);
+    $(".modals").hide();
+  }
+
+  continueBrowsing(){
+    this.closeModal();
+    this._Router.navigate(["/posts",8,"video"])
+  }
 }

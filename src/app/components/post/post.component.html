@@ -1,4 +1,3 @@
-<ngx-spinner bdColor = "rgba(0, 0, 0, 0.9)" size = "medium" color = "yellow" type = "ball-clip-rotate-multiple" [fullScreen] = "true"></ngx-spinner>
 <div id="more-components">
   <div class="head-svg">
   </div>
@@ -12,40 +11,24 @@
         <div class="row">
           <div class="col-12 text-start
           pt-5">
-            <button (click)="goBack()"  class="btn btn-transparent border border-0 p-0 m-2"><i
-              class="fa-solid fa-arrow-left-long text-black fw-bold fa-2x"  [style.transform]="checkDir?'rotatey(360deg)':'rotatey(180deg)'"></i></button>
+            <button (click)="goBack()" class="btn btn-transparent border border-0 p-0 m-2"><i
+                class="fa-sharp fa-solid fa-arrow-left text-black fw-bold fa-2x"
+                [style.transform]="checkDir?'rotatey(360deg)':'rotatey(180deg)'"></i></button>
           </div>
         </div>
       </div>
     </div>
     <div class="row" *ngIf="categoryType == 'article'">
-      <div class="text-center">
+      <div class="text-center post-image">
         <img [src]="post.image" alt="">
       </div>
       <div [innerHTML]="post.name" class="fw-bold my-3">
       </div>
       <div [innerHtml]="post.body">
       </div>
+    </div>
+    <div class="row main-iframe" *ngIf="categoryType == 'video'">
+      <iframe class="responsive-iframe" allowfullscreen="1" mozallowfullscreen msallowfullscreen oallowfullscreen
+        webkitallowfullscreen scrolling="auto" [src]="post.video | video"></iframe>
+    </div>
   </div>
-
-  <!-- <div class="row py-3 vh-100" *ngIf="categoryType == 'video'">
-      <iframe class="bg-transparent" width="100%" height="100%" allowfullscreen="1"
-      mozallowfullscreen
-      msallowfullscreen
-      oallowfullscreen
-      webkitallowfullscreen scrolling="auto" [src]="post.video | video"></iframe>
-</div> -->
-<div class="row main-iframe" *ngIf="categoryType == 'video'">
-  <iframe class="responsive-iframe"  allowfullscreen="1"
-  mozallowfullscreen
-  msallowfullscreen
-  oallowfullscreen
-  webkitallowfullscreen scrolling="auto" [src]="post.video | video"></iframe>
-</div>
-
-</div>
-
-
-
-
-
