@@ -10,19 +10,21 @@ declare var $: any;
 })
 export class PrivacyComponent implements OnInit {
   Privacy: any = [];
-  constructor(private _PagesService: PagesService,private _HomesService:HomesService) {
+  constructor(
+    private _PagesService: PagesService,
+    private _HomesService: HomesService
+  ) {
     this.getPrivacyData();
   }
 
   ngOnInit(): void {}
 
+  // 1- to get text of privacy
   getPrivacyData() {
     this._HomesService.showLoader();
-    // to get text of privacy
     this._PagesService.getPrivacy().subscribe((response) => {
       this.Privacy = response.data;
       this._HomesService.hideLoader();
     });
-
   }
 }

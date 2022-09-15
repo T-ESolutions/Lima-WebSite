@@ -47,20 +47,19 @@ export class HomesService {
     );
   }
 
-    // 19- this function to make like
-    addLike(post_id_data: any): Observable<any> {
-      return this.http.post(
-        `${this._AuthService.baseUrl}v1/user/post/like/store`,
-        post_id_data
-      );
-    }
+  // 19- this function to make like
+  addLike(post_id_data: any): Observable<any> {
+    return this.http.post(
+      `${this._AuthService.baseUrl}v1/user/post/like/store`,
+      post_id_data
+    );
+  }
 
-
-     // this function to show and hide loader
-     showLoader(){
-      $(".loader").css({"display":"flex","transition":"all 0.5s"})
-      }
-      hideLoader(){
-        $(".loader").css({"display":"none","transition":"all 0.5s"})
-      }
+  // 20- this functions to show and hide loader
+  showLoader() {
+    $('.loader').css({ display: 'flex', transition: 'all 0.5s' });
+  }
+  hideLoader() {
+    $('.loader').css({ display: 'none', transition: 'all 0.5s' });
+  }
 }

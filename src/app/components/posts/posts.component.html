@@ -19,11 +19,11 @@
             <div class="advice-msgs">
               <ul class="list-unstyled mb-0 ">
                 <li class="text-center d-inline-block px-1">
-                  <img src="../../../assets/images/characters/lima.jpg" alt="baby.png" (click)="getPostsData()">
+                  <img src="../../../assets/images/characters/lima.jpg" alt="baby" (click)="getPostsData()">
                   <p>{{"all" | translate}}</p>
                 </li>
                 <li class="text-center d-inline-block px-1" *ngFor="let sub of subCategories">
-                  <img [src]="sub.image" alt="baby.png" (click)="getTeacherPosts(sub.id)">
+                  <img [src]="sub.image" alt="teacher" (click)="getTeacherPosts(sub.id)">
                   <p>{{sub.name}}</p>
                 </li>
               </ul>
@@ -44,8 +44,8 @@
         (click)="showPost(post.id,post.free)">
         <div class="item">
           <div class="item-image">
-            <img [src]="post.image" alt="">
-            <div class="lock" *ngIf="post.free==0">
+            <img [src]="post.image" alt="article post">
+            <div class="lock" *ngIf="post.free==0" [style.right]="checkDir?'80%':'5%'">
             </div>
           </div>
           <div class="item-caption py-3">
@@ -64,7 +64,7 @@
       <div class="col-sm-6 col-md-4 col-lg-3 p-3 overflow-hidden" *ngFor="let post of posts">
         <div class="item">
           <div class="poster">
-            <img [src]="post.image" alt="">
+            <img [src]="post.image" alt="video post">
             <div class="play-icon ">
               <div class="lottie-icon w-100 h-100">
                 <lottie-player class="w-100 h-100"

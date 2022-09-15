@@ -1,3 +1,7 @@
+<div class="loader">
+  <lottie-player src="../../../assets/animations/loader.json" background="transparent" speed="1" loop autoplay>
+  </lottie-player>
+</div>
 <section id="kids-moms">
   <div class="header">
     <div class="container">
@@ -26,8 +30,8 @@
       <div class="col-6 text-center px-0 py-2" *ngFor="let category of kidsCategories">
         <div class="copmonent p-0  m-0 ">
           <a><img [src]="category.image" class="story-img" [alt]="category.name"
-              onerror="this.onerror=null;this.src='../../../assets/images/logos/80fekra.png'" (click)="getCategory(category.id,category.type)"
-                ></a>
+              onerror="this.onerror=null;this.src='../../../assets/images/logos/80fekra.png'"
+              (click)="getCategory(category.id,category.type)"></a>
           <p>{{category.name}}</p>
         </div>
       </div>
@@ -45,17 +49,17 @@
   </div>
 </section>
 <app-navbar></app-navbar>
-
 <!-- Modals -->
 <div class="modals ">
   <div class="sub-layer py-5 px-2">
-    <div class="sub-modal  d-flex justify-content-center align-items-center flex-column p-5" >
-        <img src="../../../assets/images/characters/limaaa.png" alt="lima">
-        <p>{{"moms-category-popup-msg" | translate}}</p>
-        <div class="w-100 pe-3">
-          <button class="submit-btn text-dark mx-2" (click)="closeModal()">{{"moms-popup-back" | translate}}</button>
-          <button class="submit-btn text-white bg-danger mx-1" (click)="continueBrowsing()">{{"moms-popup-cont" | translate}}</button>
-        </div>
+    <div class="sub-modal  d-flex justify-content-center align-items-center flex-column p-5">
+      <img src="../../../assets/images/characters/limaaa.png" alt="lima">
+      <p>{{"moms-category-popup-msg" | translate}}</p>
+      <div class="w-100 pe-3">
+        <button class="submit-btn text-dark mx-2" (click)="closeModal()">{{"moms-popup-back" | translate}}</button>
+        <button class="submit-btn text-white bg-danger mx-1" (click)="continueBrowsing()">{{"moms-popup-cont" |
+          translate}}</button>
+      </div>
     </div>
   </div>
 </div>

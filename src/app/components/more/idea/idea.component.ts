@@ -15,14 +15,13 @@ export class IdeaComponent implements OnInit {
 
   ngOnInit(): void {}
 
+    // 1- to get about 80 fekra text
   getAboutUsData() {
     this._HomesService.showLoader()
-    // to get about 80 fekra text
     this._PagesService.getAboutUs().subscribe((response) => {
       this.aboutUs = response.data;
       this._HomesService.hideLoader();
     });
-
   }
 
 }

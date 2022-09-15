@@ -9,19 +9,21 @@ declare var $: any;
 })
 export class TeamComponent implements OnInit {
   team: any = [];
-  constructor(private _PagesService: PagesService,private _HomesService:HomesService) {
+  constructor(
+    private _PagesService: PagesService,
+    private _HomesService: HomesService
+  ) {
     this.getTeamData();
   }
 
   ngOnInit(): void {}
 
+  // 1- to get members of team
   getTeamData() {
     this._HomesService.showLoader();
-    // to get names of team
     this._PagesService.getTeam().subscribe((response) => {
       this.team = response.data;
       this._HomesService.hideLoader();
     });
-
   }
 }

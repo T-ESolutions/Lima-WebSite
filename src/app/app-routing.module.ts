@@ -12,12 +12,8 @@ import { SubscribeComponent } from './components/account/subscribe/subscribe.com
 import { TestComponent } from './components/account/test/test.component';
 import { VarifyComponent } from './components/account/varify/varify.component';
 import { VarifypasswordComponent } from './components/account/varifypassword/varifypassword.component';
-
 import { KidsComponent } from './components/kids/kids.component';
-
-
 import { MomsComponent } from './components/moms/moms.component';
-
 import { ApplicationComponent } from './components/more/application/application.component';
 import { ContactComponent } from './components/more/contact/contact.component';
 import { IdeaComponent } from './components/more/idea/idea.component';
@@ -59,7 +55,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash:true})],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

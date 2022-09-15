@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { NgxSpinnerService } from 'ngx-spinner';
 import { HelpersService } from 'src/app/services/helpers.service';
 import { HomesService } from 'src/app/services/homes.service';
 
@@ -21,10 +20,9 @@ export class RegisterComponent implements OnInit {
     private _AuthService: AuthService,
     private _Router: Router,
     private toastr: ToastrService,
-    private _HomesService:HomesService,
+    private _HomesService: HomesService,
     private _HelpersService: HelpersService
-  ) {
-  }
+  ) {}
 
   registerForm: FormGroup = new FormGroup({
     name: new FormControl(null, [
@@ -52,7 +50,6 @@ export class RegisterComponent implements OnInit {
     this._HomesService.showLoader();
     // if user delete [disabled]="registerForm.invalid" from html inspect
     if (registerForm.invalid) {
-      
       return;
     } else {
       this._AuthService

@@ -16,9 +16,9 @@ export class TermsComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // 1- to get text of terms
   getTermsData() {
     this._HomesService.showLoader();
-    // to get text of terms
     this._PagesService.getTerms().subscribe((response) => {
       this.Terms = response.data;
       this._HomesService.hideLoader();

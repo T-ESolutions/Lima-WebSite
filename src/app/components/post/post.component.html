@@ -18,15 +18,17 @@
         </div>
       </div>
     </div>
+    <!-- if comming from article type -->
     <div class="row" *ngIf="categoryType == 'article'">
       <div class="text-center post-image">
-        <img [src]="post.image" alt="">
+        <img [src]="post.image" alt="article post">
       </div>
-      <div [innerHTML]="post.name" class="fw-bold my-3">
+      <div [innerHTML]="post.name" class="fw-bold my-3 p-2">
       </div>
-      <div [innerHtml]="post.body">
+      <div [innerHtml]="post.body" class="p-2">
       </div>
     </div>
+    <!-- if comming from video type -->
     <div class="row main-iframe" *ngIf="categoryType == 'video'">
       <iframe class="responsive-iframe" allowfullscreen="1" mozallowfullscreen msallowfullscreen oallowfullscreen
         webkitallowfullscreen scrolling="auto" [src]="post.video | video"></iframe>

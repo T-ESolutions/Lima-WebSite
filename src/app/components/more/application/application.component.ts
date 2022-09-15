@@ -9,15 +9,18 @@ declare var $: any;
 })
 export class ApplicationComponent implements OnInit {
   aboutApp: any = [];
-  constructor(private _PagesService: PagesService,private _HomesService:HomesService) {
-    this.getAboutAppData()
+  constructor(
+    private _PagesService: PagesService,
+    private _HomesService: HomesService
+  ) {
+    this.getAboutAppData();
   }
 
   ngOnInit(): void {}
 
+  // 1- to get about application text
   getAboutAppData() {
     this._HomesService.showLoader();
-    // to get about application text
     this._PagesService.getAboutApp().subscribe((response) => {
       this.aboutApp = response.data;
       this._HomesService.hideLoader();

@@ -15,9 +15,9 @@ export class ContactComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // 1- to get links to contact
   getContactLinks() {
     this._HomesService.showLoader();
-    // to get links to contact
     this._PagesService.getLinks().subscribe((response) => {
       this.links = response.data;
       this._HomesService.hideLoader();

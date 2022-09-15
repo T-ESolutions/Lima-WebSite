@@ -10,32 +10,32 @@ import { AuthService } from './auth.service';
 export class PagesService {
   constructor(private http: HttpClient, private _AuthService: AuthService) {}
 
-  // 19- this function to get about us (80 fekra) text
+  // 21- this function to get about us (80 fekra) text
   getAboutUs(): Observable<any> {
     return this.http.get(`${this._AuthService.baseUrl}v1/app/pages/idea`);
   }
 
-  // 20- this function to get about application text
+  // 22- this function to get about application text
   getAboutApp(): Observable<any> {
     return this.http.get(`${this._AuthService.baseUrl}v1/app/pages/about`);
   }
 
-  // 21- this function to get members of team
+  // 23- this function to get members of team
   getTeam(): Observable<any> {
     return this.http.get(`${this._AuthService.baseUrl}v1/app/teams`);
   }
 
-  // 22- this function to get links to contact with us
+  // 24- this function to get links to contact with us
   getLinks(): Observable<any> {
     return this.http.get(`${this._AuthService.baseUrl}v1/app/links`);
   }
 
-  // 23- this function to get privacy policy text
+  // 25- this function to get privacy policy text
   getPrivacy(): Observable<any> {
     return this.http.get(`${this._AuthService.baseUrl}v1/app/pages/privacy`);
   }
 
-  // 24- this function to get terms and condition text
+  // 26- this function to get terms and condition text
   getTerms(): Observable<any> {
     return this.http.get(`${this._AuthService.baseUrl}v1/app/pages/terms`);
   }

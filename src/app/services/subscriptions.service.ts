@@ -17,12 +17,12 @@ export class SubscriptionsService {
     private _AuthService: AuthService
   ) {}
 
- // 25- this function to get terms and condition text
+ // 27- this function to get terms and condition text
   getSubscriptionData():Observable<any>{
     return this.http.get(`${this._AuthService.baseUrl}v1/user/subscription/payment_step_one`)
   }
 
- // 26- this function to get terms and condition text
+ // 28- this function to get terms and condition text
   getPaymentData():Observable<any>{
     return this.http.get(`${this._AuthService.baseUrl}v1/user/subscription/payment_step_two?payment_method_id=${this.payment_method_id}&subscribe_type_id=${this.subscribe_type_id}`)
   }

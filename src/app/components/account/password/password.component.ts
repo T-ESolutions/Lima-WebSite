@@ -15,8 +15,7 @@ export class PasswordComponent implements OnInit {
     private _AuthService: AuthService,
     private _Router: Router,
     private toastr: ToastrService,
-    private _HomesService:HomesService
-
+    private _HomesService: HomesService
   ) {}
 
   passwordForm: FormGroup = new FormGroup({

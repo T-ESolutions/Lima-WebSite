@@ -28,7 +28,8 @@
   display: grid;
   grid-template-columns: 1em auto;
   gap: 0.5em;
-  #Lang{
+
+  #Lang {
     padding-top: 10px;
     font-size: 30px !important;
 
@@ -86,7 +87,7 @@ input {
   transform: rotate(45deg);
 }
 
-
+/* start small screen */
 @media screen and (max-width:576px) {
   .charachter {
     width: 320px;
@@ -103,9 +104,13 @@ input {
   }
 }
 
+/* end medium screen */
+/* start large screen */
 @media screen and (min-width:769px) and (max-width:991px) {
   .charachter {
     width: 350px;
     height: 240px;
   }
 }
+
+/* end large screen */

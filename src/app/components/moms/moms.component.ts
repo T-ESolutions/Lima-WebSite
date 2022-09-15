@@ -1,35 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from 'src/app/services/auth.service';
 import { HomesService } from 'src/app/services/homes.service';
 
 @Component({
   selector: 'app-moms',
   templateUrl: './moms.component.html',
-  styleUrls: ['./moms.component.scss']
+  styleUrls: ['./moms.component.scss'],
 })
 export class MomsComponent implements OnInit {
-  momsCategories:any=[];
-  constructor(private _HomesService:HomesService, private toastr: ToastrService, private _Router: Router, private _AuthService:AuthService) {
+  momsCategories: any = [];
+  constructor(
+    private _HomesService: HomesService,
+    private toastr: ToastrService
+  ) {
     this.getMoms();
-   }
-
-  ngOnInit(): void {
-
   }
 
+  ngOnInit(): void {}
 
-  getMoms(){
+  // 1- show moms categories
+  getMoms() {
+    this._HomesService.showLoader();
     this._HomesService.getMomsCategories().subscribe((response) => {
-      if(response.status == 200){
+      if (response.status == 200) {
         this.momsCategories = response.data.categories;
-        localStorage.setItem("subscriber",response.data.subscriber);
-      }else{
+        localStorage.setItem('subscriber', response.data.subscriber);
+        this._HomesService.hideLoader();
+      } else {
         this.toastr.error(response.msg, 'Failed!');
+        this._HomesService.hideLoader();
       }
-    })
+    });
   }
-
-
 }

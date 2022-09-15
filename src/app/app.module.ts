@@ -1,6 +1,5 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -14,7 +13,7 @@ import { TestComponent } from './components/account/test/test.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
-import { HttpClientModule , HTTP_INTERCEPTORS } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FavouriteComponent } from './components/account/favourite/favourite.component';
 import { PrivacyComponent } from './components/more/privacy/privacy.component';
@@ -28,26 +27,20 @@ import { LoginComponent } from './components/account/login/login.component';
 import { VarifyComponent } from './components/account/varify/varify.component';
 import { NgxOtpInputModule } from 'ngx-otp-input';
 import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgxSpinnerModule } from "ngx-spinner";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { MyinfoComponent } from './components/account/myinfo/myinfo.component';
 import { SubscribeComponent } from './components/account/subscribe/subscribe.component';
 import { PasswordComponent } from './components/account/password/password.component';
 import { MyIntercetor } from './intercetor';
 import { ClipboardModule } from 'ngx-clipboard';
-
-import {NgxCopyPasteModule} from 'ngx-copypaste';
+import { NgxCopyPasteModule } from 'ngx-copypaste';
 import { PostComponent } from './components/post/post.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { ForgetpassComponent } from './components/account/forgetpass/forgetpass.component';
 import { VarifypasswordComponent } from './components/account/varifypassword/varifypassword.component';
 import { NewpasswordComponent } from './components/account/newpassword/newpassword.component';
 import { VideoPipe } from './pipes/video.pipe';
-
-// import "@lottiefiles/lottie-player";
-// for all requests
-// import { MyIntercetor }from ;
-
 
 @NgModule({
   declarations: [
@@ -78,8 +71,7 @@ import { VideoPipe } from './pipes/video.pipe';
     ForgetpassComponent,
     VarifypasswordComponent,
     NewpasswordComponent,
-    VideoPipe
-  
+    VideoPipe,
   ],
   imports: [
     BrowserModule,
@@ -93,34 +85,34 @@ import { VideoPipe } from './pipes/video.pipe';
     NgxCopyPasteModule,
     BrowserAnimationsModule,
     TranslateModule.forRoot({
-      defaultLanguage : "ar",
-      loader:{
+      defaultLanguage: 'ar',
+      loader: {
         provide: TranslateLoader,
         useFactory: createTranslateLoader,
-        deps: [HttpClient]
-      }
+        deps: [HttpClient],
+      },
     }),
     ToastrModule.forRoot({
       timeOut: 5000,
       progressBar: true,
-      progressAnimation: "increasing",
+      progressAnimation: 'increasing',
       preventDuplicates: true,
       closeButton: true,
-    })
+    }),
   ],
   providers: [
     {
-      provide : HTTP_INTERCEPTORS,
-      useClass : MyIntercetor,
-      multi : true
-    }
+      provide: HTTP_INTERCEPTORS,
+      useClass: MyIntercetor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}
 
 // this method make you able to use ngx-translate
-export function createTranslateLoader(http:HttpClient){
-  return new TranslateHttpLoader(http,"../assets/i18n/",".json")
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
 }

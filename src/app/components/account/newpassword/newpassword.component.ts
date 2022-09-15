@@ -8,21 +8,19 @@ import { HomesService } from 'src/app/services/homes.service';
 @Component({
   selector: 'app-newpassword',
   templateUrl: './newpassword.component.html',
-  styleUrls: ['./newpassword.component.scss']
+  styleUrls: ['./newpassword.component.scss'],
 })
 export class NewpasswordComponent implements OnInit {
-
   constructor(
     private _AuthService: AuthService,
     private _Router: Router,
     private toastr: ToastrService,
-    private _HomesService:HomesService
-
+    private _HomesService: HomesService
   ) {}
 
   newPasswordForm: FormGroup = new FormGroup({
     phone: new FormControl(this._AuthService.phoneChangePass, [
-      Validators.required
+      Validators.required,
     ]),
     password: new FormControl(null, [
       Validators.required,

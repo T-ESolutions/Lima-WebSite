@@ -14,12 +14,6 @@
   min-height: 90vh;
 }
 
-#back {
-  position: fixed;
-  top: 10%;
-  left: 10%;
-}
-
 .child {
   padding: 10px 0;
   font-size: 22px;
@@ -29,14 +23,16 @@
   grid-template-columns: 1em auto;
   gap: 0.5em;
   border-bottom: 1px solid #aaa;
-  img{
+
+  img {
     width: 100px;
     height: 30px;
   }
-  div{
+
+  div {
     display: grid;
-  grid-template-columns: 1em auto;
-  gap: 0.5em;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
   }
 }
 
@@ -45,7 +41,8 @@ input:hover {
   cursor: pointer;
 }
 
-.child:last-of-type, .child:nth-of-type(2) {
+.child:last-of-type,
+.child:nth-of-type(2) {
   border-bottom: none;
 }
 
@@ -85,15 +82,17 @@ input:hover {
   z-index: -1;
 }
 
-.modal-body{
-  p{
+.modal-body {
+  p {
     margin: 20px 5px !important;
   }
-  h3{
+
+  h3 {
     color: #4A9188;
     font-weight: bold;
   }
-  .fawry-success{
+
+  .fawry-success {
     width: 90px;
     height: 90px;
     margin: 10px auto;
@@ -102,7 +101,8 @@ input:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    span{
+
+    span {
       color: green;
       font-size: 40px;
       font-weight: bold;
@@ -112,34 +112,36 @@ input:hover {
 }
 
 //****************
-.modals{
+.modals {
   display: none;
 }
 
-.payment-layer{
-  background-color:rgba(0,0,0,0.6);
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100vh;
+.payment-layer {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  }
+}
 
-  .payment-modal{
-    border-radius: 20px;
-    max-width: 400px;
-  }
+.payment-modal {
+  border-radius: 20px;
+  max-width: 400px;
+}
 
-  .fawry-modal,.aman-modal,.wallet-modal{
-    display: none;
-  }
+.fawry-modal,
+.aman-modal,
+.wallet-modal {
+  display: none;
+}
 
 //*****************
-
+/* start small screen */
 @media screen and (max-width:576px) {
   .charachter {
     width: 320px;
@@ -156,7 +158,8 @@ input:hover {
 
   }
 }
-
+/* end medium screen */
+/* start large screen */
 @media screen and (min-width:769px) and (max-width:991px) {
   .charachter {
     width: 350px;
@@ -164,3 +167,4 @@ input:hover {
 
   }
 }
+/* end large screen */

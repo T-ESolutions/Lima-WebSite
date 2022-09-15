@@ -30,14 +30,14 @@
                     class="fa-solid fa-right-to-bracket text-info"></i></span>
                 <p>{{"log in" | translate}}</p>
               </a></li>
-            <li *ngIf="isLogin"><a  data-bs-toggle="modal" data-bs-target="#exampleModal"><span><i
+            <li *ngIf="isLogin"><a data-bs-toggle="modal" data-bs-target="#exampleModal"><span><i
                     class="fa-solid fa-right-from-bracket text-info"></i></span>
                 <p>{{"log out" | translate}}</p>
               </a></li>
           </ul>
           <div class="py-5" *ngIf="!isLogin"></div>
           <div class="company-logo text-center">
-            <img class="mb-3" src="../../../assets/images/logo/logo.png" alt="TES logo">
+            <img class="mb-3" src="../../../assets/images/logo/logo.png" alt="TES company">
           </div>
         </div>
       </div>
@@ -51,19 +51,20 @@
   </div>
 </section>
 <app-navbar></app-navbar>
-
 <!-- Modal -->
 <div class="modal fade p-3" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered m-auto">
     <div class="modal-content">
       <div class="modal-body text-center pt-3">
         <h4 class="fw-bold my-3">{{"log out" | translate}}</h4>
-        <img src="../../../assets/images/shapes/logoutIcon.JPG" alt="logout" [style.transform]="checkDir?'rotatey(360deg)':'rotatey(180deg)'">
+        <img src="../../../assets/images/shapes/logoutIcon.JPG" alt="logout"
+          [style.transform]="checkDir?'rotatey(360deg)':'rotatey(180deg)'">
         <p class="my-2">{{"logoutQuestion" | translate}}</p>
       </div>
       <div class="modal-footer py-3">
-        <button type="button" class="btn" data-bs-dismiss="modal">{{"cancel" | translate}}</button>
-        <button type="button" class="btn" (click)=" getOut()" data-bs-dismiss="modal">{{"log out" | translate}}</button>
+        <button type="button" class="btn my-1" data-bs-dismiss="modal">{{"cancel" | translate}}</button>
+        <button type="button" class="btn my-1" (click)=" getOut()" data-bs-dismiss="modal">{{"log out" |
+          translate}}</button>
       </div>
     </div>
   </div>

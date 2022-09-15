@@ -1,9 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { NgxSpinnerService } from 'ngx-spinner';
 import { HomesService } from 'src/app/services/homes.service';
 
 @Component({
@@ -20,7 +19,7 @@ export class VarifyComponent implements OnInit {
     private _AuthService: AuthService,
     private _Router: Router,
     private toastr: ToastrService,
-    private _HomesService:HomesService
+    private _HomesService: HomesService
   ) {}
 
   // ,Validators.pattern(/[0-9]/)
@@ -50,7 +49,7 @@ export class VarifyComponent implements OnInit {
         this.toastr.success(response.msg);
         localStorage.setItem('token_api', response.data.token_api);
         this._AuthService.saveUserData();
-        localStorage.setItem("subscriber",response.data.subscriber);
+        localStorage.setItem('subscriber', response.data.subscriber);
         this._Router.navigate(['/kids']);
       } else {
         this._HomesService.hideLoader();

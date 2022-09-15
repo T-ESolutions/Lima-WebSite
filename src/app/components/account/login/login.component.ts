@@ -3,7 +3,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
-import { NgxSpinnerService } from 'ngx-spinner';
 import { HomesService } from 'src/app/services/homes.service';
 declare var $: any;
 @Component({
@@ -27,7 +26,7 @@ export class LoginComponent implements OnInit {
     }else{
       this.checkDir=false;
     }
-    
+
   }
 
   loginForm: FormGroup = new FormGroup({
@@ -62,7 +61,6 @@ export class LoginComponent implements OnInit {
         }
       });
     }
-
     this.loginForm.reset();
   }
 
@@ -72,6 +70,5 @@ export class LoginComponent implements OnInit {
   viewPassword() {
     this.visible = !this.visible;
     this.changeType = !this.changeType;
-
   }
 }

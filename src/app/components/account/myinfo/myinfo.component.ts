@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { HttpClient } from '@angular/common/http';
 import { HelpersService } from 'src/app/services/helpers.service';
 import { HomesService } from 'src/app/services/homes.service';
 
@@ -20,20 +17,14 @@ export class MyinfoComponent implements OnInit {
 
   constructor(
     private _AuthService: AuthService,
-    private _Router: Router,
     private toastr: ToastrService,
-    private spinner: NgxSpinnerService,
-    private http: HttpClient,
     private _HelpersService: HelpersService,
-    private _HomesService:HomesService
+    private _HomesService: HomesService
   ) {
-
-
     this.getUserData();
-
   }
 
-  // this method to get data or user directly
+  // this method to get data of user directly
   getUserData() {
     this._HomesService.showLoader();
     this._AuthService.getProfileData().subscribe((response) => {

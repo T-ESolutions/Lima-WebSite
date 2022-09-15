@@ -8,23 +8,20 @@ import { HomesService } from 'src/app/services/homes.service';
 @Component({
   selector: 'app-varifypassword',
   templateUrl: './varifypassword.component.html',
-  styleUrls: ['./varifypassword.component.scss']
+  styleUrls: ['./varifypassword.component.scss'],
 })
 export class VarifypasswordComponent implements OnInit {
-
   numbers = new Array(4);
   code: any = '';
   data: any = { phone: this._AuthService.phoneChangePass, code: 2 };
-
   constructor(
     private _AuthService: AuthService,
     private _Router: Router,
     private toastr: ToastrService,
-    private _HomesService:HomesService
+    private _HomesService: HomesService
   ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   varifyForm: FormGroup = new FormGroup({
     code1: new FormControl(null, [Validators.required]),
