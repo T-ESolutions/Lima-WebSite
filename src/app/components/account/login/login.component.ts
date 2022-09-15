@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token_api', response.data.token_api);
           this._AuthService.saveUserData();
           this.toastr.success(response.msg);
-          this._Router.navigate(['/account']);
+          this._Router.navigate(['/kids']);
           localStorage.setItem("subscriber",response.data.subscriber);
         } else {
           this._HomesService.hideLoader();
