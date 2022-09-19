@@ -12,6 +12,8 @@ export class SubscriptionsService {
   subscribe_type_id:any;
   // this value to record method of payment
   payment_method_id:any;
+  // this value to record discount code
+  discount_code:any;
   constructor(
     private http: HttpClient,
     private _AuthService: AuthService
@@ -24,6 +26,11 @@ export class SubscriptionsService {
 
  // 28- this function to get terms and condition text
   getPaymentData():Observable<any>{
-    return this.http.get(`${this._AuthService.baseUrl}v1/user/subscription/payment_step_two?payment_method_id=${this.payment_method_id}&subscribe_type_id=${this.subscribe_type_id}`)
+    return this.http.get(`${this._AuthService.baseUrl}v1/user/subscription/payment_step_two?payment_method_id=${this.payment_method_id}&subscribe_type_id=${this.subscribe_type_id}&?code=${this.discount_code}`)
+  }
+
+  // 29- this function to get discount
+  getDiscount(discount:any): Observable<any>{
+    return this.http.post(`${this._AuthService.baseUrl}v1/user/coupon/apply`, discount);
   }
 }

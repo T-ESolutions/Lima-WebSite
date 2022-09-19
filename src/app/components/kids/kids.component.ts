@@ -59,7 +59,7 @@ export class KidsComponent implements OnInit {
     $('.modals').hide();
   }
 
-  // 4- after shownig mothers pop up message 
+  // 4- after shownig mothers pop up message
   continueBrowsing() {
     this.closeModal();
     this._Router.navigate(['/posts', 4, 'video']);
