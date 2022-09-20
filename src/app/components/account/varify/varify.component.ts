@@ -13,7 +13,7 @@ import { HomesService } from 'src/app/services/homes.service';
 export class VarifyComponent implements OnInit {
   numbers = new Array(4);
   otp: any = '';
-  data: any = { name: '', phone: 123, city_id: 1, password: '', otp: 2 };
+  data: any = { name: '', phone: 123, city_id: 1, password: '' , email: '', otp: 2 };
 
   constructor(
     private _AuthService: AuthService,
@@ -42,6 +42,7 @@ export class VarifyComponent implements OnInit {
 
     this.data.name = this._AuthService.data.name;
     this.data.phone = this._AuthService.data.phone;
+    this.data.email = this._AuthService.data.email;
     this.data.city_id = Number(this._AuthService.data.city_id);
     this.data.password = this._AuthService.data.password;
     this._AuthService.varifyPhone(this.data).subscribe((response) => {
@@ -50,7 +51,7 @@ export class VarifyComponent implements OnInit {
         localStorage.setItem('token_api', response.data.token_api);
         this._AuthService.saveUserData();
         localStorage.setItem('subscriber', response.data.subscriber);
-        this._Router.navigate(['/kids']);
+        this._Router.navigate(['/account/subscribe']);
       } else {
         this._HomesService.hideLoader();
         this.toastr.error(response.msg);

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HelpersService } from 'src/app/services/helpers.service';
 import { HomesService } from 'src/app/services/homes.service';
-
+declare var $: any;
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -30,14 +30,18 @@ export class RegisterComponent implements OnInit {
       Validators.minLength(2),
       Validators.maxLength(255),
     ]),
-    phone: new FormControl(null, [
-      Validators.required,
-      Validators.maxLength(20),
-    ]),
     city_id: new FormControl('0', [
       Validators.required,
       Validators.min(1),
       Validators.max(200),
+     ]),
+     email: new FormControl(null, [
+      Validators.email,
+      Validators.required,
+    ]),
+    phone: new FormControl(null, [
+      Validators.required,
+      Validators.maxLength(20),
     ]),
     password: new FormControl(null, [
       Validators.required,
@@ -46,19 +50,21 @@ export class RegisterComponent implements OnInit {
     ]),
   });
 
-  submitRegisterForm(registerForm: FormGroup) {
+  submitRegisterForm(registerForm : FormGroup) {
     this._HomesService.showLoader();
     // if user delete [disabled]="registerForm.invalid" from html inspect
     if (registerForm.invalid) {
+      this._HomesService.hideLoader();
       return;
     } else {
       this._AuthService
-        .signUp(this.registerForm.value)
+        .signUp(registerForm.value)
         .subscribe((response) => {
           if (response.status == 200) {
             this.toastr.success(response.msg);
             this._AuthService.data = this.registerForm.value;
             this._Router.navigate(['/account/varify']);
+            this._HomesService.hideLoader();
           } else if (response.status == 401) {
             this._HomesService.hideLoader();
             this.toastr.error(response.msg);
