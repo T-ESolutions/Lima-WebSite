@@ -35,7 +35,7 @@
           <form [formGroup]="loginForm" (ngSubmit)="submitLoginForm(loginForm)">
             <div class="form-group">
               <span><i class="fa-solid fa-mobile-screen-button"></i></span>
-              <input type="number" placeholder="{{'phone' | translate}}" formControlName="phone">
+              <input type="text" placeholder="{{'phone' | translate}}" formControlName="phone">
             </div>
             <p class="text-danger " *ngIf="loginForm.get('phone')?.invalid && loginForm.get('phone')?.touched">
               {{'phone-validate-msg' | translate}}</p>

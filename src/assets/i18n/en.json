@@ -41,7 +41,7 @@
   "varify" : "Varify",
   "register" : "Register",
   "name-validate-msg": "Name is required",
-  "phone-validate-msg": "Phone is required",
+  "phone-validate-msg": "Phone ( number ) is required",
   "email-validate-msg" : "email is required",
   "password-validate-msg": "Password is required",
   "password-validate-msg2": "min-length is 8 characters",

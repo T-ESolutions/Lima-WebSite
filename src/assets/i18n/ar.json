@@ -41,7 +41,7 @@
   "varify" : "تأكيد",
   "register" : "إنشاء حساب جديد",
   "name-validate-msg": "يجب إدخال الإسم",
-  "phone-validate-msg": "يجب إدخال رقم الهاتف",
+  "phone-validate-msg": "يجب إدخال ( رقم ) الهاتف",
   "email-validate-msg" : "يجب ادخال البريد الالكترونى",
   "password-validate-msg": "يجب إدخال كلمة المرور",
   "password-validate-msg2": "الحد الأدنى للطول هو 8 أرقام",
