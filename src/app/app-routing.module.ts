@@ -26,12 +26,13 @@ import { PostComponent } from './components/post/post.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { LogGuard } from './guards/log.guard';
 
+
 const routes: Routes = [
   { path: '', redirectTo: 'kids', pathMatch: 'full' },
   { path: 'kids', component: KidsComponent },
   { path: 'moms', component: MomsComponent },
   {path: "posts/:categoryId/:categoryType" , component: PostsComponent},
-  { path: 'posts/:categoryId/:categoryType/post/:postId', component: PostComponent },
+  { path: 'posts/:categoryId/:categoryType/post/:postId', component: PostComponent},
   { path: 'account', component: AccountComponent },
   { path: 'more', component: MoreComponent },
   { path: 'account/test', component: TestComponent },
@@ -55,7 +56,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash:true})],
+  imports: [RouterModule.forRoot(routes,
+    {useHash:true})],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

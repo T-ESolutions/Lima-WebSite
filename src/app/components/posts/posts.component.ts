@@ -30,7 +30,7 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
     // categoryId and categoryType coming from kids and moms categories
-    this.categoryId = this._ActivatedRoute.snapshot.params?.['categoryId'];
+    this.categoryId = Number(this._ActivatedRoute.snapshot.params?.['categoryId']);
     this.categoryType = this._ActivatedRoute.snapshot.params?.['categoryType'];
     // to check direction according to website language
     if (localStorage.getItem('currentLanguage') == 'ar') {
@@ -100,6 +100,9 @@ export class PostsComponent implements OnInit {
       $('.modals').show();
       $('.sub-modal').show(300);
     } else if (free == 1) {
+      localStorage.setItem("categoryId" , JSON.stringify(this.categoryId));
+      localStorage.setItem("categoryType" , JSON.stringify(this.categoryType));
+      localStorage.setItem("postId" , JSON.stringify(id));
       this._Router.navigate([
         `/posts/${this.categoryId}/${this.categoryType}/post`,
         id,

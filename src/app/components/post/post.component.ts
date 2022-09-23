@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HomesService } from 'src/app/services/homes.service';
 import { Location } from '@angular/common';
-
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -18,8 +17,14 @@ export class PostComponent implements OnInit {
     private _ActivatedRoute: ActivatedRoute,
     private _HomesService: HomesService,
     private toastr: ToastrService,
-    private location: Location
-  ) {}
+    private location: Location,
+    private _Router: Router
+  ) {
+    if(this._ActivatedRoute.snapshot.params?.['categoryId'] == localStorage.getItem("categoryId") && this._ActivatedRoute.snapshot.params?.['postId'] == localStorage.getItem("postId")){
+    }else{
+      this._Router.navigate(["/kids"]);
+    }
+  }
 
   ngOnInit(): void {
     this.postId = this._ActivatedRoute.snapshot.params?.['postId'];
