@@ -42,6 +42,7 @@ export class PostComponent implements OnInit {
     this._HomesService.getPostDetails(this.postId).subscribe((response) => {
       if (response.status == 200) {
         this.post = response.data;
+        console.log(this.post)
       } else {
         this.toastr.error(response.msg);
       }
