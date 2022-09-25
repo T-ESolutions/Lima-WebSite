@@ -24,6 +24,9 @@ import { TermsComponent } from './components/more/terms/terms.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { PostComponent } from './components/post/post.component';
 import { PostsComponent } from './components/posts/posts.component';
+import { SubjectComponent } from './components/subject/subject.component';
+import { SubjectsComponent } from './components/subjects/subjects.component';
+import { YearsComponent } from './components/years/years.component';
 import { LogGuard } from './guards/log.guard';
 
 
@@ -31,8 +34,11 @@ const routes: Routes = [
   { path: '', redirectTo: 'kids', pathMatch: 'full' },
   { path: 'kids', component: KidsComponent },
   { path: 'moms', component: MomsComponent },
+  { path: 'years', component: YearsComponent },
   {path: "posts/:categoryId/:categoryType" , component: PostsComponent},
   { path: 'posts/:categoryId/:categoryType/post/:postId', component: PostComponent},
+  { path: 'subjects', component: SubjectsComponent },
+  { path: 'subjects/subject', component: SubjectComponent },
   { path: 'account', component: AccountComponent },
   { path: 'more', component: MoreComponent },
   { path: 'account/test', component: TestComponent },

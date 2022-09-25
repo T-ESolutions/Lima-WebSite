@@ -41,6 +41,9 @@ import { ForgetpassComponent } from './components/account/forgetpass/forgetpass.
 import { VarifypasswordComponent } from './components/account/varifypassword/varifypassword.component';
 import { NewpasswordComponent } from './components/account/newpassword/newpassword.component';
 import { VideoPipe } from './pipes/video.pipe';
+import { SubjectsComponent } from './components/subjects/subjects.component';
+import { YearsComponent } from './components/years/years.component';
+import { SubjectComponent } from './components/subject/subject.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +75,9 @@ import { VideoPipe } from './pipes/video.pipe';
     VarifypasswordComponent,
     NewpasswordComponent,
     VideoPipe,
+    SubjectsComponent,
+    YearsComponent,
+    SubjectComponent,
   ],
   imports: [
     BrowserModule,

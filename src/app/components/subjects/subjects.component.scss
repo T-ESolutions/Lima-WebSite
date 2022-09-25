@@ -1,0 +1,25 @@
+@import "../../../styles.scss";
+.container {
+  margin: auto;
+
+  .row .copmonent {
+    position: relative;
+    z-index: 3;
+
+    .story-img {
+      width: 180px;
+    }
+
+    .story-img:hover {
+      cursor: pointer;
+    }
+
+    p {
+      color: #000000;
+      font-family: 'Tajawal', sans-serif;
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 0 !important;
+    }
+  }
+}
