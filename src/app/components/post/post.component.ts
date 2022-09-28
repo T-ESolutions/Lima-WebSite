@@ -13,12 +13,13 @@ export class PostComponent implements OnInit {
   postId: number = 0;
   categoryType: any;
   post: any = {};
+  finalUrl:any;
   constructor(
     private _ActivatedRoute: ActivatedRoute,
     private _HomesService: HomesService,
     private toastr: ToastrService,
     private location: Location,
-    private _Router: Router
+    private _Router: Router,
   ) {
     if(this._ActivatedRoute.snapshot.params?.['categoryId'] == localStorage.getItem("categoryId") && this._ActivatedRoute.snapshot.params?.['postId'] == localStorage.getItem("postId")){
     }else{
@@ -57,4 +58,7 @@ export class PostComponent implements OnInit {
       this.location.back();
     }
   }
+
+
+
 }

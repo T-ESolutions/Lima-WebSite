@@ -1,1 +1,42 @@
 @import "../../../styles.scss";
+
+.modal{
+  text-align: center;
+  background-color: rgba(0,0,0, 0.6);
+}
+
+.modal-dialog {
+  max-width: 100% !important;
+  width: 90% !important;
+  height: 100vh !important;
+  margin: auto !important;
+
+}
+
+.modal-content{
+  background-color:  transparent !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.modal-header{
+  background-color: transparent !important;
+  justify-content: center !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.modal-header .btn-close{
+  margin: 0 !important;
+}
+
+
+@media (min-width: 576px){
+    .modal-dialog {
+        max-width: 100% !important;
+        width: 90% !important;
+        height: 100vh !important;
+        margin: auto !important;
+    }
+ }
+
