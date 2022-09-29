@@ -13,6 +13,7 @@ import { TestComponent } from './components/account/test/test.component';
 import { VarifyComponent } from './components/account/varify/varify.component';
 import { VarifypasswordComponent } from './components/account/varifypassword/varifypassword.component';
 import { KidsComponent } from './components/kids/kids.component';
+import { LessonComponent } from './components/lesson/lesson.component';
 import { MomsComponent } from './components/moms/moms.component';
 import { ApplicationComponent } from './components/more/application/application.component';
 import { ContactComponent } from './components/more/contact/contact.component';
@@ -28,6 +29,7 @@ import { SubjectComponent } from './components/subject/subject.component';
 import { SubjectsComponent } from './components/subjects/subjects.component';
 import { YearsComponent } from './components/years/years.component';
 import { LogGuard } from './guards/log.guard';
+import { LoginGuard } from './guards/login.guard';
 
 
 const routes: Routes = [
@@ -39,6 +41,7 @@ const routes: Routes = [
   { path: 'posts/:categoryId/:categoryType/post/:postId', component: PostComponent},
   { path: 'years/subjects/:yearId', component: SubjectsComponent },
   { path: 'years/subjects/:yearId/subject/:subjectId', component: SubjectComponent },
+  { path: 'lesson', component: LessonComponent},
   { path: 'account', component: AccountComponent },
   { path: 'more', component: MoreComponent },
   { path: 'account/test', component: TestComponent },
@@ -50,7 +53,7 @@ const routes: Routes = [
   { path: 'account/register', component: RegisterComponent },
   { path: 'account/varify', component: VarifyComponent },
   { path: 'account/varifypassword', component: VarifypasswordComponent },
-  { path: 'account/login', component: LoginComponent },
+  { path: 'account/login', component: LoginComponent, canActivate:[LoginGuard]},
   { path: 'account/forgetpass', component: ForgetpassComponent },
   { path: 'more/privacy', component: PrivacyComponent },
   { path: 'more/terms', component: TermsComponent },

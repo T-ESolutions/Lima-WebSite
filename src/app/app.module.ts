@@ -40,10 +40,12 @@ import { PostsComponent } from './components/posts/posts.component';
 import { ForgetpassComponent } from './components/account/forgetpass/forgetpass.component';
 import { VarifypasswordComponent } from './components/account/varifypassword/varifypassword.component';
 import { NewpasswordComponent } from './components/account/newpassword/newpassword.component';
-import { VideoPipe } from './pipes/video.pipe';
 import { SubjectsComponent } from './components/subjects/subjects.component';
 import { YearsComponent } from './components/years/years.component';
 import { SubjectComponent } from './components/subject/subject.component';
+import { PlyrModule } from 'ngx-plyr';
+import { LessonComponent } from './components/lesson/lesson.component';
+
 
 @NgModule({
   declarations: [
@@ -74,10 +76,10 @@ import { SubjectComponent } from './components/subject/subject.component';
     ForgetpassComponent,
     VarifypasswordComponent,
     NewpasswordComponent,
-    VideoPipe,
     SubjectsComponent,
     YearsComponent,
     SubjectComponent,
+    LessonComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,6 +90,7 @@ import { SubjectComponent } from './components/subject/subject.component';
     HttpClientModule,
     NgxSpinnerModule,
     ClipboardModule,
+    PlyrModule,
     NgxCopyPasteModule,
     BrowserAnimationsModule,
     TranslateModule.forRoot({

@@ -41,7 +41,7 @@
     <!-- ******************************************** -->
     <div class="row" *ngIf="categoryType=='article'">
       <div class="col-sm-6 col-md-4 col-lg-3 p-3 overflow-hidden" *ngFor="let post of posts"
-        (click)="showPost(post.id,post.free)">
+        (click)="showPost(post.id, post.free, post.vide)">
         <div class="item">
           <div class="item-image">
             <img [src]="post.image" alt="article post">
@@ -69,7 +69,7 @@
               <div class="lottie-icon w-100 h-100">
                 <lottie-player class="w-100 h-100"
                   src="https://assets10.lottiefiles.com/temp_editor_files/lf30_editor_wmhclgej.json"
-                  background="transparent" speed="1" loop autoplay (click)="showPost(post.id,post.free)">
+                  background="transparent" speed="1" loop autoplay (click)="showPost(post.id,post.free,post.video)">
                 </lottie-player>
               </div>
             </div>

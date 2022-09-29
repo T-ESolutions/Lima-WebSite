@@ -13,7 +13,7 @@ export class PostComponent implements OnInit {
   postId: number = 0;
   categoryType: any;
   post: any = {};
-  finalUrl:any;
+
   constructor(
     private _ActivatedRoute: ActivatedRoute,
     private _HomesService: HomesService,
@@ -25,9 +25,6 @@ export class PostComponent implements OnInit {
     }else{
       this._Router.navigate(["/kids"]);
     }
-  }
-
-  ngOnInit(): void {
     this.postId = this._ActivatedRoute.snapshot.params?.['postId'];
     this.categoryType = this._ActivatedRoute.snapshot.params?.['categoryType'];
     if (localStorage.getItem('currentLanguage') == 'ar') {
@@ -38,27 +35,43 @@ export class PostComponent implements OnInit {
     this.postDetails();
   }
 
-  // 1- function to get post details
+  ngOnInit(): void {
+
+  }
+
+  finalUrl:any= localStorage.getItem("videoUrl");
+  videoUrl:any;
+  // function to get post details
   postDetails() {
     this._HomesService.getPostDetails(this.postId).subscribe((response) => {
       if (response.status == 200) {
         this.post = response.data;
-      } else {
+        } else {
         this.toastr.error(response.msg);
       }
     });
   }
 
-  // 2- go back button function
+  // go back button function
   goBack(): void {
-    if (this.categoryType == 'article') {
-      this.location.back();
-    } else {
-      this.location.back();
-      this.location.back();
-    }
+    this.location.back();
   }
 
+ /* video plugin */
 
+ player!: Plyr;
 
+videoSources: Plyr.Source[] = [
+  {
+    src:  this.finalUrl,
+    provider: "html5",
+  },
+];
+
+played(event: Plyr.PlyrEvent) {
+}
+
+play(): void {
+  this.player.play(); // or this.plyr.player.play()
+}
 }

@@ -95,7 +95,7 @@ export class PostsComponent implements OnInit {
   }
 
   // 4- showing posts according to subscribtion or no
-  showPost(id: any, free: any) {
+  showPost(id: any, free: any, url:any) {
     if (free == 0) {
       $('.modals').show();
       $('.sub-modal').show(300);
@@ -103,6 +103,7 @@ export class PostsComponent implements OnInit {
       localStorage.setItem("categoryId" , JSON.stringify(this.categoryId));
       localStorage.setItem("categoryType" , JSON.stringify(this.categoryType));
       localStorage.setItem("postId" , JSON.stringify(id));
+      localStorage.setItem("videoUrl" , url);
       this._Router.navigate([
         `/posts/${this.categoryId}/${this.categoryType}/post`,
         id,
