@@ -52,7 +52,7 @@
               </div>
             <div class="form-group">
               <span><i class="fa-solid fa-mobile-screen-button"></i></span>
-              <input type="text" placeholder="{{'phone' | translate}}" formControlName="phone">
+              <input type="number" placeholder="{{'phone' | translate}}" formControlName="phone">
             </div>
             <p class="text-danger" *ngIf="registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched">
               {{'phone-validate-msg' | translate}}</p>
