@@ -11,6 +11,8 @@ import { HomesService } from 'src/app/services/homes.service';
   styleUrls: ['./newpassword.component.scss'],
 })
 export class NewpasswordComponent implements OnInit {
+  visible: boolean = true;
+  changeType: boolean = true;
   constructor(
     private _AuthService: AuthService,
     private _Router: Router,
@@ -56,4 +58,11 @@ export class NewpasswordComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+
+  // this function to show and hide password
+  viewPassword() {
+    this.visible = !this.visible;
+    this.changeType = !this.changeType;
+  }
 }
