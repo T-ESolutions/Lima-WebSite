@@ -24,9 +24,7 @@
         <img [src]="post.image" alt="article post"
           onerror="this.onerror=null;this.src='../../../assets/images/characters/lima.jpg'">
       </div>
-      <div [innerHTML]="post.name" class="fw-bold my-3 p-2">
-      </div>
-      <div [innerHtml]="post.body" class="p-2">
+      <div [innerHtml]="post.body | sanitizeHtml" class="p-2">
       </div>
     </div>
   </div>

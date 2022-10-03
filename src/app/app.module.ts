@@ -45,6 +45,7 @@ import { YearsComponent } from './components/years/years.component';
 import { SubjectComponent } from './components/subject/subject.component';
 import { PlyrModule } from 'ngx-plyr';
 import { LessonComponent } from './components/lesson/lesson.component';
+import { SanitizeHtmlPipe } from './pipes/sanitize-html.pipe';
 
 
 @NgModule({
@@ -80,6 +81,7 @@ import { LessonComponent } from './components/lesson/lesson.component';
     YearsComponent,
     SubjectComponent,
     LessonComponent,
+    SanitizeHtmlPipe,
   ],
   imports: [
     BrowserModule,

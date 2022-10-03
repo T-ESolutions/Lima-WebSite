@@ -24,3 +24,23 @@
     }
   }
 }
+
+#more-components{
+  background-image: url("../../../assets/images/subjects/subject-category.png");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+@media screen and (max-width:576px) {
+  #more-components{
+    background-image: url("../../../assets/images/subjects/subject-category.png");
+  }
+}
+
+@media screen and (min-width:577px) and (max-width:768px) {
+  #more-components{
+    background-image: url("../../../assets/images/subjects/subject-category.png");
+  }
+}

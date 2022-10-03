@@ -41,7 +41,8 @@
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ],
             "allowedCommonJsDependencies": [
-              "disable-devtool"
+              "disable-devtool",
+              "plyr"
            ]
           },
           "configurations": {

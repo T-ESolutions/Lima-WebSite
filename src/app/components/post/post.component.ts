@@ -3,11 +3,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HomesService } from 'src/app/services/homes.service';
 import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss'],
 })
+
 export class PostComponent implements OnInit {
   checkDir: boolean = true;
   postId: number = 0;

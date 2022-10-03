@@ -14,13 +14,8 @@ declare var $: any;
 })
 export class LessonComponent implements OnInit {
   mapURL!: SafeResourceUrl;
-
-
-
   finalUrl:any="";
   constructor(private _AcademicService:AcademicService, private toastr: ToastrService, private _HomesService: HomesService, private _Router: Router, private _ActivatedRoute: ActivatedRoute, private location: Location, public sanitizer: DomSanitizer) {
-
-
    }
 
   ngOnInit(): void {
