@@ -73,5 +73,12 @@
   "login-remember-msg" : "نسيت كلمة المرور ؟",
   "moms-category-popup-msg" : "هذا القسم للأطفال والأمهات فقط",
   "moms-popup-cont": "استمرار",
-  "moms-popup-back" : "رجوع"
+  "moms-popup-back" : "رجوع",
+  "disc-code" : "كود الخصم",
+  "varify-disc" : "تفعيل",
+  "get-coupon" : "احصل على خصم",
+  "sub-cost" : "تكلفة الاشتراك",
+  "sub-discount" : "الخصم",
+  "sub-after-disc" : "الإجمالى بعد الخصم",
+  "currency" : "ج.م"
 }

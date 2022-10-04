@@ -64,6 +64,7 @@ export class SubscribeComponent implements OnInit {
       subscriptionForm.controls.sub_type.value;
     this._SubscriptionsService.payment_method_id =
       subscriptionForm.controls.pay_type.value;
+      this._SubscriptionsService.discount_code = this.discCode
     this.getPaymentWay();
   }
 
@@ -85,7 +86,7 @@ export class SubscribeComponent implements OnInit {
           $('.aman-modal').hide();
           $('.fawry-modal').hide();
           $('.wallet-modal').show(300);
-        } else if (this._SubscriptionsService.payment_method_id == 10) {
+        } else if (this._SubscriptionsService.payment_method_id == 2) {
           window.open(response.data.data.payment_data.redirectTo, '_blank');
           this._Router.navigate(['/kids']);
         } else if (this._SubscriptionsService.payment_method_id == 12) {
@@ -98,7 +99,7 @@ export class SubscribeComponent implements OnInit {
           this.toastr.error("it's not available");
         }
       } else {
-        this.toastr.error(response.ms);
+        this.toastr.error(response.msg);
       }
       this._HomesService.hideLoader();
     });
@@ -106,11 +107,34 @@ export class SubscribeComponent implements OnInit {
 
   closeModal() {
     $('.modals').hide();
+    this._Router.navigate(['/kids']);
   }
 
   getHome() {
     setTimeout(() => {
       this._Router.navigate(['/kids']);
     }, 500);
+  }
+
+
+  // coupon code 
+  discountData:any={subscribe_type_id:0,code:0};
+  discCode!:number;
+  totalOrder:number = 180.0;
+  discount:number = 0.0;
+  finalTotal:number = 180.0;
+  getDiscount(){
+    this.discountData.code = this.discCode;
+    this.discountData.subscribe_type_id = this.subscriptionForm.controls["sub_type"].value;
+    this._SubscriptionsService.getDiscount(this.discountData).subscribe((response) => {
+       if(response.status == 200 ){
+        this.toastr.success(response.msg);
+        this.totalOrder = response.data.totalOrder;
+        this.discount = (response.data.discount_percentage / 100) * this.totalOrder;
+        this.finalTotal = response.data.finalTotal;
+       } else {
+        this.toastr.error(response.msg)
+       }
+    })
   }
 }

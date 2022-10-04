@@ -47,6 +47,27 @@
               </div>
               <img [src]="pay_type.logo" [alt]="pay_type.name_en">
             </label>
+            <!-- coupon section -->
+            <h2 class="mt-4">{{"get-coupon" | translate}}</h2>
+            <div class="coupon w-100 d-flex justify-content-between align-items-center px-2 my-3">
+              <input type="text" class="form-control" placeholder="{{'disc-code' | translate}}"
+                [ngModelOptions]="{standalone: true}" [(ngModel)]="discCode">
+              <button class="btn btn-success" type="button" (click)="getDiscount()">{{"varify-disc" |
+                translate}}</button>
+            </div>
+            <label class="child d-flex justify-content-between align-items-center">
+              <p>{{"sub-cost" | translate}}</p>
+              <p> {{totalOrder}} {{"currency" | translate}}</p>
+            </label>
+            <label class="child d-flex justify-content-between align-items-center">
+              <p>{{"sub-discount" | translate}}</p>
+              <p> {{discount}} {{"currency" | translate}}</p>
+            </label>
+            <label class="child d-flex justify-content-between align-items-center border-0">
+              <p >{{"sub-after-disc" | translate}}</p>
+              <p > {{finalTotal}} {{"currency" | translate}}</p>
+            </label>
+            <!-- coupon section -->
             <div class="submitBtn text-center my-5">
               <button type="submit" class="submit-btn" [disabled]="subscriptionForm.invalid">{{"confirm-sub" |
                 translate}}</button>

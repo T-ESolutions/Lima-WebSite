@@ -73,5 +73,13 @@
   "login-remember-msg" : "Forget password ?",
   "moms-category-popup-msg" : "This section is for children and mothers only",
   "moms-popup-cont": "Continue",
-  "moms-popup-back" : "Back"
+  "moms-popup-back" : "Back",
+  "varify-disc" : "Varify",
+  "disc-code" : "Discount code",
+  "get-coupon" : "Get a discount",
+  "sub-cost" : "Subscription cost",
+  "sub-discount" : "Discount",
+  "sub-after-disc" : "Total after discount",
+  "currency" : "L.E"
 }
+
