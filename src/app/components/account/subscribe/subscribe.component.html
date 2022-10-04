@@ -32,8 +32,8 @@
           <form id="form" class="p-3" [formGroup]="subscriptionForm"
             (ngSubmit)="submitSubscriptionForm(subscriptionForm)">
             <h2>{{"subscribe-type" | translate}}</h2>
-            <label class="child" *ngFor="let sub_type of subscription_types">
-              <input type="radio" [value]="sub_type.id" name="sub_type" formControlName="sub_type">
+            <label class="child" *ngFor="let sub_type of subscription_types" >
+              <input type="radio" [value]="sub_type.id" name="sub_type" formControlName="sub_type" (click)="checkCost(sub_type.cost)">
               <p class="pt-3">{{sub_type.name}} ( {{sub_type.cost}}<span *ngIf="checkDir">ج.م</span><span
                   *ngIf="!checkDir">Eg</span> )</p>
             </label>

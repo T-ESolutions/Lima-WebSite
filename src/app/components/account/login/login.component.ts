@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({
     phone: new FormControl(null, [
       Validators.required,
-      Validators.maxLength(20),
+      Validators.pattern(/^[0-9]{3,50}$/),
     ]),
     password: new FormControl(null, [
       Validators.required,

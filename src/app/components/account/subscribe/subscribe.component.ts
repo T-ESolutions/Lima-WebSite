@@ -45,6 +45,8 @@ export class SubscribeComponent implements OnInit {
     this._SubscriptionsService.getSubscriptionData().subscribe((response) => {
       if (response.status == 200) {
         this.subscription_types = response.data.subscription_types;
+        this.totalOrder = this.subscription_types[0].cost;
+        this.finalTotal = this.subscription_types[0].cost
         this.payment_methods = response.data.payment_methods.data;
         this._HomesService.hideLoader();
       } else {
@@ -52,6 +54,11 @@ export class SubscribeComponent implements OnInit {
         this.toastr.error(response.ms);
       }
     });
+  }
+
+  checkCost(cost:any){
+    this.totalOrder = cost;
+    this.finalTotal = cost
   }
 
   subscriptionForm: FormGroup = new FormGroup({
@@ -117,12 +124,12 @@ export class SubscribeComponent implements OnInit {
   }
 
 
-  // coupon code 
+  // coupon code
   discountData:any={subscribe_type_id:0,code:0};
   discCode!:number;
-  totalOrder:number = 180.0;
+  totalOrder!:number;
   discount:number = 0.0;
-  finalTotal:number = 180.0;
+  finalTotal!:number;
   getDiscount(){
     this.discountData.code = this.discCode;
     this.discountData.subscribe_type_id = this.subscriptionForm.controls["sub_type"].value;
