@@ -1,6 +1,11 @@
 {
   "kids" : "Kids",
   "moms" : "Moms",
+  "subjects" : "Subjects",
+  "1st-grade" : "First grade",
+  "4th-grade" : "Fourth grade",
+  "5th-grade" : "Fifth grade",
+  "science" : "Science",
   "account" : "Account",
   "more" : "More",
   "personal info" : "Profile",
