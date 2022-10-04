@@ -1,8 +1,8 @@
 <!-- loader.json file -->
-<!-- <div class="loader">
+<div class="loader">
   <lottie-player src="../../../assets/animations/loader.json" background="transparent" speed="1" loop autoplay>
   </lottie-player>
-</div> -->
+</div>
 <!-- loader.json file -->
 <div id="more-components">
   <div class="head-svg">
@@ -15,9 +15,8 @@
     <div class="row mb-5">
       <div class="col-12">
         <div class="row heading">
-
           <div class="col-2 d-flex justify-content-center align-items-center">
-            <button routerLink=".." class="btn btn-transparent border border-0 p-0"><i
+            <button (click)="goBack()" class="btn btn-transparent border border-0 p-0"><i
                 class="fa-sharp fa-solid fa-arrow-left text-black fw-bold fa-2x"
                 [style.transform]="checkDir?'rotatey(360deg)':'rotatey(180deg)'"></i></button>
           </div>
@@ -25,28 +24,39 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-6 col-md-4 col-lg-3 p-3 overflow-hidden">
+      <div class="col-sm-6 col-md-4 col-lg-3 p-3 overflow-hidden" *ngFor="let lesson of lessons">
         <div class="item">
           <div class="poster">
-            <img src="https://sublima.limazola.com/uploads/posts/165757774662cca11230d1b.jpg" alt="video post">
+            <img [src]="lesson.image" alt="video post">
             <div class="play-icon ">
-              <div class="lottie-icon w-100 h-100">
+              <div class="lottie-icon w-100 h-100" (click)="getLisson(lesson.free , lesson.post)">
                 <lottie-player class="w-100 h-100"
                   src="https://assets10.lottiefiles.com/temp_editor_files/lf30_editor_wmhclgej.json"
-                  background="transparent" speed="1" loop autoplay >
+                  background="transparent" speed="1" loop autoplay>
                 </lottie-player>
               </div>
             </div>
+            <div class="lock" (click)="openLock()" [style.right]="checkDir?'80%':'5%'" *ngIf="lesson.free==0">
+            </div>
           </div>
           <div class="caption">
-            <h4 class="my-3">سيارات جديدة</h4>
+            <h4 class="my-3">{{lesson.name}}</h4>
           </div>
           <div class="line mt-2">
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>
-
+<!-- Modals -->
+<div class="modals ">
+  <div class="sub-layer py-5 px-2">
+    <div class="sub-modal  d-flex justify-content-center align-items-center flex-column p-5">
+      <img src="../../../assets/images/characters/limaaa.png" alt="lima">
+      <p>{{"sub_msg" | translate}}</p>
+      <button class="submit-btn text-dark " (click)="subNow()">{{"sub_btn_msg" | translate}}</button>
+    </div>
+  </div>
+  <button type="button" id="closeBtn" class="btn-close p-3  bg-warning fw-bold" (click)="closeModal()"></button>
+</div>

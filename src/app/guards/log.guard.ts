@@ -18,7 +18,7 @@ export class LogGuard implements CanActivate {
     if (this._AuthService.userData.getValue() != null) {
         return true;
       } else {
-        this._Router.navigate(['account']);
+        this._Router.navigate(['account/login']);
         return false;
       }
   }

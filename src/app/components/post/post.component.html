@@ -5,7 +5,7 @@
   </div>
   <div class="circle2">
   </div>
-  <div class="container m-auto">
+  <div class="container m-auto" *ngIf="categoryType == 'article'">
     <div class="row">
       <div class="col-12">
         <div class="row">
@@ -21,16 +21,16 @@
     <!-- if comming from article type -->
     <div class="row" *ngIf="categoryType == 'article'">
       <div class="text-center post-image">
-        <img [src]="post.image" alt="article post">
+        <img [src]="post.image" alt="article post"
+          onerror="this.onerror=null;this.src='../../../assets/images/characters/lima.jpg'">
       </div>
-      <div [innerHTML]="post.name" class="fw-bold my-3 p-2">
-      </div>
-      <div [innerHtml]="post.body" class="p-2">
+      <div [innerHtml]="post.body | sanitizeHtml" class="p-2">
       </div>
     </div>
-    <!-- if comming from video type -->
-    <div class="row main-iframe" *ngIf="categoryType == 'video'">
-      <iframe class="responsive-iframe" allowfullscreen="1" mozallowfullscreen msallowfullscreen oallowfullscreen
-        webkitallowfullscreen scrolling="auto" [src]="post.video | video"></iframe>
-    </div>
+  </div>
+  <!-- if comming from video type -->
+  <div *ngIf="categoryType == 'video'"
+    class="d-flex justify-content-center align-items-center w-100 bg-dark vh-100 overflow-hidden">
+    <div plyr plyrTitle="Video 1" [plyrPlaysInline]="true" [plyrSources]="videoSources" (plyrInit)="player = $event"
+      (plyrPlay)="played($event)" id="plyr"></div>
   </div>

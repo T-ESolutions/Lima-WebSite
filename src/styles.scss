@@ -123,10 +123,11 @@ lottie-player {
         font-weight: bold;
       }
     }
-    li:nth-of-type(3){
+
+    li:nth-of-type(3) {
       padding: 5px 10px 0px 10px !important;
 
-      img{
+      img {
         width: 30px !important;
       }
     }
@@ -138,7 +139,7 @@ lottie-player {
 #kids-moms {
   .header {
     width: 100%;
-    background-color: #8BDED666;
+    background-color: rgba(139, 222, 214, 0.6);
     border-bottom-left-radius: 60px;
     direction: ltr;
     position: relative;
@@ -167,7 +168,7 @@ lottie-player {
 
   .parent {
     height: 60px;
-    background-color: #8BDED666;
+    background-color: rgba(139, 222, 214, 0.6);
 
     .child {
       width: 100%;
@@ -186,6 +187,8 @@ lottie-player {
 
       .story-img {
         width: 180px;
+        height: 190px;
+        border-radius: 20px;
       }
 
       .story-img:hover {
@@ -372,6 +375,7 @@ lottie-player {
   width: 100%;
   height: 100vh;
   background-color: #F9F9F9;
+
   .container {
     margin: auto;
 
@@ -729,40 +733,40 @@ lottie-player {
     }
   }
 
-    // fixed icons above any poster
-    .lock,
-    .unloved,
-    .loved {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background-color: rgb(136, 136, 136, 0.6);
-      border-radius: 10px;
-      top: 5%;
-      background-position: center;
-      background-repeat: no-repeat;
-      padding: 20px;
-      background-size: 70% 70%;
-    }
+  // fixed icons above any poster
+  .lock,
+  .unloved,
+  .loved {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(136, 136, 136, 0.6);
+    border-radius: 10px;
+    top: 5%;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+    background-size: 70% 70%;
+  }
 
-    .lock:hover,
-    .unloved:hover,
-    .loved:hover {
-      cursor: pointer;
-    }
+  .lock:hover,
+  .unloved:hover,
+  .loved:hover {
+    cursor: pointer;
+  }
 
-    .lock {
-      background-image: url("assets/images/icons/lock-svgrepo-com.svg");
-      margin-left: 100px;
-    }
+  .lock {
+    background-image: url("assets/images/icons/lock-svgrepo-com.svg");
+    margin-left: 100px;
+  }
 
-    .unloved {
-      background-image: url("assets/images/icons/favorite-unloved.svg");
-    }
+  .unloved {
+    background-image: url("assets/images/icons/favorite-unloved.svg");
+  }
 
-    .loved {
-      background-image: url("assets/images/icons/favorite-loved.svg")
-    }
+  .loved {
+    background-image: url("assets/images/icons/favorite-loved.svg")
+  }
 }
 
 // modals styles in posts component
@@ -857,6 +861,14 @@ lottie-player {
 }
 
 /* end post styles */
+/* video styles */
+#plyr {
+  border-radius: 10px !important;
+  overflow: hidden;
+  width: 85%;
+}
+
+/* video styles*/
 
 /* notfound component styles */
 .not-found {
@@ -891,6 +903,7 @@ lottie-player {
       .row .copmonent {
         .story-img {
           width: 130px;
+          height: 140px;
         }
       }
     }
@@ -978,6 +991,10 @@ lottie-player {
     width: 180px;
     height: 90px;
   }
+
+  #plyr {
+    width: 100%;
+  }
 }
 
 /* end small screen */
@@ -997,6 +1014,7 @@ lottie-player {
       .row .copmonent {
         .story-img {
           width: 140px;
+          height: 160px;
         }
       }
     }
@@ -1035,6 +1053,10 @@ lottie-player {
     height: 100px;
 
   }
+
+  #plyr {
+    width: 100%;
+  }
 }
 
 /* end medium screen */
@@ -1061,6 +1083,10 @@ lottie-player {
   .charachter {
     width: 210px;
     height: 110px;
+  }
+
+  #plyr {
+    width: 100%;
   }
 }
 

@@ -1,12 +1,24 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { DomSanitizer } from '@angular/platform-browser';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
+      ],
+      providers: [
+        {
+          provide: DomSanitizer,
+          useValue: {
+            sanitize: (ctx: any, val: string) => val,
+            bypassSecurityTrustResourceUrl: (val: string) => val,
+            bypassSecurityTrustHtml: () => 'safeString'
+          }
+        },
+        // more providers
       ],
       declarations: [
         AppComponent

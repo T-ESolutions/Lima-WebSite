@@ -1,0 +1,4 @@
+<div class="d-flex justify-content-center align-items-center flex-column w-100 bg-dark vh-100 overflow-hidden">
+  <div plyr plyrTitle="Video 1" [plyrPlaysInline]="true" [plyrSources]="videoSources" (plyrInit)="player = $event"
+    (plyrPlay)="played($event)" id="plyr"></div>
+</div>

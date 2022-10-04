@@ -1,15 +1,11 @@
 <!-- loader.json file -->
-<!-- <div class="loader">
+<div class="loader">
   <lottie-player src="../../../assets/animations/loader.json" background="transparent" speed="1" loop autoplay>
   </lottie-player>
-</div> -->
+</div>
 <!-- loader.json file -->
 <div id="more-components">
   <div class="head-svg">
-  </div>
-  <div class="circle1">
-  </div>
-  <div class="circle2">
   </div>
   <div class="container m-auto">
     <div class="row mb-5">
@@ -27,11 +23,11 @@
   </div>
   <div class="container ">
     <div class="row pb-5 mb-5">
-      <div class="col-3 text-center p-0">
+      <div class="col-3 text-center p-0" *ngFor="let subject of subjects">
         <div class="copmonent p-0  m-0">
-          <a><img src="../../../assets/images/categories/tales.png" class="story-img"
-             routerLink="subject"></a>
-          <p>{{"science" | translate}}</p>
+          <a><img [src]="subject.image" class="story-img"
+            (click)="getSubject(subject.id)"></a>
+          <p>{{subject.name}}</p>
         </div>
       </div>
     </div>
