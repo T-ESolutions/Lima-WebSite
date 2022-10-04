@@ -7,7 +7,7 @@
 <div id="more-components">
   <div class="head-svg">
   </div>
-  <div class="container m-auto">
+  <div class="container m-auto back">
     <div class="row mb-5">
       <div class="col-12">
         <div class="row heading">
@@ -21,9 +21,9 @@
       </div>
     </div>
   </div>
-  <div class="container ">
-    <div class="row pb-5 mb-5">
-      <div class="col-3 text-center p-0" *ngFor="let subject of subjects">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-md-4 col-lg-3 text-center py-2" *ngFor="let subject of subjects">
         <div class="copmonent p-0  m-0">
           <a><img [src]="subject.image" class="story-img"
             (click)="getSubject(subject.id)"></a>

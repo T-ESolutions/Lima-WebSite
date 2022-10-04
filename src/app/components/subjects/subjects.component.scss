@@ -1,4 +1,14 @@
 @import "../../../styles.scss";
+
+.head-svg {
+  z-index: 1 !important;
+}
+
+.back {
+  position: relative;
+  z-index: 3 !important;
+}
+
 .container {
   margin: auto;
 
@@ -25,22 +35,35 @@
   }
 }
 
-#more-components{
-  background-image: url("../../../assets/images/subjects/subject-category.png");
+#more-components {
+  background-image: url("../../../assets/images/subjects/subject/XL/subjectXL.png");
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-
 @media screen and (max-width:576px) {
-  #more-components{
-    background-image: url("../../../assets/images/subjects/subject-category.png");
+  #more-components {
+    background-image: url("../../../assets/images/subjects/subject/Sm/subjectSm.png");
+  }
+
+  .story-img {
+    width: 140px !important;
   }
 }
 
 @media screen and (min-width:577px) and (max-width:768px) {
-  #more-components{
-    background-image: url("../../../assets/images/subjects/subject-category.png");
+  #more-components {
+    background-image: url("../../../assets/images/subjects/subject/m/subjectM.png");
+  }
+
+  .story-img {
+    width: 150px !important;
+  }
+}
+
+@media screen and (min-width:769px) and (max-width:992px) {
+  #more-components {
+    background-image: url("../../../assets/images/subjects/subject/m/subjectM.png");
   }
 }
