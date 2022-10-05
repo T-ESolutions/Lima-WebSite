@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HomesService } from 'src/app/services/homes.service';
 import { Location } from '@angular/common';
-
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -22,6 +22,7 @@ export class PostComponent implements OnInit {
     private toastr: ToastrService,
     private location: Location,
     private _Router: Router,
+    private _sanitizer:DomSanitizer
   ) {
     if(this._ActivatedRoute.snapshot.params?.['categoryId'] == localStorage.getItem("categoryId") && this._ActivatedRoute.snapshot.params?.['postId'] == localStorage.getItem("postId")){
     }else{
@@ -43,13 +44,17 @@ export class PostComponent implements OnInit {
 
   finalUrl:any= localStorage.getItem("videoUrl");
   videoUrl:any;
+  postBody:any;
   // function to get post details
   postDetails() {
     this._HomesService.getPostDetails(this.postId).subscribe((response) => {
       if (response.status == 200) {
         this.post = response.data;
+        this.postBody = this._sanitizer.bypassSecurityTrustHtml(this.post.body);
+        this._HomesService.hideLoader();
         } else {
         this.toastr.error(response.msg);
+        this._HomesService.hideLoader();
       }
     });
   }
