@@ -9,8 +9,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  // baseUrl:any = "https://limazola.com/api/";
-  baseUrl: any = 'https://sublima.limazola.com/api/';
+  baseUrl:any = "https://limazola.com/api/";
+  // baseUrl: any = 'https://sublima.limazola.com/api/';
   // user token and recorded in localstorage
   token_api: any;
   // use This array of objects when you create an account and move to login form
