@@ -11,7 +11,7 @@ import { HomesService } from 'src/app/services/homes.service';
 })
 export class SubjectsComponent implements OnInit {
   checkDir: boolean = true;
-  yearId: number;
+  yearId!: number;
   subjects: any[] = [];
   constructor(
     private _AcademicService: AcademicService,
@@ -28,10 +28,11 @@ export class SubjectsComponent implements OnInit {
 
     // yearId coming from years categories
     this.yearId = Number(this._ActivatedRoute.snapshot.params?.['yearId']);
+    this.getYearSubjects();
   }
 
   ngOnInit(): void {
-    this.getYearSubjects();
+  
   }
 
   // get year subjects

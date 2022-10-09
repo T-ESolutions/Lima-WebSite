@@ -12,7 +12,8 @@ declare var $: any;
 })
 export class SubjectComponent implements OnInit {
   checkDir: boolean = true;
-  subjectId: any;
+  subjectId!: number;
+  yearId!: number;
   lessons: any[] = [];
   constructor(
     private _AcademicService: AcademicService,
@@ -26,10 +27,10 @@ export class SubjectComponent implements OnInit {
     } else {
       this.checkDir = false;
     }
+
     // subjectId coming from years categories
-    this.subjectId = Number(
-      this._ActivatedRoute.snapshot.params?.['subjectId']
-    );
+    this.subjectId = Number(this._ActivatedRoute.snapshot.params?.['subjectId']);
+    this.yearId = Number(this._ActivatedRoute.snapshot.params?.['yearId']);
   }
 
   ngOnInit(): void {
@@ -67,7 +68,7 @@ export class SubjectComponent implements OnInit {
   }
 
   goBack() {
-    this._Router.navigate([`/years/subjects/${this.subjectId}`]);
+    this._Router.navigate([`/years/subjects/${this.yearId}`]);
   }
 
   // 5- if user try to open lock above posts
