@@ -37,6 +37,7 @@
   <!-- if comming from video type -->
   <div *ngIf="categoryType == 'video'"
     class="d-flex justify-content-center align-items-center w-100 bg-dark vh-100 overflow-hidden">
+    <button type="button" id="closeBtn" class="btn-close p-3  bg-warning fw-bold" (click)="closeVideo()"></button>
     <div plyr plyrTitle="Video 1" [plyrPlaysInline]="true" [plyrSources]="videoSources" (plyrInit)="player = $event"
       (plyrPlay)="played($event)" id="plyr"></div>
   </div>

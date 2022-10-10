@@ -82,7 +82,7 @@ p {
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 4;
+  z-index: 5;
 }
 
 lottie-player {
@@ -422,7 +422,8 @@ lottie-player {
 
       ul li:hover {
         cursor: pointer;
-        background: linear-gradient(to right, rgb(226, 239, 248), rgb(0, 123, 255));
+        //background: linear-gradient(to right, rgb(226, 239, 248), rgb(0, 123, 255));
+        background: linear-gradient(to right, rgb(226, 239, 248), rgb(67, 133, 124));
       }
 
       ul li:last-of-type {
@@ -462,7 +463,7 @@ lottie-player {
   position: relative;
 
   .head-svg {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -773,7 +774,8 @@ lottie-player {
 
 .modals {
   display: none;
-
+  position: fixed;
+  z-index: 5;
   .sub-layer {
     background-color: rgba(0, 0, 0, 0.8);
     position: fixed;

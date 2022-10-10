@@ -81,4 +81,8 @@ played(event: Plyr.PlyrEvent) {
 play(): void {
   this.player.play(); // or this.plyr.player.play()
 }
+
+closeVideo(){
+  this.location.back();
+}
 }
