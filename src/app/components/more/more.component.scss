@@ -1,7 +1,8 @@
 @import "../../../styles.scss";
 
-
-
+#account-more{
+  height: 100% !important;
+}
 
 .more-list{
   position: relative;
@@ -27,6 +28,10 @@
   transform: translate(-50%, -30%);
 }
 
+
+.download-app img{
+  width: 130px;
+}
 @media screen and (max-width:576px) {
   .account-more-img {
     img {
